@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const gameSchema = new Schema({
     title: {
@@ -22,8 +22,8 @@ const gameSchema = new Schema({
         type: String,
         required: true
     }
-});
+})
 
 
-const Game = mongoose.model('Game', userSchema);
-module.exports = Game;
+const Game = mongoose.model('Game', userSchema)
+module.exports = Game
