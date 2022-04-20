@@ -7,7 +7,7 @@
 ### Prerequisites
 
 1. Have Node.js v17.8.0 installed
-2. Have Vue CLI v5.04 installed
+2. Have create-vue installed (check Vue documentation)
 3. Have Nodemon v2.0.15 installed (highly recommended)
 
 ### Installation
