@@ -37,6 +37,6 @@ node app.js
 4. Type out http://localhost:3000 in the browser
 5. Run the client in a different terminal
 ``` sh
-npm run serve
+npm run dev
 ```
 6. Type out http://locahost:8080 in the browser
