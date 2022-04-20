@@ -17,10 +17,10 @@ app.get('/add-blog', (req, res) => {
 
     blog.save()
         .then((result) => {
-            res.send(result);
+            res.send(result)
         })
         .catch((err) => {
-            console.log("Error");
-            console.log(err);
+            console.log("Error")
+            console.log(err)
         })
 })
