@@ -95,7 +95,7 @@
     border: 0;
     height: 6vh;
     color: var(--white);
-    margin: 5px 0 5px 0; 
+    margin: 10px 0 10px 0; 
     font-size: 1.1em;
     border-radius: 4px;
   }
