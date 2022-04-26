@@ -8,21 +8,21 @@
         <div class="input-wrapper">
           <div class="input-group">
             <label class="label">Username</label>
-            <input type="text"/>
+            <input type="text" v-model="username"/>
           </div>
           <div class="input-group">
             <label class="label">Email</label>
-            <input type="text"/>
+            <input type="text" v-model="email"/>
           </div>
           <div class="input-group">
             <label class="label">Password</label>
-            <input type="password"/>
+            <input type="password" v-model="password"/>
           </div>
           <div class="input-group">
             <label class="label">Confirm password</label>
-            <input type="password"/>
+            <input type="password" v-model="confirmPassword"/>
           </div>
-          <button class="register-btn">Register</button>
+          <button class="register-btn" @click="register()">Register</button>
           <p class="to-login">Already have an account? <a class="link" href="/login">Sign in.</a></p>
         </div>
       </div>
@@ -30,6 +30,37 @@
 </template>
 
 <script>
+export default {
+  name: 'Home',
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  },
+
+  methods: {
+    register() {
+      const vm = this
+      const { username, email, password, confirmPassword } = vm
+      fetch('http://localhost:3000/api/users/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          confirmPassword
+        }),
+        mode: 'cors'
+      })
+    }
+  }
+}
 </script>
 <style scoped>
 .container {
