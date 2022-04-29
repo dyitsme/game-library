@@ -29,6 +29,31 @@ const router = createRouter({
       name: 'Register',
       component: Register
     },
+    {
+      path: '/store/edit/1',
+      name: 'UpdateGame1',
+      component: () => import('../views/UpdateGame1.vue')
+    },
+    {
+      path: '/store/edit/2',
+      name: 'UpdateGame2',
+      component: () => import('../views/UpdateGame2.vue')
+    },
+    {
+      path: '/store/edit/3',
+      name: 'UpdateGame3',
+      component: () => import('../views/UpdateGame3.vue')
+    },
+    {
+      path: '/store/edit/4',
+      name: 'UpdateGame4',
+      component: () => import('../views/UpdateGame4.vue')
+    },
+    {
+      path: '/store/edit/5',
+      name: 'UpdateGame5',
+      component: () => import('../views/UpdateGame5.vue')
+    },
   ]
 })
 
