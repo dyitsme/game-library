@@ -12,7 +12,7 @@
           <input id="img-input" type="file" accept="image/*">
         </label>
         <div class="text-grp">
-          <label class="label">Game Title</label>
+          <label class="label">Game title</label>
           <input class="input" type="text" value="Minecraft">
           <label class="label">Genre</label>
           <select class="input">
@@ -33,6 +33,8 @@
           <textarea class="text-area">
 Minecraft is a singleplayer and multiplayer game wherein the player could build whatever they want using blocks.
           </textarea>
+          <label class="label">Store link</label>
+          <input class="input" type="text" value="https://www.minecraft.net/en-us/store/minecraft-java-edition">
         </div>
         <button class="edit-btn">Edit</button>
       </form>

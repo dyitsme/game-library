@@ -12,7 +12,7 @@
           <input id="img-input" type="file" accept="image/*">
         </label>
         <div class="text-grp">
-          <label class="label">Game Title</label>
+          <label class="label">Game title</label>
           <input class="input" type="text" value="Genshin Impact">
           <label class="label">Genre</label>
           <select class="input">
@@ -33,6 +33,8 @@
           <textarea class="text-area">
 Genshin Impact is an anime open world RPG.
           </textarea>
+          <label class="label">Store link</label>
+          <input class="input" type="text" value="https://genshin.hoyoverse.com/en/download">
         </div>
         <button class="edit-btn">Edit</button>
       </form>

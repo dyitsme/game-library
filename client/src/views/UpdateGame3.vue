@@ -12,7 +12,7 @@
           <input id="img-input" type="file" accept="image/*">
         </label>
         <div class="text-grp">
-          <label class="label">Game Title</label>
+          <label class="label">Game title</label>
           <input class="input" type="text" value="Elden Ring">
           <label class="label">Genre</label>
           <select class="input">
@@ -33,6 +33,8 @@
           <textarea class="text-area">
 Elden Ring is a game similar to Dark Souls.
           </textarea>
+          <label class="label">Store link</label>
+          <input class="input" type="text" value="https://store.steampowered.com/app/1245620/ELDEN_RING/">
         </div>
         <button class="edit-btn">Edit</button>
       </form>

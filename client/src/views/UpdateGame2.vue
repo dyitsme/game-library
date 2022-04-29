@@ -12,7 +12,7 @@
           <input id="img-input" type="file" accept="image/*">
         </label>
         <div class="text-grp">
-          <label class="label">Game Title</label>
+          <label class="label">Game title</label>
           <input class="input" type="text" value="Among Us">
           <label class="label">Genre</label>
           <select class="input">
@@ -33,6 +33,8 @@
           <textarea class="text-area">
 Among Us is a multiplayer game where someone is an impostor.
           </textarea>
+          <label class="label">Store link</label>
+          <input class="input" type="text" value="https://store.steampowered.com/app/945360/Among_Us/">
         </div>
         <button class="edit-btn">Edit</button>
       </form>
