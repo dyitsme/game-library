@@ -15,7 +15,18 @@
           <label class="label">Game Title</label>
           <input class="input" type="text" value="Counter Strike: Global Offensive">
           <label class="label">Genre</label>
-          <input class="input" type="text" value="Action">
+          <select class="input">
+            <option selected>Action</option>
+            <option>Action-adventure</option>
+            <option>Adventure</option>
+            <option>Puzzle</option>
+            <option>Role-playing</option>
+            <option>Simulation</option>
+            <option>Strategy</option>
+            <option>Sports</option>
+            <option>MMO</option>
+            <option>Other</option>
+          </select>
           <label class="label">Rating</label>
           <input class="input" type="number" value="4" min="1" max="5">
           <label class="label">Description</label>
