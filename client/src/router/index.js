@@ -54,6 +54,31 @@ const router = createRouter({
       name: 'UpdateGame5',
       component: () => import('../views/UpdateGame5.vue')
     },
+    {
+      path: '/store/delete/1',
+      name: 'DeleteGame1',
+      component: () => import('../views/DeleteGame1.vue')
+    },
+    {
+      path: '/store/delete/2',
+      name: 'DeleteGame2',
+      component: () => import('../views/DeleteGame2.vue')
+    },
+    {
+      path: '/store/delete/3',
+      name: 'DeleteGame3',
+      component: () => import('../views/DeleteGame3.vue')
+    },
+    {
+      path: '/store/delete/4',
+      name: 'DeleteGame4',
+      component: () => import('../views/DeleteGame4.vue')
+    },
+    {
+      path: '/store/delete/5',
+      name: 'DeleteGame5',
+      component: () => import('../views/DeleteGame5.vue')
+    },
   ]
 })
 
