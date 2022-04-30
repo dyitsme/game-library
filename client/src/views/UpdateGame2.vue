@@ -72,6 +72,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 80px 0px;
 }
 
 .container {

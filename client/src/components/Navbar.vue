@@ -35,7 +35,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: var(--dark-bg-grey);
+  background-color: var(--grey);
   list-style-type: none;
   height: 10vh;
 }
