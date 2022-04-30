@@ -79,6 +79,10 @@ body {
   background-color: var(--grey);
   width: 1200px;
   padding: 50px;
+  border-top: 20px;
+  border-color: var(--light-green);
+  border-top-style: solid;
+  border-radius: 8px;
 }
 
 .back {
