@@ -62,6 +62,7 @@
   }
 
   .definition {
+    margin-top: 33px;
     width: 1170px;
     height: 42px;
 
@@ -75,15 +76,12 @@
   }
   .flex-1 {
     display: flex;
-    flex-direction: row;
-
+    align-items: center;
+    gap: 35px;
   }
+
+
   .title {
-    margin: 0%;
-
-    width: 1105px;
-    height: 106px;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
