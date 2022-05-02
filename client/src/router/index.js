@@ -5,11 +5,16 @@ import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
 import SortButton from '../views/SortButton.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
-
+import DeleteAccount from '../views/DeleteAccount.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/delete-account',
+      name: 'delete-account',
+      component: DeleteAccount
+    },
     {
       path: '/view-game-developer',
       name: 'view-game-developer',
