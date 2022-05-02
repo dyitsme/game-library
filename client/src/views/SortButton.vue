@@ -2,12 +2,11 @@
 
 <template>
     <div class="tempBackground">
-      <div>Hello World!</div>
       <button @click="toggleSortButton">
       <div v-if="isAscending">
-        <img src="..\assets\SortButtonAscend.png" alt="">
+        <img src="..\assets\SortButtonAscend.png" alt="Sort Button Ascend">
       </div>
-      <div v-else> <img src="..\assets\SortButtonDescend.png" alt=""> </div>
+      <div v-else> <img src="..\assets\SortButtonDescend.png" alt="Sort Button Descend"> </div>
       </button>
     </div>
 </template>
@@ -45,14 +44,18 @@
     background-color: #111111;
     width: 1104px;
     height: 1148px;
-    border-radius: 8px;
   }
   img {
     width: 60px;
     height: 36px;
-    left: 1379px;
-    top: 309px;
+    
+
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  button {
+    background: transparent;
+    border: transparent;
+    
   }
 </style>

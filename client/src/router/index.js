@@ -4,12 +4,17 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
 import SortButton from '../views/SortButton.vue'
-
+import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/view-game-developer',
+      name: 'view-game-developer',
+      component: ViewGameDeveloper
+    },
     {
       path: '/sort-button',
       name: 'sort-button',
