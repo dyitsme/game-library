@@ -2,10 +2,24 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Account from '../views/Account.vue'
+import SortButton from '../views/SortButton.vue'
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/sort-button',
+      name: 'sort-button',
+      component: SortButton
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account
+    },
     {
       path: '/',
       name: 'home',
