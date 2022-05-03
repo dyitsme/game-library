@@ -17,8 +17,8 @@
             <div class="genre">Puzzle</div>
           </div>
           <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
-          <div class="definition">Baba Is You is an award-winning puzzle game where you can change the rules by which you play. In every level, the rules themselves are present as blocks you can interact with; by manipulating them, you can change how the level works and cause surprising, unexpected interactions! With some simple block-pushing you can turn yourself into a rock, turn patches of grass into dangerously hot obstacles, and even change the goal you need to reach to something entirely different.</div>
-          <div><a href="https://store.steampowered.com/app/736260/Baba_Is_You/">https://store.steampowered.com/app/736260/Baba_Is_You/</a></div>
+          <div class="definition">Baba Is You is a puzzle game where the rules you have to follow are present as blocks you can interact with. By manipulating them, you can change how the game works, repurpose things you find in the levels and cause surprising interactions!</div>
+          <a href="https://store.steampowered.com/app/736260/Baba_Is_You/">https://store.steampowered.com/app/736260/Baba_Is_You/</a>
         </div>
       </div>
     </div>
@@ -52,11 +52,6 @@
 
 </script>
 <style>
-  img {
-    max-width:100%;
-    max-height:100%;
-    object-fit: contain
-  }
   
   body{
     background-color: #111111;
@@ -70,11 +65,14 @@
     font-weight: 400;
     font-size: 36px;
     line-height: 44px;
-    padding-bottom: 100%;
-    height: au;
 
     color: #FFFFFF;
   }
+
+  button{
+    border: 0ch;
+  }
+
   .delete-button {
     left: 1062px;
   }
@@ -103,9 +101,6 @@
     background: transparent;
     border: 0px;
   }
-  button{
-    border: 0ch;
-  }
   .back-image {
     position: absolute;
     width: 53px;
@@ -121,8 +116,7 @@
     border: 0px;
   }
   .parent-container {
-      margin: 10%;
-    
+    margin: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,16 +210,21 @@
     height: auto;
     padding-bottom: 2%;
 
-
     background: #222222;
     border-radius: 8px;
   }
+  img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
   .game-image {
-    width: fit-content;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
   .information {
     margin-left: 29px;
     margin-top: 28px;
-    height: auto;
   }
 </style>

@@ -186,8 +186,15 @@
     background: #222222;
     border-radius: 8px;
   }
+  img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
   .game-image {
-    width: 100%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
   .information {
     margin-left: 29px;

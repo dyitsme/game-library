@@ -64,8 +64,9 @@
 <style scoped>
 
   img {
-      max-width:10000px;
-      max-height:100000px;
+      width:100%;
+      height:100%;
+      object-fit:cover;
   }
   a {
     font-family: 'Inter';
@@ -197,7 +198,9 @@
     border-radius: 8px;
   }
   .game-image {
-    width: fit-content;
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
   .information {
     margin-left: 29px;

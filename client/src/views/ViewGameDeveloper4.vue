@@ -101,6 +101,16 @@
     background: transparent;
     border: 0px;
   }
+  img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .game-image {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
   .back-image {
     position: absolute;
     width: 53px;
