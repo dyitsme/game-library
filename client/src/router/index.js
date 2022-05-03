@@ -35,53 +35,53 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/delete-account',
+      path: '/delete-account/1',
       name: 'delete-account',
       component: DeleteAccount
     },
     {
-      path: '/delete-account2',
+      path: '/delete-account/2',
       name: 'delete-account2',
       component: DeleteAccount2
     },
     {
-      path: '/delete-account3',
+      path: '/delete-account/3',
       name: 'delete-account3',
       component: DeleteAccount3
     },
     {
-      path: '/delete-account4',
+      path: '/delete-account/4',
       name: 'delete-account4',
       component: DeleteAccount4
     },
     {
-      path: '/delete-account5',
+      path: '/delete-account/5',
       name: 'delete-account5',
       component: DeleteAccount5
     },
 
     {
-      path: '/view-game-customer',
+      path: '/view-game-customer/1',
       name: 'view-game-customer',
       component: ViewGameCustomer
     },
     {
-      path: '/view-game-customer2',
+      path: '/view-game-customer/2',
       name: 'view-game-customer2',
       component: ViewGameCustomer2
     },
     {
-      path: '/view-game-customer3',
+      path: '/view-game-customer/3',
       name: 'view-game-customer3',
       component: ViewGameCustomer3
     },
     {
-      path: '/view-game-customer4',
+      path: '/view-game-customer/4',
       name: 'view-game-customer4',
       component: ViewGameCustomer4
     },
     {
-      path: '/view-game-customer5',
+      path: '/view-game-customer/5',
       name: 'view-game-customer5',
       component: ViewGameCustomer5
     },
@@ -89,27 +89,27 @@ const router = createRouter({
 
 
     {
-      path: '/view-game-developer',
+      path: '/view-game-developer/1',
       name: 'view-game-developer',
       component: ViewGameDeveloper
     },
     {
-      path: '/view-game-developer2',
+      path: '/view-game-developer/2',
       name: 'view-game-developer2',
       component: ViewGameDeveloper2
     },
     {
-      path: '/view-game-developer3',
+      path: '/view-game-developer/3',
       name: 'view-game-developer3',
       component: ViewGameDeveloper3
     },
     {
-      path: '/view-game-developer4',
+      path: '/view-game-developer/4',
       name: 'view-game-developer4',
       component: ViewGameDeveloper4
     },
     {
-      path: '/view-game-developer5',
+      path: '/view-game-developer/5',
       name: 'view-game-developer5',
       component: ViewGameDeveloper5
     },
@@ -131,20 +131,20 @@ const router = createRouter({
       component: Account
     },
     {
-      path: '/account2',
+      path: '/account/2',
       name: 'account2',
       component: Account2
     },
     {
-      path: '/account3',
+      path: '/account/3',
       name: 'account3',
       component: Account3
     },{
-      path: '/account4',
+      path: '/account/4',
       name: 'account4',
       component: Account4
     },{
-      path: '/account5',
+      path: '/account/5',
       name: 'account5',
       component: Account5
     },

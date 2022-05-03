@@ -5,8 +5,8 @@
     <div class="parent-container">
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\BabaIsYou.png" alt="Baba Is You Image"></div>
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <div class="game-image"><img src="../assets/img/BabaIsYou.png" alt="Baba Is You Image"></div>
+          <button class="back-button"><img src="../assets/img/BackButton.png" alt="Back Button Image" class="back-image"></button>
           <button @click="toggleBuyButton" class="buy-game-button">
             <div v-if="isOwned">In Library</div> 
             <div v-else>BUY GAME</div>
@@ -15,10 +15,10 @@
         <div class="information">
           <div class="flex-1">
             <div class="title">Baba Is You</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="../assets/img/GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">Puzzle</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="../assets/img/FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Baba Is You is an award-winning puzzle game where you can change the rules by which you play. In every level, the rules themselves are present as blocks you can interact with; by manipulating them, you can change how the level works and cause surprising, unexpected interactions! With some simple block-pushing you can turn yourself into a rock, turn patches of grass into dangerously hot obstacles, and even change the goal you need to reach to something entirely different.</div>
           <div><a href="https://store.steampowered.com/app/736260/Baba_Is_You/">https://store.steampowered.com/app/736260/Baba_Is_You/</a></div>
         </div>

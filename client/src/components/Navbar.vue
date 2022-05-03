@@ -5,7 +5,7 @@
       <li class="nav-links">Create Game</li>
       <li class="nav-links">Store</li>
       <li class="nav-links">Library</li>
-      <li class="nav-links">Profile</li>
+      <li class="nav-links"><router-link :to="{ name: 'account' }">Profile</router-link></li>
       <li class="nav-links"><a href="/about">About</a></li>
       <li class="nav-links"><a href="/login">Login</a></li>
     </ul>

@@ -5,18 +5,18 @@
     <div class="parent-container">
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\BabaIsYou.png" alt="Baba Is You Image"></div>
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <div class="game-image"><img src="..\assets\img\BabaIsYou.png" alt="Baba Is You Image"></div>
+          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
           <button class="edit-button">Edit</button>
           <button class="delete-button">Delete</button>
         </div>
         <div class="information">
           <div class="flex-1">
             <div class="title">Baba Is You</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">Puzzle</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Baba Is You is a puzzle game where the rules you have to follow are present as blocks you can interact with. By manipulating them, you can change how the game works, repurpose things you find in the levels and cause surprising interactions!</div>
           <a href="https://store.steampowered.com/app/736260/Baba_Is_You/">https://store.steampowered.com/app/736260/Baba_Is_You/</a>
         </div>

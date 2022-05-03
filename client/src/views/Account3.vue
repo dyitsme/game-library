@@ -7,7 +7,7 @@
           <div class="profile-window">
             <div class="title">My Profile</div>
             <div class="main-box">
-              <img src="../assets/GloriaMorris.png" alt="Gloria Morris Profile" />
+              <img src="../assets/img/GloriaMorris.png" alt="Gloria Morris Profile" />
               <div class="">
                 <div class="info">
                   <div>

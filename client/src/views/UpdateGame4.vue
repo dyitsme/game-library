@@ -6,7 +6,7 @@
       <h1>Edit Game</h1>
       <form class="edit-form">
         <label id="img-label">
-          <img  class="icon" src="../assets/upload_img.svg">
+          <img  class="icon" src="../assets/svg/upload_img.svg">
           <div class="upload-btn">Upload Game Poster</div>
           <br>
           <input id="img-input" type="file" accept="image/*">

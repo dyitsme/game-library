@@ -8,7 +8,7 @@
           <div class="profile-window">
             <div class="title">My Profile</div>
             <div class="main-box">
-              <img src="../assets/Holland.png" alt="Diego Holland Profile" />
+              <img src="../assets/img/Holland.png" alt="Diego Holland Profile" />
               <div class="">
                 <div class="info">
                   <div>
@@ -28,7 +28,7 @@
                 <h2>Security</h2>
                 <div class="two-buttons">
                   <button id="change-password">Change password</button>
-                  <button id="delete">Delete Account</button>
+                  <button id="delete" @click="$router.push({ name: 'delete-account' })">Delete Account</button>
                 </div>
               </div>
             </div>
@@ -174,6 +174,8 @@ export default {
         margin-top: 12%;
 
         color: #ffffff;
+        cursor: pointer;
+
       }
 
       #change-password {
@@ -190,6 +192,7 @@ export default {
         /* identical to box height */
 
         color: #ffffff;
+        cursor: pointer;
       }
       #delete {
         background-color: transparent;
@@ -210,10 +213,17 @@ export default {
         /* identical to box height */
 
         color: #f53649;
+        cursor: pointer;
       }
 
+      #delete:hover {
+        background-color: #f53649;
+        color: white;
+        transition: 0.2s;
+      }
       .two-buttons {
         display: flex;
         justify-content: space-between;
       }
-    </style>
+
+</style>

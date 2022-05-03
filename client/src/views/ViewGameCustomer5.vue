@@ -5,8 +5,8 @@
     <div class="parent-container">
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\Destiny 2.png" alt="Destiny 2 Image"></div>
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <div class="game-image"><img src="..\assets\img\Destiny 2.png" alt="Destiny 2 Image"></div>
+          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
           <button @click="toggleBuyButton" class="buy-game-button">
             <div v-if="isOwned">In Library</div> 
             <div v-else>BUY GAME</div>
@@ -15,10 +15,10 @@
         <div class="information">
           <div class="flex-1">
             <div class="title">Destiny 2</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">MMO</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free.</div>
           <a href="https://store.steampowered.com/app/1085660/Destiny_2/">https://store.steampowered.com/app/1085660/Destiny_2/</a>
         </div>

@@ -6,8 +6,8 @@
 
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\CounterStrike.png" alt="Counter Strike Image"></div>
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <div class="game-image"><img src="..\assets\img\CounterStrike.png" alt="Counter Strike Image"></div>
+          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
           <button class="edit-button">Edit</button>
           <button class="delete-button">Delete</button>
         </div>
@@ -15,10 +15,10 @@
         <div class="information">
           <div class="flex-1">
             <div class="title">Counter Strike: Global Offense</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">First Person Shooter</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Counter-Strike is a series of multiplayer first-person shooter video games in which teams of terrorists battle to perpetrate an act of terror while counter-terrorists try to prevent it. The series began on Windows in 1999 with the release of the first game, Counter-Strike.</div>
           <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/</a>
 
