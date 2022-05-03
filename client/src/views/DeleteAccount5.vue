@@ -9,7 +9,7 @@
         <div class="content-box">
           <div class="image-box"><img src="..\assets\WarningSign.png" alt="Warning Sign Image"></div>
           <h1>Are you sure?</h1>
-          <h2>Cate Austin, this will permanently delete your account.</h2>
+          <h2>Jose Turner, this will permanently delete your account.</h2>
           <div class="flex-1">
             <button class="cancel-button">Cancel</button>
             <button class="confirm-button">Confirm</button>

@@ -7,6 +7,10 @@ import SortButton from '../views/SortButton.vue'
 import FilterButton from '../views/FilterButton.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
 import DeleteAccount from '../views/DeleteAccount.vue'
+import DeleteAccount2 from '../views/DeleteAccount2.vue'
+import DeleteAccount3 from '../views/DeleteAccount3.vue'
+import DeleteAccount4 from '../views/DeleteAccount4.vue'
+import DeleteAccount5 from '../views/DeleteAccount5.vue'
 import ViewGameCustomer from '../views/ViewGameCustomer.vue'
 
 const router = createRouter({
@@ -16,6 +20,23 @@ const router = createRouter({
       path: '/delete-account',
       name: 'delete-account',
       component: DeleteAccount
+    },
+    {
+      path: '/delete-account2',
+      name: 'delete-account2',
+      component: DeleteAccount2
+    },{
+      path: '/delete-account3',
+      name: 'delete-account3',
+      component: DeleteAccount3
+    },{
+      path: '/delete-account4',
+      name: 'delete-account4',
+      component: DeleteAccount4
+    },{
+      path: '/delete-account5',
+      name: 'delete-account5',
+      component: DeleteAccount5
     },
     {
       path: '/view-game-customer',
