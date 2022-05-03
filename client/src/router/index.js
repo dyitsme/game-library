@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
 import SortButton from '../views/SortButton.vue'
+import FilterButton from '../views/FilterButton.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
 import DeleteAccount from '../views/DeleteAccount.vue'
 import ViewGameCustomer from '../views/ViewGameCustomer.vue'
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/sort-button',
       name: 'sort-button',
       component: SortButton
+    },
+    {
+      path: '/filter-button',
+      name: 'filter-button',
+      component: FilterButton
     },
     {
       path: '/account',

@@ -1,14 +1,24 @@
 
 
 <template>
-    <div class="tempBackground">
-      <button @click="toggleSortButton">
-      <div v-if="isAscending">
-        <img src="..\assets\SortButtonAscend.png" alt="Sort Button Ascend">
-      </div>
-      <div v-else> <img src="..\assets\SortButtonDescend.png" alt="Sort Button Descend"> </div>
-      </button>
+  <div class="tempBackground">
+    <div class="flex-1">
+      <select class="input">
+        <option selected>Genre</option>
+        <option>Action</option>
+        <option>Action-adventure</option>
+        <option>Adventure</option>
+        <option>Puzzle</option>
+        <option>Role-playing</option>
+        <option>Simulation</option>
+        <option>Strategy</option>
+        <option>Sports</option>
+        <option>MMO</option>
+        <option>Other</option>
+      </select>
     </div>
+    
+  </div>
 </template>
 
 <script>
@@ -19,20 +29,6 @@
     components: {
       'Navbar': Navbar
     },
-
-
-    data() {
-      return {
-        isAscending: true
-      }
-    },
-
-    methods: {
-      toggleSortButton() {
-        this.isAscending = !this.isAscending
-      }
-    },
-
   }
 
   
@@ -41,21 +37,21 @@
 
 <style scoped>
   .tempBackground {
-    background-color: #111111;
+    background-color: #222222;
     width: 1104px;
     height: 1148px;
   }
-  img {
-    width: 60px;
-    height: 36px;
-    
+  .input {
+  background-color: #151515;
+  color: #FFFFFF;
+  font-size: 1.2em;
+  padding: 0.7em;
+  border: 0;
+  border-radius: 4px;
 
-
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  }
-  button {
-    background: transparent;
-    border: transparent;
-    
+  
+}
+  .flex-1{
+    height: 36;
   }
 </style>
