@@ -11,7 +11,12 @@ import Account5 from '../views/Account5.vue'
 
 import SortButton from '../views/SortButton.vue'
 import FilterButton from '../views/FilterButton.vue'
+
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
+import ViewGameDeveloper2 from '../views/ViewGameDeveloper2.vue'
+import ViewGameDeveloper3 from '../views/ViewGameDeveloper3.vue'
+import ViewGameDeveloper4 from '../views/ViewGameDeveloper4.vue'
+import ViewGameDeveloper5 from '../views/ViewGameDeveloper5.vue'
 
 import DeleteAccount from '../views/DeleteAccount.vue'
 import DeleteAccount2 from '../views/DeleteAccount2.vue'
@@ -20,6 +25,11 @@ import DeleteAccount4 from '../views/DeleteAccount4.vue'
 import DeleteAccount5 from '../views/DeleteAccount5.vue'
 
 import ViewGameCustomer from '../views/ViewGameCustomer.vue'
+import ViewGameCustomer2 from '../views/ViewGameCustomer2.vue'
+import ViewGameCustomer3 from '../views/ViewGameCustomer3.vue'
+import ViewGameCustomer4 from '../views/ViewGameCustomer4.vue'
+import ViewGameCustomer5 from '../views/ViewGameCustomer5.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,29 +43,78 @@ const router = createRouter({
       path: '/delete-account2',
       name: 'delete-account2',
       component: DeleteAccount2
-    },{
+    },
+    {
       path: '/delete-account3',
       name: 'delete-account3',
       component: DeleteAccount3
-    },{
+    },
+    {
       path: '/delete-account4',
       name: 'delete-account4',
       component: DeleteAccount4
-    },{
+    },
+    {
       path: '/delete-account5',
       name: 'delete-account5',
       component: DeleteAccount5
     },
+
     {
       path: '/view-game-customer',
       name: 'view-game-customer',
       component: ViewGameCustomer
     },
     {
+      path: '/view-game-customer2',
+      name: 'view-game-customer2',
+      component: ViewGameCustomer2
+    },
+    {
+      path: '/view-game-customer3',
+      name: 'view-game-customer3',
+      component: ViewGameCustomer3
+    },
+    {
+      path: '/view-game-customer4',
+      name: 'view-game-customer4',
+      component: ViewGameCustomer4
+    },
+    {
+      path: '/view-game-customer5',
+      name: 'view-game-customer5',
+      component: ViewGameCustomer5
+    },
+
+
+
+    {
       path: '/view-game-developer',
       name: 'view-game-developer',
       component: ViewGameDeveloper
     },
+    {
+      path: '/view-game-developer2',
+      name: 'view-game-developer2',
+      component: ViewGameDeveloper2
+    },
+    {
+      path: '/view-game-developer3',
+      name: 'view-game-developer3',
+      component: ViewGameDeveloper3
+    },
+    {
+      path: '/view-game-developer4',
+      name: 'view-game-developer4',
+      component: ViewGameDeveloper4
+    },
+    {
+      path: '/view-game-developer5',
+      name: 'view-game-developer5',
+      component: ViewGameDeveloper5
+    },
+
+
     {
       path: '/sort-button',
       name: 'sort-button',

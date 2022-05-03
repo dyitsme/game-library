@@ -3,25 +3,24 @@
 <template>
     <Navbar></Navbar>
     <div class="parent-container">
-
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\CounterStrike.png" alt="Counter Strike Image"></div>
+          <div class="game-image"><img src="..\assets\Destiny 2.png" alt="Destiny 2 Image"></div>
           <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <button @click="toggleBuyButton" class="buy-game-button">
+            <div v-if="isOwned">In Library</div> 
+            <div v-else>BUY GAME</div>
+          </button>
         </div>
-
         <div class="information">
           <div class="flex-1">
-            <div class="title">Counter Strike: Global Offense</div>
+            <div class="title">Destiny 2</div>
             <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
-            <div class="genre">First Person Shooter</div>
+            <div class="genre">MMO</div>
           </div>
           <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
-          <div class="definition">Counter-Strike is a series of multiplayer first-person shooter video games in which teams of terrorists battle to perpetrate an act of terror while counter-terrorists try to prevent it. The series began on Windows in 1999 with the release of the first game, Counter-Strike.</div>
-          <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/</a>
-
+          <div class="definition">Destiny 2 is an action MMO with a single evolving world that you and your friends can join anytime, anywhere, absolutely free.</div>
+          <a href="https://store.steampowered.com/app/1085660/Destiny_2/">https://store.steampowered.com/app/1085660/Destiny_2/</a>
         </div>
       </div>
     </div>
@@ -39,13 +38,13 @@
 
     data() {
       return {
-        isAscending: true
+        isOwned: false
       }
     },
 
     methods: {
-      toggleSortButton() {
-        this.isAscending = !this.isAscending
+      toggleBuyButton() {
+        this.isOwned = true
       }
     },
 
@@ -54,8 +53,8 @@
   
 
 </script>
-
 <style>
+  
   body{
     background-color: #111111;
 
@@ -72,6 +71,9 @@
     color: #FFFFFF;
   }
 
+  button{
+    border: 0ch;
+  }
   .back-image {
     position: absolute;
     width: 53px;
@@ -87,8 +89,7 @@
     border: 0px;
   }
   .parent-container {
-      margin: 1%;
-
+      margin: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,8 +107,9 @@
   }
 
   .definition {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
+    margin-top: 33px;
+    padding-right: 20px;
 
     width: 1170px;
     height: auto;
@@ -149,18 +151,12 @@
 
     color: #FFFFFF;
   }
-  .delete-button {
-    left: 1062px;
-  }
-  .edit-button {
-    left: 930px;
-
-  }
-  button{
+  .buy-game-button {
     position: absolute;
-    width: 59px;
-    height: 39px;
-    top: 27px;
+    width: 269px;
+    height: 81px;
+    left: 905px;
+    top: 416px;
 
     font-family: 'Inter';
     font-style: normal;
@@ -169,15 +165,14 @@
     line-height: 39px;
     /* identical to box height */
 
+    text-align: center;
 
-    color: #EBEBEB;
+    color: #FFFFFF;
 
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #00DD99;
+    border-radius: 4px;
 
-    background: transparent;
-    border: 0px;
   }
-
   .container {
     position: relative;
     width: 1199px;
@@ -187,7 +182,6 @@
     width: 1199px;
     height: auto;
     padding-bottom: 2%;
-
 
     background: #222222;
     border-radius: 8px;

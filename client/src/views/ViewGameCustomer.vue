@@ -69,6 +69,14 @@
     line-height: 44px;
 
     color: #FFFFFF;
+
+    padding-bottom: 50px;
+    margin-top: 33px;
+    padding-right: 20px;
+
+    width: 1170px;
+    height: auto;
+
   }
 
   button{
@@ -89,11 +97,12 @@
     border: 0px;
   }
   .parent-container {
+      margin: 1%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: auto;
   }
   .four-stars {
     margin-top: 3px;
@@ -109,6 +118,8 @@
   .definition {
     padding-bottom: 50px;
     margin-top: 33px;
+    padding-right: 20px;
+
     width: 1170px;
     height: auto;
 
@@ -178,6 +189,7 @@
   }
   .view-game-rectangle {
     width: 1199px;
+    padding-bottom: 2%;
     height: auto;
 
     background: #222222;
