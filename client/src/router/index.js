@@ -79,6 +79,11 @@ const router = createRouter({
       name: 'DeleteGame5',
       component: () => import('../views/DeleteGame5.vue')
     },
+    {
+      path: '/search',
+      name: 'Search',
+      component: () => import('../components/Searchbar.vue')
+    }
   ]
 })
 
