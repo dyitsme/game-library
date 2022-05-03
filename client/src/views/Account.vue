@@ -2,35 +2,37 @@
 
 <template>
     <Navbar></Navbar>
-    <div class="body">
-        <div class="profile-window">
-          <h1>My Profile</h1>
-          <div class="main-box">
-            <img src="../assets/Holland.png" alt="Diego Holland Profile" />
-            <div class="">
-              <div class="info">
-                <div>
-                  <h3>Username</h3>
-                  <h4>Diego Holland</h4>
+    <div class="parent-container">
+      <div class="body">
+          <div class="profile-window">
+            <div class="title">My Profile</div>
+            <div class="main-box">
+              <img src="../assets/Holland.png" alt="Diego Holland Profile" />
+              <div class="">
+                <div class="info">
+                  <div>
+                    <h3>Username</h3>
+                    <h4>Diego Holland</h4>
+                  </div>
+                  <div>
+                    <h3>Email</h3>
+                    <h4>diego.holland@gmail.com</h4>
+                  </div>
+                  <div>
+                    <h3>Status</h3>
+                    <h4>Rome was...</h4>
+                  </div>
                 </div>
-                <div>
-                  <h3>Email</h3>
-                  <h4>diego.holland@gmail.com</h4>
+                <button id="edit-button">Edit account</button>
+                <h2>Security</h2>
+                <div class="two-buttons">
+                  <button id="change-password">Change password</button>
+                  <button id="delete">Delete Account</button>
                 </div>
-                <div>
-                  <h3>Status</h3>
-                  <h4>Rome was...</h4>
-                </div>
-              </div>
-              <button id="edit-button">Edit account</button>
-              <h2>Security</h2>
-              <div class="two-buttons">
-                <button id="change-password">Change password</button>
-                <button id="delete">Delete Account</button>
               </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
 </template>
 
@@ -46,14 +48,22 @@ export default {
 </script>
 
 <style scoped>
+  .parent-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+  }
       .main-box {
         margin-left: 97px;
         margin-right: 97px;
         margin-bottom: 153px;
         margin-top: 46px;
       }
-      h1 {
+      .title {
         text-align: center;
+        vertical-align: text-bottom;
         /* My Profile */
         height: 54px;
 
@@ -64,6 +74,10 @@ export default {
         line-height: 58px;
 
         color: #ffffff;
+
+        margin-top: 20px;
+
+
       }
       h2 {
         font-family: "Inter";
@@ -74,7 +88,7 @@ export default {
 
         color: #ffffff;
 
-        margin-top: 191px;
+        margin-top: 10%;
         margin-bottom: 64px;
       }
       h3 {
@@ -112,8 +126,6 @@ export default {
         float: left;
         width: 241px;
         height: 241px;
-        left: 97px;
-        top: 153px;
 
         border: 9px solid #323232;
         border-radius: 50%;
@@ -123,11 +135,15 @@ export default {
         margin-right: 97px;
       }
       .body {
-        width: 1104px;
-        height: 1148px;
+        width: 1100px;
+        height: auto;
 
         background: #222222;
         border-radius: 8px;
+        padding: 1000;
+
+        
+        
       }
 
       .info {

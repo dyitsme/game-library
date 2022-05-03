@@ -1,17 +1,21 @@
 
 
 <template>
-    <div class="container">
-      <div class="bar"></div>
-      <div class="content-box">
-        <div class="image-box"><img src="..\assets\WarningSign.png" alt="Warning Sign Image"></div>
-        <h1>Are you sure?</h1>
-        <h2>This will permanently delete your account.</h2>
-        <div class="flex-1">
-          <button class="cancel-button">Cancel</button>
-          <button class="confirm-button">Confirm</button>
+    <Navbar></Navbar>
+    <div class="parent-container">
+      
+      <div class="container">
+        <div class="bar"></div>
+        <div class="content-box">
+          <div class="image-box"><img src="..\assets\WarningSign.png" alt="Warning Sign Image"></div>
+          <h1>Are you sure?</h1>
+          <h2>This will permanently delete your account.</h2>
+          <div class="flex-1">
+            <button class="cancel-button">Cancel</button>
+            <button class="confirm-button">Confirm</button>
+          </div>
         </div>
-      </div>
+    </div>
 
     </div>
 </template>
@@ -44,7 +48,20 @@
 
 </script>
 
+<style>
+  body{
+    background-color: #111111;
+
+  }
+</style>
 <style scoped>
+    .parent-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 .content-box {
   margin-left: 54px;
   margin-top: 45px;

@@ -6,8 +6,7 @@ import Account from '../views/Account.vue'
 import SortButton from '../views/SortButton.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
 import DeleteAccount from '../views/DeleteAccount.vue'
-import ViewGameCustomerOwned from '../views/ViewGameCustomerOwned.vue'
-import ViewGameCustomerNotOwned from '../views/ViewGameCustomerNotOwned.vue'
+import ViewGameCustomer from '../views/ViewGameCustomer.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,14 +17,9 @@ const router = createRouter({
       component: DeleteAccount
     },
     {
-      path: '/view-game-customer-not-owned',
-      name: 'view-game-customer-not-owned',
-      component: ViewGameCustomerNotOwned
-    },
-    {
-      path: '/view-game-customer-owned',
-      name: 'view-game-customer-owned',
-      component: ViewGameCustomerOwned
+      path: '/view-game-customer',
+      name: 'view-game-customer',
+      component: ViewGameCustomer
     },
     {
       path: '/view-game-developer',
