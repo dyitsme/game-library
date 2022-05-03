@@ -2,26 +2,25 @@
 
 <template>
     <Navbar></Navbar>
-
     <div class="parent-container">
       <div class="body">
           <div class="profile-window">
             <div class="title">My Profile</div>
             <div class="main-box">
-              <img src="../assets/Holland.png" alt="Diego Holland Profile" />
+              <img src="../assets/StephanieMorgan.png" alt="Stephanie Morgan Profile" />
               <div class="">
                 <div class="info">
                   <div>
                     <h3>Username</h3>
-                    <h4>Diego Holland</h4>
+                    <h4>Stephanie Morgan</h4>
                   </div>
                   <div>
                     <h3>Email</h3>
-                    <h4>diego.holland@gmail.com</h4>
+                    <h4>Stephanie.Morgan@gmail.com</h4>
                   </div>
                   <div>
                     <h3>Status</h3>
-                    <h4>Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.</h4>
+                    <h4>Freelance web specialist. Pop culture guru. Foodaholic. Twitter junkie. Problem solver. Beer maven.</h4>
                   </div>
                 </div>
                 <button id="edit-button">Edit account</button>

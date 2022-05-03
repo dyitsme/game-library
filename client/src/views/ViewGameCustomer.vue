@@ -20,6 +20,7 @@
           </div>
           <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Counter-Strike is a series of multiplayer first-person shooter video games in which teams of terrorists battle to perpetrate an act of terror while counter-terrorists try to prevent it. The series began on Windows in 1999 with the release of the first game, Counter-Strike.</div>
+          <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/</a>
         </div>
       </div>
     </div>
@@ -53,12 +54,26 @@
 
 </script>
 <style>
+  
   body{
     background-color: #111111;
 
   }
 </style>
 <style scoped>
+  a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    color: #FFFFFF;
+  }
+
+  button{
+    border: 0ch;
+  }
   .back-image {
     position: absolute;
     width: 53px;

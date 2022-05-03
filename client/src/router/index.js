@@ -2,15 +2,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+
 import Account from '../views/Account.vue'
+import Account2 from '../views/Account2.vue'
+import Account3 from '../views/Account3.vue'
+import Account4 from '../views/Account4.vue'
+import Account5 from '../views/Account5.vue'
+
 import SortButton from '../views/SortButton.vue'
 import FilterButton from '../views/FilterButton.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
+
 import DeleteAccount from '../views/DeleteAccount.vue'
 import DeleteAccount2 from '../views/DeleteAccount2.vue'
 import DeleteAccount3 from '../views/DeleteAccount3.vue'
 import DeleteAccount4 from '../views/DeleteAccount4.vue'
 import DeleteAccount5 from '../views/DeleteAccount5.vue'
+
 import ViewGameCustomer from '../views/ViewGameCustomer.vue'
 
 const router = createRouter({
@@ -62,6 +70,24 @@ const router = createRouter({
       path: '/account',
       name: 'account',
       component: Account
+    },
+    {
+      path: '/account2',
+      name: 'account2',
+      component: Account2
+    },
+    {
+      path: '/account3',
+      name: 'account3',
+      component: Account3
+    },{
+      path: '/account4',
+      name: 'account4',
+      component: Account4
+    },{
+      path: '/account5',
+      name: 'account5',
+      component: Account5
     },
     {
       path: '/',
