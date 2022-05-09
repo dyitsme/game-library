@@ -1,23 +1,29 @@
 const User = require('../models/users')
 
 const createUser = (req, res) => {
-    // const user = new User({
-    //     username: 'Diego',
-    //     email: 'diego.holland@example.com',
-    //     password: '1234'
-    // })
-
-    // user.save()
-
-        // .then((result) => {
-        //     res.send(result);
-        // })
-        // .catch((err) => {
-        //     console.log("Error");
-        //     console.log(err);
-        // })
+    const { username, email, password, confirmPassword } = req.body
+    const user = new User({
+        username: username,
+        email: email,
+        password: password
+    })
+    
+    if (password == confirmPassword) {
+        user.save()
+            .then((result) => {
+                res.send(result);
+            })
+            .catch((err) => {
+                console.log("Error");
+                console.log(err);
+            })
+        res.status(201).send('User was created')
+    }
+    else {
+        console.log("Password and confirm password do not match")
+        res.status(403).send('Password and confirm password do not match')
+    }
     console.log(req.body)
-    res.status(201).send('User was created')
 }
 
 module.exports = {
