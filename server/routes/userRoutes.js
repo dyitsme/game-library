@@ -5,5 +5,6 @@ const router = express.Router()
 
 // used to create the user
 router.post('/create', userController.createUser)
+router.post('/login', userController.loginUser)
 
 module.exports = router

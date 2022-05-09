@@ -26,6 +26,12 @@ const createUser = (req, res) => {
     console.log(req.body)
 }
 
+const loginUser = (req, res) => {
+    console.log('hello')
+    console.log(req.body)
+}
+
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }

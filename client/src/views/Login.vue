@@ -5,13 +5,13 @@
         <div class="input-wrapper">
           <div class="input-group">
             <label class="label">Username</label>
-            <input type="text"/>
+            <input type="text" v-model="username">
           </div>
           <div class="input-group">
             <label class="label">Password</label>
-            <input type="password"/>
+            <input type="password" v-model="password">
           </div>
-          <button class="login-btn">Login</button>
+          <button class="login-btn" @click="login()">Login</button>
           <p class="to-register">Already have an account? <a class="link" href="/register">Sign up.</a></p>
         </div>
       </div>
@@ -22,12 +22,31 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    'Navbar': Navbar
+  data() {
+    return {
+      username: '',
+      password: '',
+    }
+  },
+
+  methods: {
+    login() {
+      const vm = this
+      const { username, password } = vm
+      fetch('http://localhost:3000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+        mode: 'cors'
+      })
+    }
   }
 }
 </script>
