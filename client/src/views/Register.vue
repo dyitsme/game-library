@@ -66,11 +66,6 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  --light-green: #00DD99;
-  --dark-bg-grey: #111111;
-  --form-grey: #151515;
-  --grey: #222222;
-  --white: #FFFFFF;
 
   font-size: 16px;
 } 
@@ -120,8 +115,6 @@ export default {
 }
 
 .to-login {
-  position: relative;
-  right: 7.5em;
   color: var(--white);
 }
 

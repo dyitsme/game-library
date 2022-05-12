@@ -41,7 +41,7 @@ const loginUser = async (req, res) => {
       res.send('Sucessfully logged in')
     }
     else {
-      res.status(401).send('Not allowed')
+      res.status(401).send('Invalid username and/or password!')
     }
   }
   catch {

@@ -3,6 +3,7 @@
     <div class="login-container">
       <h1>Welcome Back!</h1>
         <div class="input-wrapper">
+          <div class="err-msg" v-if="error">{{ error }}</div>
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username">
@@ -28,14 +29,16 @@ export default {
     return {
       username: '',
       password: '',
+      error: ''
     }
   },
 
   methods: {
-    login() {
+    async login() {
       const vm = this
       const { username, password } = vm
-      fetch('http://localhost:3000/api/users/login', {
+      
+      const response = await fetch('http://localhost:3000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,6 +49,10 @@ export default {
         }),
         mode: 'cors'
       })
+
+      if (!response.ok) {
+        vm.error = await response.text()
+      }
     }
   }
 }
@@ -55,11 +62,6 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  --light-green: #00DD99;
-  --dark-bg-grey: #111111;
-  --form-grey: #151515;
-  --grey: #222222;
-  --white: #FFFFFF;
 
   font-size: 16px;
 } 
@@ -116,6 +118,10 @@ export default {
   color: var(--white);
 }
 
+.err-msg {
+  color: var(--red);
+  font-size: 1.2em;
+}
 /* temporary (to be changed)*/
 input {
   background-color: var(--form-grey);

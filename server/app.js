@@ -3,9 +3,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const bcrypt = require('bcrypt')
 
-const Blog = require('./models/db')
 const userRoutes = require('./routes/userRoutes')
 
 const app = express()
