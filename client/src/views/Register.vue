@@ -63,7 +63,8 @@ export default {
       })
 
       if (!response.ok) {
-        vm.errors = await response.text()
+        const parsed = JSON.parse(await response.text())
+        vm.errors =  parsed
       }
     }
   }
