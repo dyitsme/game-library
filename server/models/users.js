@@ -17,6 +17,15 @@ const userSchema = new Schema({
     }
 });
 
+const getOne = function(query, next) {
+    User.findOne(query, function(err, user) {
+        next(err, user)
+    }) 
+}
 
 const User = mongoose.model('User', userSchema)
-module.exports = User
+
+module.exports = {
+    User,
+    getOne
+}

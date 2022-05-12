@@ -1,29 +1,37 @@
+const { validationResult } = require('express-validator')
 const bcrypt = require('bcrypt')
 
 const User = require('../models/users')
 
-const createUser = async (req, res) => {
-  const { username, email, password, confirmPassword } = req.body
-  const hashedPassword = await bcrypt.hash(password, 10)
-  const user = new User({
-    username: username,
-    email: email,
-    password: hashedPassword
-  })
+const registerUser = async (req, res) => {
 
-  if (password == confirmPassword) {
-    user.save()
-      .then((result) => {
-          res.send(result);
-      })
-      .catch((err) => {
-          console.log(err);
-      })
-    res.status(201).send('User was created')
+  const errors = validationResult(req)
+
+  if (errors.isEmpty()) {
+    const { username, email, password, confirmPassword } = req.body
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const user = new User({
+      username: username,
+      email: email,
+      password: hashedPassword
+    })
+    userModel.getOne({ username: username }, (err, result) => {
+      if (result) {
+        console.log(result);
+        // found a match, return to login with error
+        // req.flash('error_msg', 'User already exists. Please login.');
+      } 
+      else {
+        
+        // no match, create user (next step)
+        // for now we redirect to the login with no error.
+
+      }
+    })
   }
   else {
-    console.log("Password and confirm password do not match")
-    res.status(403).send('Password and confirm password do not match')
+    const messages = errors.array().map((item) => item.msg);
+    res.status(400).send(messages)
   }
 }
 
@@ -34,7 +42,7 @@ const loginUser = async (req, res) => {
   console.log(req.body)
 
   if (user == null) {
-    return res.status(400).send('Cannot find user')
+    return res.status(400).send('Incomplete fields.')
   }
   try {
     if (await bcrypt.compare(password, user.password)) {
@@ -50,6 +58,6 @@ const loginUser = async (req, res) => {
 }
 
 module.exports = {
-  createUser,
+  registerUser,
   loginUser
 }

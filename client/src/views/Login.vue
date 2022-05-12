@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="login-container">
-      <h1>Welcome Back!</h1>
-        <div class="input-wrapper">
+      <h1 class="header">Welcome Back!</h1>
+        <form class="input-wrapper">
           <div class="err-msg" v-if="error">{{ error }}</div>
           <div class="input-group">
             <label class="label">Username</label>
@@ -12,9 +12,9 @@
             <label class="label">Password</label>
             <input type="password" v-model="password">
           </div>
-          <button class="login-btn" @click="login()">Login</button>
+          <button class="login-btn" @click.prevent="login">Login</button>
           <p class="to-register">Already have an account? <a class="link" href="/register">Sign up.</a></p>
-        </div>
+        </form>
       </div>
       <div class="background">
       
@@ -133,8 +133,9 @@ input {
   border-radius: 4px;
 }
 
-h1 {
+.header {
   color: var(--white);
   text-align: center;
+  font-size: 2em;
 }
 </style>

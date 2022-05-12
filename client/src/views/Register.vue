@@ -4,8 +4,11 @@
     
     </div>
     <div class="register-container">
-      <h1>Create Account</h1>
-        <div class="input-wrapper">
+      <h1 class="header">Create Account</h1>
+        <form class="input-wrapper">
+          <div class="err-msg" v-for="error in errors">
+            {{ error }}
+          </div>
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username"/>
@@ -22,9 +25,9 @@
             <label class="label">Confirm password</label>
             <input type="password" v-model="confirmPassword"/>
           </div>
-          <button class="register-btn" @click="register()">Register</button>
+          <button class="register-btn" @click.prevent="register()">Register</button>
           <p class="to-login">Already have an account? <a class="link" href="/login">Sign in.</a></p>
-        </div>
+        </form>
       </div>
     </div>
 </template>
@@ -36,15 +39,16 @@ export default {
       username: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      errors: []
     }
   },
 
   methods: {
-    register() {
+    async register() {
       const vm = this
       const { username, email, password, confirmPassword } = vm
-      fetch('http://localhost:3000/api/users/create', {
+      const response = await fetch('http://localhost:3000/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -57,6 +61,10 @@ export default {
         }),
         mode: 'cors'
       })
+
+      if (!response.ok) {
+        vm.errors = await response.text()
+      }
     }
   }
 }
@@ -78,6 +86,10 @@ export default {
   justify-content: center;
 }
 
+.err-msg {
+  color: var(--red);
+  font-size: 1.2em;
+}
 .register-btn {
   background-color: var(--light-green);
   border: 0;
@@ -133,8 +145,9 @@ input {
   border-radius: 4px;
 }
 
-h1 {
+.header {
   color: var(--white);
   text-align: center;
+  font-size: 2em;
 }
 </style>
