@@ -6,7 +6,7 @@
     <div class="register-container">
       <h1 class="header">Create Account</h1>
         <form class="input-wrapper">
-          <div class="err-msg" v-for="error in errors">
+          <div class="err-msg" v-for="error in errors" :key="error.id">
             {{ error }}
           </div>
           <div class="input-group">
