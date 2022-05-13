@@ -66,8 +66,9 @@ export default {
       })
 
       if (!response.ok) {
+        response.text()
         const parsed = JSON.parse(await response.text())
-        vm.errors =  parsed
+        vm.errors = parsed
       }
       else {
         this.modSuccessMsg(await response.text())
