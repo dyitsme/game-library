@@ -25,7 +25,7 @@ const registerUser = (req, res) => {
         
           userModel.create(newUser, (err, user) => {
             if (err) {
-              res.send('Could not create user. Please try again.')
+              res.status(400).send('Could not create user. Please try again.')
             }
             else {
               res.send('You are now registered! Login below.')

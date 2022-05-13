@@ -33,6 +33,9 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia'
+import { authStore } from '../stores/auth'
+
 export default {
   data() {
     return {
@@ -66,7 +69,14 @@ export default {
         const parsed = JSON.parse(await response.text())
         vm.errors =  parsed
       }
-    }
+      else {
+        const msg = response.text()
+        this.modSuccessMsg(msg)
+        this.$router.push({ name: 'Login'})
+      }
+    },
+    ...mapActions(authStore, ['modSuccessMsg']),
+    ...mapActions(authStore, ['modErrorMsg']),
   }
 }
 </script>
