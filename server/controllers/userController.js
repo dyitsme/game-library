@@ -1,31 +1,38 @@
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcrypt')
 
-const User = require('../models/users')
+const userModel = require('../models/users')
 
-const registerUser = async (req, res) => {
+const registerUser = (req, res) => {
 
   const errors = validationResult(req)
 
   if (errors.isEmpty()) {
     const { username, email, password, confirmPassword } = req.body
-    const hashedPassword = await bcrypt.hash(password, 10)
-    const user = new User({
-      username: username,
-      email: email,
-      password: hashedPassword
-    })
     userModel.getOne({ username: username }, (err, result) => {
       if (result) {
         console.log(result);
         // found a match, return to login with error
-        // req.flash('error_msg', 'User already exists. Please login.');
+        res.send('User already exists. Please login.')
       } 
       else {
+        bcrypt.hash(password, 10, (err, hashed) => {
+          const newUser = {
+            username: username,
+            email: email,
+            password: hashed
+          }
         
-        // no match, create user (next step)
-        // for now we redirect to the login with no error.
-
+          userModel.create(newUser, (err, user) => {
+            if (err) {
+              res.send('Could not create user. Please try again.')
+            }
+            else {
+              res.send('You are now registered! Login below.')
+              // redirect to login
+            }
+          })
+        })
       }
     })
   }

@@ -17,15 +17,25 @@ const userSchema = new Schema({
     }
 });
 
-const getOne = function(query, next) {
-    User.findOne(query, function(err, user) {
-        next(err, user)
-    }) 
-}
-
 const User = mongoose.model('User', userSchema)
 
-module.exports = {
-    User,
-    getOne
+exports.create = function(obj, next) {
+    const user = new User(obj);
+
+    user.save(function(err, user) {
+        next(err, user);
+    })
+}
+  
+  // Retrieving a user based on ID
+exports.getById = function(id, next) {
+    User.findById(id, function(err, user) {
+      next(err, user);
+    })
+}
+
+exports.getOne = function(query, next) {
+    User.findOne(query, function(err, user) {
+      next(err, user);
+    })
 }
