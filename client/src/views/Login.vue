@@ -3,7 +3,9 @@
     <div class="login-container">
       <h1 class="header">Welcome Back!</h1>
         <form class="input-wrapper">
-          <div class="err-msg" v-if="error">{{ error }}</div>
+          <!-- <div class="err-msg" v-if="error">{{ error }}</div> -->
+          <div class="err-msg" v-if="errorMsg">{{ errorMsg }}</div>
+          <div class="success-msg" v-else-if="successMsg">{{ successMsg }}</div>
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username">
@@ -23,14 +25,22 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { authStore } from '../stores/auth'
 
 export default {
   data() {
     return {
       username: '',
       password: '',
-      error: ''
+      error: '',
+      errorMsg: '',
+      successMsg: ''
     }
+  },
+ 
+  mounted() {
+    this.showSuccess()
   },
 
   methods: {
@@ -53,7 +63,15 @@ export default {
       if (!response.ok) {
         vm.error = await response.text()
       }
-    }
+    },
+    showSuccess() {
+      this.successMsg = this.getSuccessMsg()
+    },
+    showError() {
+      this.errorMsg = this.getErrorMsg()
+    },
+    ...mapState(authStore, ['getSuccessMsg']),
+    ...mapState(authStore, ['getErrorMsg'])
   }
 }
 </script>
@@ -120,6 +138,10 @@ export default {
 
 .err-msg {
   color: var(--red);
+  font-size: 1.2em;
+}
+.success-msg {
+  color: var(--light-green);
   font-size: 1.2em;
 }
 /* temporary (to be changed)*/

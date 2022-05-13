@@ -70,8 +70,7 @@ export default {
         vm.errors =  parsed
       }
       else {
-        const msg = response.text()
-        this.modSuccessMsg(msg)
+        this.modSuccessMsg(await response.text())
         this.$router.push({ name: 'Login'})
       }
     },
