@@ -66,7 +66,6 @@ export default {
       })
 
       if (!response.ok) {
-        response.text()
         const parsed = JSON.parse(await response.text())
         vm.errors = parsed
       }

@@ -3,9 +3,12 @@
     <div class="login-container">
       <h1 class="header">Welcome Back!</h1>
         <form class="input-wrapper">
-          <!-- <div class="err-msg" v-if="error">{{ error }}</div> -->
-          <div class="err-msg" v-if="errorMsg">{{ errorMsg }}</div>
-          <div class="success-msg" v-else-if="successMsg">{{ successMsg }}</div>
+          <div class="err-msg" v-for="error in errors" :key="error.id">
+            {{ error }}
+          </div>
+          <div class="err-msg" v-if="loginError">{{ loginError }}</div>
+          <!-- <div class="err-msg" v-if="errorMsg">{{ errorMsg }}</div>
+          <div class="success-msg" v-else-if="successMsg">{{ successMsg }}</div> -->
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username">
@@ -33,15 +36,16 @@ export default {
     return {
       username: '',
       password: '',
-      error: '',
+      errors: [],
+      loginError: '',
       errorMsg: '',
       successMsg: ''
     }
   },
- 
-  mounted() {
-    this.showSuccess()
-  },
+  // *** Need to fix this when redirecting to another page
+  // mounted() {
+  //   this.showSuccess()
+  // },
 
   methods: {
     async login() {
@@ -61,7 +65,16 @@ export default {
       })
 
       if (!response.ok) {
-        vm.error = await response.text()
+        if (response.status == 401) {
+          vm.loginError = await response.text()
+        }
+        else {
+          const parsed = JSON.parse(await response.text()) 
+          vm.errors = parsed
+        }
+      }
+      else {
+        this.$router.push({ name: 'Home'})
       }
     },
     showSuccess() {

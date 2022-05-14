@@ -62,21 +62,21 @@ const loginUser = (req, res) => {
             // passwords match (result == true)
             if (result) {
               // Update session object once matched!
-              req.session.user = user._id;
-              req.session.name = user.name;
+              // req.session.user = user._id;
+              // req.session.name = user.name;
           
-              console.log(req.session);
+              // console.log(req.session);
           
-              res.redirect('/');
+              res.send('You are now logged in.')
             } else {
               // passwords don't match
-              req.flash('error_msg', 'Incorrect password. Please try again.');
-              res.redirect('/login');
+              res.status(401).send('Incorrect password. Please try again.')
+              // res.redirect('/login');
             }
           })
         } else {
           // No user found
-          req.flash('error_msg', 'No registered user with that username. Please register.');
+          res.status(400).send('No registered user with that username. Please register.')
           // res.redirect('/register');
         }
       }
@@ -84,7 +84,7 @@ const loginUser = (req, res) => {
   }
   else {
     const messages = errors.array().map((item) => item.msg);
-
+    res.status(400).send(messages)
   }
 }
 
