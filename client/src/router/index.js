@@ -30,6 +30,16 @@ const router = createRouter({
       component: Register
     },
     {
+      path: '/store',
+      name: 'Store',
+      component: () => import('../views/Store.vue')
+    },
+    {
+      path: '/library',
+      name: 'Library',
+      component: () => import('../views/Library.vue')
+    },
+    {
       path: '/store/edit/1',
       name: 'UpdateGame1',
       component: () => import('../views/UpdateGame1.vue')
