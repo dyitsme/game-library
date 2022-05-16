@@ -1,8 +1,8 @@
 <template>
   <Navbar></Navbar>
-  <h1>Store</h1>
-  <Searchbar></Searchbar>
   <div class="container">
+    <h1>Store</h1>
+    <Searchbar></Searchbar>
     test
   </div>
 </template>
@@ -19,3 +19,12 @@ export default {
   }
 }
 </script>
+
+<style>
+  body {
+    background-color: black;
+  }
+  .container {
+    margin: 50px 100px 50px 100px; /* top | right | bottom | left */
+  }
+</style>
