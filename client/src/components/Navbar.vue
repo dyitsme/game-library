@@ -3,7 +3,7 @@
     <ul class="nav-group">
       <li class="nav-links" id="logo">Logo</li>
       <li class="nav-links"><a href="/create">Create Game</a></li>
-      <li class="nav-links"><a href="/viewgames">Store</a></li>
+      <li class="nav-links"><a href="/store">Store</a></li>
       <li class="nav-links"><a href="/library">Library</a></li>
       <li class="nav-links"><a href="/profile">Profile</a></li>
       <li class="nav-links"><a href="/about">About</a></li>

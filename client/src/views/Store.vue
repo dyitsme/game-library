@@ -1,7 +1,7 @@
 <template>
   <Navbar></Navbar>
   <div class="container">
-    <div class="viewgames-container">
+    <div class="store-container">
 
     </div>
   </div>
