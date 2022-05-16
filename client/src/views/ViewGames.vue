@@ -1,7 +1,8 @@
 <template>
   <Navbar></Navbar>
-  <div class="parent-container">
-    <dir class="container">
-    </dir>
+  <div class="container">
+    <div class="viewgames-container">
+
+    </div>
   </div>
 </template>
