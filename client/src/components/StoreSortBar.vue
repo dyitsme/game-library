@@ -5,14 +5,11 @@
   <button class="sort-btn">
     <img class="icon" src="../assets/sort2_icon.svg">
   </button>
-  <button class="sort-btn">
-    <img class="icon" src="../assets/sort1_icon.svg">
-  </button>
 </template>
 
 <script>
 export default {
-  name: 'Sortbar'
+  name: 'StoreSortbar'
 }
 </script>
 

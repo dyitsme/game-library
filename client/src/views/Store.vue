@@ -3,7 +3,7 @@
   <div class="container">
     <h1>Store</h1>
     <Searchbar></Searchbar>
-    <Sortbar></Sortbar>
+    <StoreSortbar></StoreSortbar>
     <div class="store-container">
       <img src="../assets/games/csgo_icon.svg" height="100px" width="50px"><br>
       CounterStrike: Global Offensive<br>
@@ -15,14 +15,14 @@
 <script>
 import Navbar from '../components/Navbar.vue'
 import Searchbar from '../components/Searchbar.vue'
-import Sortbar from '../components/Sortbar.vue'
+import StoreSortbar from '../components/StoreSortbar.vue'
 
 export default {
   name: 'Store',
   components: {
     "Navbar": Navbar,
     "Searchbar": Searchbar,
-    "Sortbar": Sortbar
+    "StoreSortbar": StoreSortbar
   }
 }
 </script>
