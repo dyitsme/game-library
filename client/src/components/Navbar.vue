@@ -54,4 +54,8 @@ export default {
 #logo {
   flex: 1;
 }
+
+a {
+  font-size: 1.0em;
+}
 </style>
