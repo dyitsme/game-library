@@ -5,9 +5,9 @@
     <Searchbar></Searchbar>
     <StoreSortbar></StoreSortbar>
     <div class="store-container">
-      <img src="../assets/games/csgo_icon.svg" height="100px" width="50px"><br>
+      <img class="image1" src="../assets/games/csgo_icon.png"><br>
       CounterStrike: Global Offensive<br>
-      <img src="../assets/games/4_stars.svg" width="50px">
+      <img class="rating" src="../assets/games/4_stars.png">
     </div>
   </div>
 </template>
@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style>
+  .image1 {
+    height: 200px;
+    width: 200px;
+  }
+
   body {
     background-color: black;
     color: white;

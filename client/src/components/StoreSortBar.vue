@@ -1,9 +1,9 @@
 <template>
   <button class="sort-btn">
-    <img class="icon" src="../assets/sort3_icon.svg">
+    <img class="icon" src="../assets/sort2_icon.svg">
   </button>
   <button class="sort-btn">
-    <img class="icon" src="../assets/sort2_icon.svg">
+    <img class="icon" src="../assets/sort1_icon.svg">
   </button>
 </template>
 
