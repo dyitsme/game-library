@@ -5,9 +5,14 @@
     <Searchbar></Searchbar>
     <StoreSortbar></StoreSortbar>
     <div class="store-container">
-      <img class="image1" src="../assets/games/csgo_icon.png"><br>
-      CounterStrike: Global Offensive<br>
-      <img class="rating" src="../assets/games/4_stars.png">
+      <!--<img class="image-left" src="../assets/games/csgo_icon.png">
+      <img class="image-mid" src="../assets/games/elden_ring_icon.png">
+      <img class="image-right" src="../assets/games/fortnite_icon.png"><br><br>
+      CounterStrike: Global Offensive Elden Ring
+      <img class="rating" src="../assets/games/4_stars.png">-->
+      <div class="store-element"><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
+      <div class="store-element"><img class="image-game" src="../assets/games/elden_ring_icon.png"><br><br>Elden Ring<br><img class="rating" src="../assets/games/5_stars.png"></div>
+      <div class="store-element"><img class="image-game" src="../assets/games/fortnite_icon.png"><br><br>Fortnite<br><img class="rating" src="../assets/games/2_stars.png"></div>
     </div>
   </div>
 </template>
@@ -28,9 +33,13 @@ export default {
 </script>
 
 <style>
-  .image1 {
-    height: 200px;
-    width: 200px;
+  .image-game{
+    height: 350px;
+    width: 350px;
+  }
+
+  .rating {
+    height:25px;
   }
 
   body {
@@ -49,7 +58,14 @@ export default {
 
   .store-container {
     margin-top: 25px;
-    font-size: 20px;
     vertical-align: middle;
+    display: flex;
+    
+  }
+
+  .store-element {
+    flex: 1;
+    padding: 10px;
+    font-size: 22px;
   }
 </style>
