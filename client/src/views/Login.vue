@@ -7,8 +7,6 @@
             {{ error }}
           </div>
           <div class="err-msg" v-if="loginError">{{ loginError }}</div>
-          <!-- <div class="err-msg" v-if="errorMsg">{{ errorMsg }}</div>
-          <div class="success-msg" v-else-if="successMsg">{{ successMsg }}</div> -->
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username">
@@ -41,34 +39,51 @@ export default {
 
   methods: {
     async login() {
-      const vm = this
-      const { username, password } = vm
-      
-      const response = await fetch('http://localhost:3000/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-        mode: 'cors'
-      })
+      if (this.isValid()) {
+        const vm = this
+        const { username, password } = vm
+        
+        const response = await fetch('http://localhost:3000/api/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          mode: 'cors'
+        })
 
-      if (!response.ok) {
-        if (response.status == 401) {
-          vm.loginError = await response.text()
+        if (!response.ok) {
+          if (response.status == 401) {
+            vm.loginError = await response.text()
+          }
+          else {
+            // not sure what was this
+            const parsed = JSON.parse(await response.text()) 
+            vm.errors = parsed
+          }
         }
         else {
-          const parsed = JSON.parse(await response.text()) 
-          vm.errors = parsed
+          this.$router.push({ name: 'Home'})
         }
       }
-      else {
-        this.$router.push({ name: 'Home'})
-      }
     },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.username == "") {
+        invalid.push('Username is required.')
+        bool = 0
+      }
+      if (this.password == "") {
+        invalid.push('Password is required.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
+    }
   }
 }
 </script>
