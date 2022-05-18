@@ -33,8 +33,7 @@
 </template>
 
 <script>
-import { mapActions } from 'pinia'
-import { authStore } from '../stores/auth'
+import validator from 'validator'
 
 export default {
   data() {
@@ -49,33 +48,63 @@ export default {
 
   methods: {
     async register() {
-      const vm = this
-      const { username, email, password, confirmPassword } = vm
-      const response = await fetch('http://localhost:3000/api/users/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-          confirmPassword
-        }),
-        mode: 'cors'
-      })
+      if (this.isValid()) {
+        const vm = this
+        const { username, email, password, confirmPassword } = vm
+        const response = await fetch('http://localhost:3000/api/users/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+            confirmPassword
+          }),
+          mode: 'cors'
+        })
 
-      if (!response.ok) {
-        const parsed = JSON.parse(await response.text())
-        vm.errors = parsed
-      }
-      else {
-        this.modSuccessMsg(await response.text())
-        this.$router.push({ name: 'Login'})
+        if (!response.ok) {
+          const duplicate = []
+          const parsed = await response.text()
+          duplicate.push(parsed)
+          vm.errors = duplicate
+        }
+        else {
+          this.$router.push({ name: 'Login'})
+        }
       }
     },
-    ...mapActions(authStore, ['modSuccessMsg']),
-    ...mapActions(authStore, ['modErrorMsg']),
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.username == "") {
+        invalid.push('Username is required.')
+        bool = 0
+      }
+      if (this.email == "") {
+        invalid.push('Email is required.')
+        bool = 0
+      } else if (!validator.isEmail(this.email)) {
+        invalid.push('Please provide a valid email.')
+        bool = 0
+      }
+
+      if (this.password.length < 6) {
+        invalid.push('Password must be at least 6 characters long.')
+        bool = 0
+      }
+      if (this.confirmPassword.length < 6) {
+        invalid.push('Password must be at least 6 characters long.')
+        bool = 0
+      } else if (this.password != this.confirmPassword) {
+        invalid.push('Passwords must match.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
+    }
   }
 }
 </script>

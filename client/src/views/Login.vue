@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import { mapState } from 'pinia'
-import { authStore } from '../stores/auth'
 
 export default {
   data() {
@@ -38,14 +36,8 @@ export default {
       password: '',
       errors: [],
       loginError: '',
-      errorMsg: '',
-      successMsg: ''
     }
   },
-  // *** Need to fix this when redirecting to another page
-  // mounted() {
-  //   this.showSuccess()
-  // },
 
   methods: {
     async login() {
@@ -77,14 +69,6 @@ export default {
         this.$router.push({ name: 'Home'})
       }
     },
-    showSuccess() {
-      this.successMsg = this.getSuccessMsg()
-    },
-    showError() {
-      this.errorMsg = this.getErrorMsg()
-    },
-    ...mapState(authStore, ['getSuccessMsg']),
-    ...mapState(authStore, ['getErrorMsg'])
   }
 }
 </script>
