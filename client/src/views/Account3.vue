@@ -56,7 +56,7 @@ export default {
     border: 0ch;
   }
   .parent-container {
-      margin: 10%;
+      margin: 5%;
       display: block;
       align-items: center;
       justify-content: center;

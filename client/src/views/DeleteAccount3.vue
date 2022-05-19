@@ -56,7 +56,7 @@
 </style>
 <style scoped>
     .parent-container {
-
+    margin: 5%; 
     display: block;
     align-items: center;
     justify-content: center;

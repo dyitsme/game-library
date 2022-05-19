@@ -55,33 +55,31 @@
   }
 </style>
 <style scoped>
-    .parent-container {
-
+  .parent-container {
+    margin: 5%;
     display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
   }
-.content-box {
-  margin-left: 54px;
-  margin-top: 45px;
-  margin-right: 54px;
-  margin-bottom: 45px;
-
-}
+  .content-box {
+    margin-left: 54px;
+    margin-top: 45px;
+    margin-right: 54px;
+    margin-bottom: 45px;
+  }
 
   .flex-1 {
     margin-top: 136px;
     display: flex;
     justify-content: space-between;
   }
-button {
-  border: 0px;  
-}
+  button {
+    border: 0px;  
+  }
   .cancel-button {
     width: 306px;
     height: 73px;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
