@@ -24,12 +24,9 @@
                     <h4>Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.</h4>
                   </div>
                 </div>
-                <button id="edit-button" onclick="window.location.href = '/delete-account'';">Edit account</button>
-                <h2>Security</h2>
-                <div class="two-buttons">
-                  <button id="change-password">Change password</button>
-                  <button id="delete"><a id="delete-link" href="/delete-account/">Delete Account</a></button>
-                </div>
+                <a href="/delete-account/">
+                  <button id="edit-button" >Edit account</button> 
+                </a>
               </div>
             </div>
           </div>
@@ -167,7 +164,7 @@ export default {
         height: auto;
       }
       #edit-button {
-        width: 348px;
+        width: 100%;
         height: 92px;
         background: #444444;
         border-radius: 4px;

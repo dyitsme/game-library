@@ -6,9 +6,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\Destiny 2.png" alt="Destiny 2 Image"></div>
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button"><a href="/store/edit/5/">Edit</a></button>
-          <button class="delete-button"><a href="/store/delete/5/">Delete</a></button>
+          <a href="/store2/"><button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
+          <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
         <div class="information">
           <div class="flex-1">

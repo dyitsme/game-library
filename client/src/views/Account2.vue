@@ -160,7 +160,7 @@ export default {
         height: auto;
       }
       #edit-button {
-        width: 348px;
+        width: 100%;
         height: 92px;
         background: #444444;
         border-radius: 4px;

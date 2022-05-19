@@ -5,7 +5,7 @@
 
     <div class="parent-container">
       <div id="inner">
-        <a href="/delete-account/">
+        <a href="/profile2/">
           <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
         </a>
         <div id="main">Change Password</div>
