@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const userModel = require('../models/users')
 
@@ -68,6 +69,7 @@ const loginUser = (req, res) => {
               // console.log(req.session);
           
               res.send('You are now logged in.')
+              generateToken(username)
             } else {
               // passwords don't match
               res.status(401).send('Incorrect password. Please try again.')
@@ -86,6 +88,10 @@ const loginUser = (req, res) => {
     const messages = errors.array().map((item) => item.msg);
     res.status(400).send(messages)
   }
+}
+
+const generateToken = (username) => {
+  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' })
 }
 
 module.exports = {
