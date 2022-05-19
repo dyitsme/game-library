@@ -64,7 +64,7 @@ export default {
       display: block;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 200vh;
       
   }
       .main-box {
