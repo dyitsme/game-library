@@ -5,7 +5,6 @@
   <button class="sort-btn" @click="sortOne()">
     <img class="icon" src="../assets/sort1_icon.svg">
   </button>
-  <button @click="sortOne()">Click me</button>
 </template>
 
 <script>
@@ -15,10 +14,9 @@
     methods: {
       sortOne(){
         this.$router.push({name: 'Store' })
-        console.log("hi")
       },
       sortTwo(){
-        this.$router.push({name: 'Store' })
+        this.$router.push({name: 'Store2' })
       }
     }
   }

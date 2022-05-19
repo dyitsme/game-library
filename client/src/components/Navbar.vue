@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container">
     <ul class="nav-group">
-      <li class="nav-links" id="logo"><img src="../assets/lib_logo.svg" height="50px" width="50px"></li>
+      <li class="nav-links" id="logo"><a href="/"><img src="../assets/lib_logo.svg" height="50px" width="50px"></a></li>
       <li class="nav-links"><a href="/create">Create Game</a></li>
       <li class="nav-links"><a href="/store">Store</a></li>
       <li class="nav-links"><a href="/library">Library</a></li>

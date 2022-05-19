@@ -1,7 +1,7 @@
 <template>
   <Navbar></Navbar>
   <div class="container">
-    <h1>Store</h1>
+    <h1>Library</h1>
     <Searchbar></Searchbar>
     <LibrarySortbar></LibrarySortbar>
     <div class="store-container">

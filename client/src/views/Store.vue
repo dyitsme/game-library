@@ -5,11 +5,6 @@
     <Searchbar></Searchbar>
     <StoreSortbar></StoreSortbar>
     <div class="store-container">
-      <!--<img class="image-left" src="../assets/games/csgo_icon.png">
-      <img class="image-mid" src="../assets/games/elden_ring_icon.png">
-      <img class="image-right" src="../assets/games/fortnite_icon.png"><br><br>
-      CounterStrike: Global Offensive Elden Ring
-      <img class="rating" src="../assets/games/4_stars.png">-->
       <div class="store-element"><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
       <div class="store-element"><img class="image-game" src="../assets/games/elden_ring_icon.png"><br><br>Elden Ring<br><img class="rating" src="../assets/games/5_stars.png"></div>
       <div class="store-element"><img class="image-game" src="../assets/games/fortnite_icon.png"><br><br>Fortnite<br><img class="rating" src="../assets/games/2_stars.png"></div>
