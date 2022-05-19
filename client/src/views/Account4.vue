@@ -27,7 +27,7 @@
                 <h2>Security</h2>
                 <div class="two-buttons">
                   <button id="change-password">Change password</button>
-                  <button id="delete">Delete Account</button>
+                  <button id="delete"><a id="delete-link" href="/delete-account/">Delete Account</a></button>
                 </div>
               </div>
             </div>
@@ -48,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+  a{
+    text-decoration: none;
+    color: #f53649;
+  }
   .profile-window{
     padding: 5%;
   }
