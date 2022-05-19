@@ -7,8 +7,8 @@
         <div class="container">
           <div class="game-image"><img src="..\assets\Out of the Park Baseball 23.png" alt="Out of the Park Baseball 23 Image"></div>
           <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <button class="edit-button"><a href="/store/edit/4/">Edit</a></button>
+          <button class="delete-button"><a href="/store/delete/4/">Delete</a></button>
         </div>
         <div class="information">
           <div class="flex-1">
@@ -60,6 +60,7 @@
 </style>
 <style scoped>
   a {
+    text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;

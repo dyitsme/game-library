@@ -8,8 +8,8 @@
         <div class="container">
           <div class="game-image"><img src="..\assets\CounterStrike.png" alt="Counter Strike Image"></div>
           <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <button class="edit-button"><a href="/store/edit/1/">Edit</a></button>
+          <button class="delete-button"><a href="/store/delete/1/">Delete</a></button>
         </div>
 
         <div class="information">
@@ -48,11 +48,7 @@
         this.isAscending = !this.isAscending
       }
     },
-
   }
-
-  
-
 </script>
 
 <style>
@@ -63,6 +59,7 @@
 </style>
 <style scoped>
   a {
+    text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
