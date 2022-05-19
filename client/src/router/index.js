@@ -217,7 +217,7 @@ const router = createRouter({
       component: () => import('../views/DeleteGame4.vue')
     },
     {
-      path: '/store/delete/5',
+      path: '/store/delete/5',          
       name: 'DeleteGame5',
       component: () => import('../views/DeleteGame5.vue')
     },

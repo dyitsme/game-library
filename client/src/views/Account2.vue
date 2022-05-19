@@ -48,12 +48,15 @@ export default {
 </script>
 
 <style scoped>
+  .profile-window{
+    padding: 5%;
+  }
   button{
     border: 0ch;
   }
   .parent-container {
       margin: 10%;
-      display: flex;
+      display: block;
       align-items: center;
       justify-content: center;
       height: 100vh;

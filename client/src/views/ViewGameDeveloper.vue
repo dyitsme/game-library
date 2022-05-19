@@ -85,11 +85,12 @@
     background-color: transparent;
     padding: 0px;
     border: 0px;
+    
   }
   .parent-container {
-      margin: 1%;
+      margin: 10%;
 
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;

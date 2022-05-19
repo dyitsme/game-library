@@ -127,7 +127,7 @@
   }
   .parent-container {
       margin: 10%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;

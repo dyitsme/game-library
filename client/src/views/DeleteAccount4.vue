@@ -57,7 +57,7 @@
 <style scoped>
     .parent-container {
 
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
