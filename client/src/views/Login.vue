@@ -12,7 +12,7 @@
             <input type="password"/>
           </div>
           <button class="login-btn">Login</button>
-          <p class="to-register">Already have an account? <a class="link" href="/register">Sign up.</a></p>
+          <p class="to-register">Don't have an account yet? <a class="link" href="/register">Sign up.</a></p>
         </div>
       </div>
       <div class="background">
