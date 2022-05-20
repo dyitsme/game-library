@@ -1,7 +1,7 @@
 <template>
   <input class="search-input" type="text">
   <button class="search-btn">
-  <img class="icon" src="../assets/search_icon.svg">
+  <img class="icon" src="../assets/svg/search_icon.svg">
   </button>
 </template>
 
