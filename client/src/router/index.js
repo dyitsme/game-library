@@ -19,6 +19,11 @@ import ViewGameDeveloper4 from '../views/ViewGameDeveloper4.vue'
 import ViewGameDeveloper5 from '../views/ViewGameDeveloper5.vue'
 
 import EditAccount1 from '../views/EditAccount1.vue'
+import EditAccount2 from '../views/EditAccount2.vue'
+import EditAccount3 from '../views/EditAccount3.vue'
+import EditAccount4 from '../views/EditAccount4.vue'
+import EditAccount5 from '../views/EditAccount5.vue'
+
 
 import DeleteAccount from '../views/DeleteAccount.vue'
 import DeleteAccount2 from '../views/DeleteAccount2.vue'
@@ -42,6 +47,26 @@ const router = createRouter({
       path: '/edit-account/1',
       name: 'EditAccount1',
       component: EditAccount1
+    },
+    {
+      path: '/edit-account/2',
+      name: 'EditAccount2',
+      component: EditAccount2
+    },
+    {
+      path: '/edit-account/3',
+      name: 'EditAccount3',
+      component: EditAccount3
+    },
+    {
+      path: '/edit-account/4',
+      name: 'EditAccount4',
+      component: EditAccount4
+    },
+    {
+      path: '/edit-account/5',
+      name: 'EditAccount5',
+      component: EditAccount5
     },
     {
       path: '/change-password',
