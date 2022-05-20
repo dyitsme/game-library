@@ -2,11 +2,11 @@
   <Navbar></Navbar>
   <div class="parent-container">
     <dir class="container">
-      <a class="back" href="/store">Back</a>
+      <router-link class="back" :to="{ name: 'view-game-developer' }">Back</router-link>
       <h1>Edit Game</h1>
       <form class="edit-form">
         <label id="img-label">
-          <img  class="icon" src="../assets/upload_img.svg">
+          <img  class="icon" src="../assets/svg/upload_img.svg">
           <div class="upload-btn">Upload Game Poster</div>
           <br>
           <input id="img-input" type="file" accept="image/*">
