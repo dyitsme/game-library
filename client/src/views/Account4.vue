@@ -23,12 +23,9 @@
                     <h4>Freelance web specialist. Pop culture guru. Foodaholic. Twitter junkie. Problem solver. Beer maven.</h4>
                   </div>
                 </div>
-                <button id="edit-button">Edit account</button>
-                <h2>Security</h2>
-                <div class="two-buttons">
-                  <button id="change-password">Change password</button>
-                  <button id="delete"><a id="delete-link" href="/edit-account/">Delete Account</a></button>
-                </div>
+                <a href="/edit-account/1">
+                  <button id="edit-button" >Edit account</button> 
+                </a>
               </div>
             </div>
           </div>

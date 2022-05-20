@@ -18,6 +18,8 @@ import ViewGameDeveloper3 from '../views/ViewGameDeveloper3.vue'
 import ViewGameDeveloper4 from '../views/ViewGameDeveloper4.vue'
 import ViewGameDeveloper5 from '../views/ViewGameDeveloper5.vue'
 
+import EditAccount1 from '../views/EditAccount1.vue'
+
 import DeleteAccount from '../views/DeleteAccount.vue'
 import DeleteAccount2 from '../views/DeleteAccount2.vue'
 import DeleteAccount3 from '../views/DeleteAccount3.vue'
@@ -36,6 +38,11 @@ import ChangePassword from '../views/ChangePassword.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/edit-account/1',
+      name: 'EditAccount1',
+      component: EditAccount1
+    },
     {
       path: '/change-password',
       name: 'change-password',
