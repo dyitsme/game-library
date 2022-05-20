@@ -179,6 +179,11 @@ const router = createRouter({
       component: Register
     },
     {
+      path: '/create',
+      name: 'CreateGame',
+      component: () => import('../views/CreateGame.vue')
+    },
+    {
       path: '/store',
       name: 'Store',
       component: () => import('../views/Store.vue')
