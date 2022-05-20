@@ -24,7 +24,7 @@
                     <h4>Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.</h4>
                   </div>
                 </div>
-                <a href="/delete-account/1">
+                <a href="/edit-account/1">
                   <button id="edit-button" >Edit account</button> 
                 </a>
               </div>

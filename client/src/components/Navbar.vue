@@ -5,7 +5,7 @@
       <li class="nav-links"><a href="/create">Create Game</a></li>
       <li class="nav-links"><a href="/store">Store</a></li>
       <li class="nav-links"><a href="/library">Library</a></li>
-      <li class="nav-links"><a href="/profile">Profile</a></li>
+      <li class="nav-links"><a href="/account">Profile</a></li>
       <li class="nav-links"><a href="/about">About</a></li>
       <li class="nav-links"><a href="/login">Login</a></li>
     </ul>

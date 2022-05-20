@@ -27,7 +27,7 @@
                 <h2>Security</h2>
                 <div class="two-buttons">
                   <button id="change-password">Change password</button>
-                  <button id="delete"><a id="delete-link" href="/delete-account/">Delete Account</a></button>
+                  <button id="delete"><a id="delete-link" href="/edit-account/">Delete Account</a></button>
                 </div>
               </div>
             </div>

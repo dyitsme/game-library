@@ -23,7 +23,9 @@
                     <h4>Coffee advocate. Beer ninja. Incurable web geek. Certified communicator. Travel enthusiast.</h4>
                   </div>
                 </div>
-                <button id="edit-button">Edit account</button>
+                <a href="/edit-account/1">
+                  <button id="edit-button" >Edit account</button> 
+                </a>
               </div>
             </div>
           </div>
