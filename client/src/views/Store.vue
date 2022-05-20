@@ -5,9 +5,15 @@
     <Searchbar></Searchbar>
     <StoreSortbar></StoreSortbar>
     <div class="store-container">
-      <div class="store-element"><router-link :to="{ name: 'view-game-developer' }"><img class="image-game" src="../assets/games/csgo_icon.png"></router-link><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
-      <div class="store-element"><router-link :to="{ name: 'view-game-developer2' }"><img class="image-game" src="../assets/games/elden_ring_icon.png"></router-link><br><br>Elden Ring<br><img class="rating" src="../assets/games/5_stars.png"></div>
-      <div class="store-element"><router-link :to="{ name: 'view-game-developer3' }"><img class="image-game" src="../assets/games/fortnite_icon.png"></router-link><br><br>Fortnite<br><img class="rating" src="../assets/games/2_stars.png"></div>
+      <a href="/view-game-customer/1">
+        <div class="store-element" ><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
+      </a>
+      <a href="/view-game-customer/2">
+        <div class="store-element"><img class="image-game" src="../assets/img/BabaIsYou.png"><br><br>Baba Is You<br><img class="rating" src="../assets/games/5_stars.png"></div>
+      </a>
+      <a href="/view-game-customer/3">
+        <div class="store-element"><img class="image-game" src="..\assets\img\Train Simulator Classic.png"><br><br>Train Simulator Classic<br><img class="rating" src="../assets/games/2_stars.png"></div>
+      </a>
     </div>
   </div>
 </template>
@@ -28,6 +34,23 @@ export default {
 </script>
 
 <style>
+  a{
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    color: #FFFFFF;
+
+    padding-bottom: 50px;
+    margin-top: 33px;
+    padding-right: 20px;
+
+    width: 1170px;
+    height: auto;
+  }
   .image-game{
     height: 350px;
     width: 350px;

@@ -7,7 +7,7 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\img\CounterStrike.png" alt="Counter Strike Image"></div>
-          <a href="/store2/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <a href="/store/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
           <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
           <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
