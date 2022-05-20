@@ -2,11 +2,10 @@
 
 <template>
     <Navbar></Navbar>
-
     <div class="parent-container">
       <div id="inner">
         <a href="/profile2/">
-          <button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
         </a>
         <div id="main">Change Password</div>
         <div id="inputs">
