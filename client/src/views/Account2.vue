@@ -23,7 +23,7 @@
                     <h4>Coffee advocate. Beer ninja. Incurable web geek. Certified communicator. Travel enthusiast.</h4>
                   </div>
                 </div>
-                <a href="/edit-account/1">
+                <a href="/edit-account/2">
                   <button id="edit-button" >Edit account</button> 
                 </a>
               </div>
@@ -74,7 +74,6 @@ export default {
         /* My Profile */
         height: 54px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 48px;
@@ -87,7 +86,6 @@ export default {
 
       }
       h2 {
-        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 40px;
@@ -103,7 +101,6 @@ export default {
         height: 45px;
         margin-bottom: 1.6px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -120,7 +117,6 @@ export default {
         width: auto;
         height: auto;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -167,7 +163,6 @@ export default {
         background: #444444;
         border-radius: 4px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -185,7 +180,6 @@ export default {
 
         background: #444444;
         border-radius: 4px;
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -205,7 +199,6 @@ export default {
         border-radius: 4px;
 
         /* Fonts*/
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;

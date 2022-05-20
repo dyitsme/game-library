@@ -61,7 +61,6 @@
 <style scoped>
   a {
     text-decoration: none;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -87,7 +86,6 @@
     height: 39px;
     top: 27px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -142,7 +140,6 @@
     width: 1170px;
     height: auto;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -158,7 +155,6 @@
 
 
   .title {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
@@ -171,7 +167,6 @@
     width: 343px;
     height: 42px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 29px;
@@ -186,7 +181,6 @@
     left: 905px;
     top: 416px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;

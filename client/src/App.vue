@@ -7,7 +7,7 @@
   * {
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Inter";
+    font-family: sans-serif;
     font-size: 16px;
   }
 </style>

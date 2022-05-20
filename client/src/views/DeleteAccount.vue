@@ -82,7 +82,6 @@
   .cancel-button {
     width: 306px;
     height: 73px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -100,7 +99,6 @@
     width: 306px;
     height: 73px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -128,7 +126,6 @@
   h1 {
     margin-top: 22px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -142,7 +139,6 @@
   h2 {
     margin-top: 29px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
