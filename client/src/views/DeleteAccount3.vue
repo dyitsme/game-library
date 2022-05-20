@@ -7,7 +7,7 @@
       <div class="container">
         <div class="bar"></div>
         <div class="content-box">
-          <div class="image-box"><img src="..\assets\WarningSign.png" alt="Warning Sign Image"></div>
+          <div class="image-box"><img src="..\assets\img\WarningSign.png" alt="Warning Sign Image"></div>
           <h1>Are you sure?</h1>
           <h2>Andrew Coleman, this will permanently delete your account.</h2>
           <div class="flex-1">

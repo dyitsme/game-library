@@ -5,18 +5,18 @@
     <div class="parent-container">
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\Train Simulator Classic.png" alt="Train Simulator Classic Image"></div>
-          <a href="/store2/"><button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <div class="game-image"><img src="..\assets\img\Train Simulator Classic.png" alt="Train Simulator Classic Image"></div>
+          <a href="/store2/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
           <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
           <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
         <div class="information">
           <div class="flex-1">
             <div class="title">Train Simulator Classic</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">Simulation</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Welcome to the ultimate railway hobby! Master complex operations on the DB BR 411 ICE T, BR Class 390 Pendolino, Union Pacific AC4400CW, and more as you explore authentic routes. Whatever you love about trains, Train Simulator Classic lets you take your hobby to the next level.</div>
           <a href="https://store.steampowered.com/app/24010/Train_Simulator_Classic/">https://store.steampowered.com/app/24010/Train_Simulator_Classic/</a>
         </div>

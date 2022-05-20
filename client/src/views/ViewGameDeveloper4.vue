@@ -5,18 +5,18 @@
     <div class="parent-container">
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\Out of the Park Baseball 23.png" alt="Out of the Park Baseball 23 Image"></div>
-          <a href="/store2/"><button class="back-button"><img src="..\assets\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <div class="game-image"><img src="..\assets\img\Out of the Park Baseball 23.png" alt="Out of the Park Baseball 23 Image"></div>
+          <a href="/store2/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
           <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
           <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
         <div class="information">
           <div class="flex-1">
             <div class="title">Out of the Park Baseball 23</div>
-            <div class="green-bullet"><img src="..\assets\GreenBullet.png" alt="Green Bullet Image"></div>
+            <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">Sports</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\FourStars.png" alt="Four Stars Image"></div>
+          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
           <div class="definition">Play What The Pros Play! Officially licensed by MLB, the MLB Players Inc. and KBO, Out of the Park Baseball 23 is the newest in the award-winning sports strategy series. A sports fan’s dream come true - and the only game ever to win Metacritic PC Game of the Year Award TWICE</div>
           <a href="https://store.steampowered.com/app/1739010/Out_of_the_Park_Baseball_23/">https://store.steampowered.com/app/1739010/Out_of_the_Park_Baseball_23/</a>
         </div>

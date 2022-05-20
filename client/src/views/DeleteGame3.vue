@@ -7,7 +7,7 @@
         <p class="text">This will delete Elden Ring from the store and other users' libraries.</p>
       </div>
       <div class="btn-wrapper">
-        <button class="cancel-btn" @click="$router.push('/store')">Cancel</button>
+        <button class="cancel-btn" @click="$router.push({ name: 'view-game-developer3'})">Cancel</button>
         <button class="delete-btn">Delete</button>
       </div>
     </div>
