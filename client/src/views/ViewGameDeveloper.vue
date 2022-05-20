@@ -7,9 +7,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\img\CounterStrike.png" alt="Counter Strike Image"></div>
-          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <a href="/store2/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
+          <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
 
         <div class="information">
@@ -48,11 +48,7 @@
         this.isAscending = !this.isAscending
       }
     },
-
   }
-
-  
-
 </script>
 
 <style>
@@ -63,6 +59,7 @@
 </style>
 <style scoped>
   a {
+    text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -85,11 +82,12 @@
     background-color: transparent;
     padding: 0px;
     border: 0px;
+    
   }
   .parent-container {
-      margin: 1%;
+      margin: 10%;
 
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;

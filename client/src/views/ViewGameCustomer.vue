@@ -6,7 +6,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="../assets/img/CounterStrike.png" alt="Counter Strike Image"></div>
-          <button class="back-button"><img src="../assets/img/BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <a href="/store2/">
+            <button class="back-button"><img src="../assets/img/BackButton.png" alt="Back Button Image" class="back-image"></button>
+          </a>
           <button @click="toggleBuyButton" class="buy-game-button">
             <div v-if="isOwned">In Library</div> 
             <div v-else>BUY GAME</div>
@@ -89,7 +91,6 @@
     left: 20px;
     top: 20px;
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   .back-button{
     background-color: transparent;
@@ -99,7 +100,7 @@
   .parent-container {
       margin: 1%;
 
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: auto;

@@ -6,7 +6,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\img\Out of the Park Baseball 23.png" alt="Out of the Park Baseball 23 Image"></div>
-          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <a href="/store2/">
+            <button class="back-button"><img src=..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          </a>
           <button @click="toggleBuyButton" class="buy-game-button">
             <div v-if="isOwned">In Library</div> 
             <div v-else>BUY GAME</div>
@@ -90,7 +92,7 @@
   }
   .parent-container {
       margin: 10%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;

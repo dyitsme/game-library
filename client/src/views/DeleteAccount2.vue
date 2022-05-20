@@ -11,7 +11,9 @@
           <h1>Are you sure?</h1>
           <h2>Andrea Peterson, this will permanently delete your account.</h2>
           <div class="flex-1">
-            <button class="cancel-button">Cancel</button>
+            <a href="/profile2/">
+              <button class="cancel-button">Cancel</button>
+            </a>
             <button class="confirm-button">Confirm</button>
           </div>
         </div>
@@ -57,7 +59,8 @@
 <style scoped>
     .parent-container {
 
-    display: flex;
+    margin: 5%;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;

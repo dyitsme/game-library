@@ -27,7 +27,7 @@
                 <h2>Security</h2>
                 <div class="two-buttons">
                   <button id="change-password">Change password</button>
-                  <button id="delete">Delete Account</button>
+                  <button id="delete"><a id="delete-link" href="/delete-account/">Delete Account</a></button>
                 </div>
               </div>
             </div>
@@ -48,12 +48,20 @@ export default {
 </script>
 
 <style scoped>
+  a{
+    text-decoration: none;
+    color: #f53649;
+  }
+  .profile-window{
+    padding: 5%;
+  }
+  
   button{
     border: 0ch;
   }
   .parent-container {
-      margin: 10%;
-      display: flex;
+      margin: 5%;
+      display: block;
       align-items: center;
       justify-content: center;
       height: 100vh;
@@ -158,7 +166,7 @@ export default {
         height: auto;
       }
       #edit-button {
-        width: 348px;
+        width: 100%;
         height: 92px;
         background: #444444;
         border-radius: 4px;

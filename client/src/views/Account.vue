@@ -24,12 +24,9 @@
                     <h4>Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.</h4>
                   </div>
                 </div>
-                <button id="edit-button">Edit account</button>
-                <h2>Security</h2>
-                <div class="two-buttons">
-                  <button id="change-password">Change password</button>
-                  <button id="delete" @click="$router.push({ name: 'delete-account' })">Delete Account</button>
-                </div>
+                <a href="/delete-account/1">
+                  <button id="edit-button" >Edit account</button> 
+                </a>
               </div>
             </div>
           </div>
@@ -49,15 +46,23 @@ export default {
 </script>
 
 <style scoped>
+  a{
+    text-decoration: none;
+    color: #f53649;
+  }
+  .profile-window{
+    padding: 5%;
+  }
   button{
     border: 0ch;
   }
   .parent-container {
-      margin: 10%;
-      display: flex;
+      margin: 5%;
+      display: block;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      height: 200vh;
+      
   }
       .main-box {
         margin-left: 97px;
@@ -159,7 +164,7 @@ export default {
         height: auto;
       }
       #edit-button {
-        width: 348px;
+        width: 100%;
         height: 92px;
         background: #444444;
         border-radius: 4px;

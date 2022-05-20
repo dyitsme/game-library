@@ -30,10 +30,17 @@ import ViewGameCustomer3 from '../views/ViewGameCustomer3.vue'
 import ViewGameCustomer4 from '../views/ViewGameCustomer4.vue'
 import ViewGameCustomer5 from '../views/ViewGameCustomer5.vue'
 
+import ChangePassword from '../views/ChangePassword.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/change-password',
+      name: 'change-password',
+      component: ChangePassword
+    },
     {
       path: '/delete-account/1',
       name: 'delete-account',
@@ -217,7 +224,7 @@ const router = createRouter({
       component: () => import('../views/DeleteGame4.vue')
     },
     {
-      path: '/store/delete/5',
+      path: '/store/delete/5',          
       name: 'DeleteGame5',
       component: () => import('../views/DeleteGame5.vue')
     },
