@@ -81,7 +81,7 @@ export default {
 
     height: 5%;
     margin: 3%;
-    font-family: 'Inter';
+    ;
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -104,7 +104,6 @@ export default {
     /* My Profile */
     height: auto;
 
-    font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
@@ -130,7 +129,6 @@ export default {
 
     background: #444444;
     border-radius: 4px;
-    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 32px;

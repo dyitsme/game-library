@@ -5,9 +5,9 @@
     <Searchbar></Searchbar>
     <StoreSortbar></StoreSortbar>
     <div class="store-container">
-      <div class="store-element"><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
-      <div class="store-element"><img class="image-game" src="../assets/games/elden_ring_icon.png"><br><br>Elden Ring<br><img class="rating" src="../assets/games/5_stars.png"></div>
-      <div class="store-element"><img class="image-game" src="../assets/games/fortnite_icon.png"><br><br>Fortnite<br><img class="rating" src="../assets/games/2_stars.png"></div>
+      <div class="store-element"><router-link :to="{ name: 'view-game-developer' }"><img class="image-game" src="../assets/games/csgo_icon.png"></router-link><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
+      <div class="store-element"><router-link :to="{ name: 'view-game-developer2' }"><img class="image-game" src="../assets/games/elden_ring_icon.png"></router-link><br><br>Elden Ring<br><img class="rating" src="../assets/games/5_stars.png"></div>
+      <div class="store-element"><router-link :to="{ name: 'view-game-developer3' }"><img class="image-game" src="../assets/games/fortnite_icon.png"></router-link><br><br>Fortnite<br><img class="rating" src="../assets/games/2_stars.png"></div>
     </div>
   </div>
 </template>

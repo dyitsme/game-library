@@ -98,6 +98,8 @@ export default {
 .background {
   flex: 1;
   background-color: var(--dark-bg-grey);
+  opacity: 10%;
+  background-image: url("../assets/img/keyboard.jpg");
 }
 
 
@@ -121,8 +123,6 @@ export default {
 }
 
 .to-login {
-  position: relative;
-  right: 7.5em;
   color: var(--white);
 }
 
