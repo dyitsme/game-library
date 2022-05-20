@@ -6,7 +6,7 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="../assets/img/BabaIsYou.png" alt="Baba Is You Image"></div>
-          <a href="/store2/">
+          <a href="/store/">
             <button class="back-button"><img src="../assets/img/BackButton.png" alt="Back Button Image" class="back-image"></button>
           </a>
           <button @click="toggleBuyButton" class="buy-game-button">
