@@ -1,11 +1,11 @@
 <template>
   <div class="nav-container">
     <ul class="nav-group">
-      <li class="nav-links" id="logo">Logo</li>
-      <li class="nav-links">Create Game</li>
-      <li class="nav-links">Store</li>
-      <li class="nav-links">Library</li>
-      <li class="nav-links"><router-link :to="{ name: 'account' }">Profile</router-link></li>
+      <li class="nav-links" id="logo"><a href="/"><img src="../assets/lib_logo.svg" height="50px" width="50px"></a></li>
+      <li class="nav-links"><a href="/create">Create Game</a></li>
+      <li class="nav-links"><a href="/store">Store</a></li>
+      <li class="nav-links"><a href="/library">Library</a></li>
+      <li class="nav-links"><a href="/account">Profile</a></li>
       <li class="nav-links"><a href="/about">About</a></li>
       <li class="nav-links"><a href="/login">Login</a></li>
     </ul>

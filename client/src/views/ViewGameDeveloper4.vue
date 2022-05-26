@@ -6,9 +6,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\img\Out of the Park Baseball 23.png" alt="Out of the Park Baseball 23 Image"></div>
-          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
-          <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <a href="/store/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
+          <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
         </div>
         <div class="information">
           <div class="flex-1">
@@ -60,7 +60,7 @@
 </style>
 <style scoped>
   a {
-    font-family: 'Inter';
+    text-decoration: none;
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -86,7 +86,6 @@
     height: 39px;
     top: 27px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -127,7 +126,7 @@
   }
   .parent-container {
       margin: 10%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -151,7 +150,6 @@
     width: 1170px;
     height: auto;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -167,7 +165,6 @@
 
 
   .title {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
@@ -180,7 +177,6 @@
     width: 343px;
     height: 42px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 29px;
@@ -195,7 +191,6 @@
     left: 905px;
     top: 416px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;

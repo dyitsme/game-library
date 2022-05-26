@@ -11,7 +11,9 @@
           <h1>Are you sure?</h1>
           <h2>Jose Turner, this will permanently delete your account.</h2>
           <div class="flex-1">
-            <button class="cancel-button">Cancel</button>
+            <a href="/profile2/">
+              <button class="cancel-button">Cancel</button>
+            </a>
             <button class="confirm-button">Confirm</button>
           </div>
         </div>
@@ -57,7 +59,8 @@
 <style scoped>
     .parent-container {
 
-    display: flex;
+    margin: 5%;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -82,7 +85,6 @@ button {
     width: 306px;
     height: 73px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -100,7 +102,6 @@ button {
     width: 306px;
     height: 73px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
@@ -128,7 +129,6 @@ button {
   h1 {
     margin-top: 22px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
@@ -142,7 +142,6 @@ button {
   h2 {
     margin-top: 29px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;

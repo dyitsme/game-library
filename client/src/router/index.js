@@ -18,6 +18,13 @@ import ViewGameDeveloper3 from '../views/ViewGameDeveloper3.vue'
 import ViewGameDeveloper4 from '../views/ViewGameDeveloper4.vue'
 import ViewGameDeveloper5 from '../views/ViewGameDeveloper5.vue'
 
+import EditAccount1 from '../views/EditAccount1.vue'
+import EditAccount2 from '../views/EditAccount2.vue'
+import EditAccount3 from '../views/EditAccount3.vue'
+import EditAccount4 from '../views/EditAccount4.vue'
+import EditAccount5 from '../views/EditAccount5.vue'
+
+
 import DeleteAccount from '../views/DeleteAccount.vue'
 import DeleteAccount2 from '../views/DeleteAccount2.vue'
 import DeleteAccount3 from '../views/DeleteAccount3.vue'
@@ -30,10 +37,42 @@ import ViewGameCustomer3 from '../views/ViewGameCustomer3.vue'
 import ViewGameCustomer4 from '../views/ViewGameCustomer4.vue'
 import ViewGameCustomer5 from '../views/ViewGameCustomer5.vue'
 
+import ChangePassword from '../views/ChangePassword.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/edit-account/1',
+      name: 'EditAccount1',
+      component: EditAccount1
+    },
+    {
+      path: '/edit-account/2',
+      name: 'EditAccount2',
+      component: EditAccount2
+    },
+    {
+      path: '/edit-account/3',
+      name: 'EditAccount3',
+      component: EditAccount3
+    },
+    {
+      path: '/edit-account/4',
+      name: 'EditAccount4',
+      component: EditAccount4
+    },
+    {
+      path: '/edit-account/5',
+      name: 'EditAccount5',
+      component: EditAccount5
+    },
+    {
+      path: '/change-password',
+      name: 'change-password',
+      component: ChangePassword
+    },
     {
       path: '/delete-account/1',
       name: 'delete-account',
@@ -172,6 +211,36 @@ const router = createRouter({
       component: Register
     },
     {
+      path: '/create',
+      name: 'CreateGame',
+      component: () => import('../views/CreateGame.vue')
+    },
+    {
+      path: '/store',
+      name: 'Store',
+      component: () => import('../views/Store.vue')
+    },
+    {
+      path: '/store2',
+      name: 'Store2',
+      component: () => import('../views/Store2.vue')
+    },
+    {
+      path: '/library',
+      name: 'Library',
+      component: () => import('../views/Library.vue')
+    },
+    {
+      path: '/library2',
+      name: 'Library2',
+      component: () => import('../views/Library2.vue')
+    },
+    {
+      path: '/library3',
+      name: 'Library3',
+      component: () => import('../views/Library3.vue')
+    },
+    {
       path: '/store/edit/1',
       name: 'UpdateGame1',
       component: () => import('../views/UpdateGame1.vue')
@@ -217,7 +286,7 @@ const router = createRouter({
       component: () => import('../views/DeleteGame4.vue')
     },
     {
-      path: '/store/delete/5',
+      path: '/store/delete/5',          
       name: 'DeleteGame5',
       component: () => import('../views/DeleteGame5.vue')
     },

@@ -20,7 +20,6 @@
         </form>
       </div>
       <div class="background">
-      
       </div>
     </div>
 </template>
@@ -88,6 +87,10 @@ export default {
 }
 </script>
 <style scoped>
+.background {
+  background-image: url("../assets/img/BabaisYou.png");
+  opacity: 20%;
+}
 .container {
   display: flex;
   flex-direction: row;

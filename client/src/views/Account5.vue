@@ -23,12 +23,9 @@
                     <h4>Freelance web specialist. Pop culture guru. Foodaholic. Twitter junkie. Problem solver. Beer maven.</h4>
                   </div>
                 </div>
-                <button id="edit-button">Edit account</button>
-                <h2>Security</h2>
-                <div class="two-buttons">
-                  <button id="change-password">Change password</button>
-                  <button id="delete">Delete Account</button>
-                </div>
+                <a href="/edit-account/5">
+                  <button id="edit-button" >Edit account</button> 
+                </a>
               </div>
             </div>
           </div>
@@ -48,12 +45,20 @@ export default {
 </script>
 
 <style scoped>
+  a{
+    text-decoration: none;
+    color: #f53649;
+  }
+  .profile-window{
+    padding: 5%;
+  }
+  
   button{
     border: 0ch;
   }
   .parent-container {
-      margin: 10%;
-      display: flex;
+      margin: 5%;
+      display: block;
       align-items: center;
       justify-content: center;
       height: 100vh;
@@ -70,7 +75,6 @@ export default {
         /* My Profile */
         height: 54px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 48px;
@@ -83,7 +87,6 @@ export default {
 
       }
       h2 {
-        font-family: "Inter";
         font-style: normal;
         font-weight: 700;
         font-size: 40px;
@@ -99,7 +102,6 @@ export default {
         height: 45px;
         margin-bottom: 1.6px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -116,7 +118,6 @@ export default {
         width: auto;
         height: auto;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -158,12 +159,11 @@ export default {
         height: auto;
       }
       #edit-button {
-        width: 348px;
+        width: 100%;
         height: 92px;
         background: #444444;
         border-radius: 4px;
 
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -181,7 +181,6 @@ export default {
 
         background: #444444;
         border-radius: 4px;
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -201,7 +200,6 @@ export default {
         border-radius: 4px;
 
         /* Fonts*/
-        font-family: "Inter";
         font-style: normal;
         font-weight: 400;
         font-size: 32px;

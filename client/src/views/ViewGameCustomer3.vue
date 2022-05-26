@@ -6,7 +6,9 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img src="..\assets\img\Train Simulator Classic.png" alt="Train Simulator Classic Image"></div>
-          <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          <a href="/store/">
+            <button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
+          </a>
           <button @click="toggleBuyButton" class="buy-game-button">
             <div v-if="isOwned">In Library</div> 
             <div v-else>BUY GAME</div>
@@ -62,7 +64,6 @@
 </style>
 <style scoped>
   a {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -90,7 +91,7 @@
   }
   .parent-container {
     margin: 10%;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -114,7 +115,6 @@
     width: 1170px;
     height: auto;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
@@ -130,7 +130,6 @@
 
 
   .title {
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
@@ -143,7 +142,6 @@
     width: 343px;
     height: 42px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 29px;
@@ -158,7 +156,6 @@
     left: 905px;
     top: 416px;
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
