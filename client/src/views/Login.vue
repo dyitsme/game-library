@@ -1,19 +1,23 @@
 <template>
   <div class="container">
     <div class="login-container">
-      <h1>Welcome Back!</h1>
-        <div class="input-wrapper">
+      <h1 class="header">Welcome Back!</h1>
+        <form class="input-wrapper">
+          <div class="err-msg" v-for="error in errors" :key="error.id">
+            {{ error }}
+          </div>
+          <div class="err-msg" v-if="loginError">{{ loginError }}</div>
           <div class="input-group">
             <label class="label">Username</label>
-            <input type="text"/>
+            <input type="text" v-model="username">
           </div>
           <div class="input-group">
             <label class="label">Password</label>
-            <input type="password"/>
+            <input type="password" v-model="password">
           </div>
-          <button class="login-btn">Login</button>
-          <p class="to-register">Don't have an account yet? <a class="link" href="/register">Sign up.</a></p>
-        </div>
+          <button class="login-btn" @click.prevent="login">Login</button>
+          <p class="to-register">Already have an account? <a class="link" href="/register">Sign up.</a></p>
+        </form>
       </div>
       <div class="background">
       </div>
@@ -21,12 +25,64 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    'Navbar': Navbar
+  data() {
+    return {
+      username: '',
+      password: '',
+      errors: [],
+      loginError: '',
+    }
+  },
+
+  methods: {
+    async login() {
+      if (this.isValid()) {
+        const vm = this
+        const { username, password } = vm
+        
+        const response = await fetch('http://localhost:3000/api/users/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          if (response.status == 401) {
+            vm.loginError = await response.text()
+          }
+          else {
+            // not sure what was this
+            const parsed = JSON.parse(await response.text()) 
+            vm.errors = parsed
+          }
+        }
+        else {
+          this.$router.push({ name: 'Home'})
+        }
+      }
+    },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.username == "") {
+        invalid.push('Username is required.')
+        bool = 0
+      }
+      if (this.password == "") {
+        invalid.push('Password is required.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
+    }
   }
 }
 </script>
@@ -39,11 +95,6 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  --light-green: #00DD99;
-  --dark-bg-grey: #111111;
-  --form-grey: #151515;
-  --grey: #222222;
-  --white: #FFFFFF;
 
   font-size: 16px;
 } 
@@ -100,6 +151,14 @@ export default {
   color: var(--white);
 }
 
+.err-msg {
+  color: var(--red);
+  font-size: 1.2em;
+}
+.success-msg {
+  color: var(--light-green);
+  font-size: 1.2em;
+}
 /* temporary (to be changed)*/
 input {
   background-color: var(--form-grey);
@@ -111,8 +170,9 @@ input {
   border-radius: 4px;
 }
 
-h1 {
+.header {
   color: var(--white);
   text-align: center;
+  font-size: 2em;
 }
 </style>

@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 
-const Blog = require('./models/db')
 const userRoutes = require('./routes/userRoutes')
 
 const app = express()
@@ -20,6 +19,5 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 app.use(morgan('dev'))
-
 
 app.use('/api/users', userRoutes)

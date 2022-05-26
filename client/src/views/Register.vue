@@ -4,8 +4,11 @@
     
     </div>
     <div class="register-container">
-      <h1>Create Account</h1>
-        <div class="input-wrapper">
+      <h1 class="header">Create Account</h1>
+        <form class="input-wrapper">
+          <div class="err-msg" v-for="error in errors" :key="error.id">
+            {{ error }}
+          </div>
           <div class="input-group">
             <label class="label">Username</label>
             <input type="text" v-model="username"/>
@@ -22,42 +25,85 @@
             <label class="label">Confirm password</label>
             <input type="password" v-model="confirmPassword"/>
           </div>
-          <button class="register-btn" @click="register()">Register</button>
+          <button class="register-btn" @click.prevent="register()">Register</button>
           <p class="to-login">Already have an account? <a class="link" href="/login">Sign in.</a></p>
-        </div>
+        </form>
       </div>
     </div>
 </template>
 
 <script>
+import validator from 'validator'
+
 export default {
-  name: 'Home',
   data() {
     return {
       username: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      errors: []
     }
   },
 
   methods: {
-    register() {
-      const vm = this
-      const { username, email, password, confirmPassword } = vm
-      fetch('http://localhost:3000/api/users/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-          confirmPassword
-        }),
-        mode: 'cors'
-      })
+    async register() {
+      if (this.isValid()) {
+        const vm = this
+        const { username, email, password, confirmPassword } = vm
+        const response = await fetch('http://localhost:3000/api/users/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+            confirmPassword
+          }),
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          const duplicate = []
+          const parsed = await response.text()
+          duplicate.push(parsed)
+          vm.errors = duplicate
+        }
+        else {
+          this.$router.push({ name: 'Login'})
+        }
+      }
+    },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.username == "") {
+        invalid.push('Username is required.')
+        bool = 0
+      }
+      if (this.email == "") {
+        invalid.push('Email is required.')
+        bool = 0
+      } else if (!validator.isEmail(this.email)) {
+        invalid.push('Please provide a valid email.')
+        bool = 0
+      }
+
+      if (this.password.length < 6) {
+        invalid.push('Password must be at least 6 characters long.')
+        bool = 0
+      }
+      if (this.confirmPassword.length < 6) {
+        invalid.push('Password must be at least 6 characters long.')
+        bool = 0
+      } else if (this.password != this.confirmPassword) {
+        invalid.push('Passwords must match.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
     }
   }
 }
@@ -67,11 +113,6 @@ export default {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  --light-green: #00DD99;
-  --dark-bg-grey: #111111;
-  --form-grey: #151515;
-  --grey: #222222;
-  --white: #FFFFFF;
 
   font-size: 16px;
 } 
@@ -84,6 +125,10 @@ export default {
   justify-content: center;
 }
 
+.err-msg {
+  color: var(--red);
+  font-size: 1.2em;
+}
 .register-btn {
   background-color: var(--light-green);
   border: 0;
@@ -141,8 +186,9 @@ input {
   border-radius: 4px;
 }
 
-h1 {
+.header {
   color: var(--white);
   text-align: center;
+  font-size: 2em;
 }
 </style>
