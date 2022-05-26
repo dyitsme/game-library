@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userModel = require('../models/users')
 
+
 const registerUser = (req, res) => {
 
   const errors = validationResult(req)
@@ -62,15 +63,11 @@ const loginUser = (req, res) => {
           bcrypt.compare(password, user.password, (err, result) => {
             // passwords match (result == true)
             if (result) {
-              // Update session object once matched!
-              // req.session.user = user._id;
-              // req.session.name = user.name;
-          
-              // console.log(req.session);
-          
-              res.send('You are now logged in.')
-              generateToken(username)
-            } else {
+              // generate token
+              const accessToken =  jwt.sign(username, process.env.ACCESS_TOKEN_SECRET)
+              res.json({ accessToken: accessToken })
+            } 
+            else {
               // passwords don't match
               res.status(401).send('Incorrect password. Please try again.')
               // res.redirect('/login');
@@ -90,9 +87,6 @@ const loginUser = (req, res) => {
   }
 }
 
-const generateToken = (username) => {
-  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' })
-}
 
 module.exports = {
   registerUser,
