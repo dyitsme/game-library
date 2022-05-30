@@ -7,15 +7,20 @@
       <li class="nav-links"><a href="/library">Library</a></li>
       <li class="nav-links"><a href="/account">Profile</a></li>
       <li class="nav-links"><a href="/about">About</a></li>
-      <li class="nav-links"><a href="/login">Login</a></li>
+      <li class="nav-links"><a v-if="!loggedIn" href="/login">Login</a></li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { useAuthStore } from '../stores/authStore'
 
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    ...mapState(useAuthStore, ['loggedIn'])
+  }
 }
 
 </script>

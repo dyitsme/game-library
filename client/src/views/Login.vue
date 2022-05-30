@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import TokenService from '../services/TokenService'
 
 export default {
   data() {
@@ -65,7 +66,11 @@ export default {
           }
         }
         else {
-          this.$router.push({ name: 'Home'})
+          const parsedPromise = response.json()
+          parsedPromise.then(parsed => {
+            TokenService.updateLocalAccessToken(parsed.accessToken)
+            this.$router.push({ name: 'Home'})
+          })
         }
       }
     },

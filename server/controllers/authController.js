@@ -45,7 +45,6 @@ const registerUser = (req, res) => {
 }
 
 const loginUser = (req, res) => {
-  const { username, password } = req.body
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
@@ -89,6 +88,16 @@ const loginUser = (req, res) => {
   }
 }
 
+const validToken = (req, res) => {
+  console.log('hello')
+  const { token } = req.body
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
+    console.log(err)
+    if (err) return res.status(403).send('Invalid token.')
+    return res.status(200).send('Valid token.')
+  })
+}
+
 function generateAccessToken(user) {
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' })
 }
@@ -99,5 +108,6 @@ function generateRefreshToken(username) {
 
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  validToken
 }
