@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
 import TokenService from '../services/TokenService'
 
-// fix logic to make it not return a promise
-// async await functions return a promise
 async function validToken() {
   const url = 'http://localhost:3000/api/auth/valid-token'
   const response = await fetch(url, {
@@ -16,21 +14,32 @@ async function validToken() {
     }),
   })
 
-  if (!response.ok) {
-    return 0
+  if (response.ok) {
+    return true
   }
-  return 1
+  return false
 }
 
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({
     access: TokenService.getLocalAccessToken(),
+    logged: false
   }),
   getters: {
     loggedIn() {
-      // fix logic here
-      // return 1 if true else 0 false
+      return this.logged
+    }
+  },
+  actions: {
+    checkLoggedIn() {
+      if (validToken) {
+        this.logged = true
+      }
+    },
+    logoutUser() {
+      TokenService.removeToken()
+      this.logged = false
     }
   }
 })
