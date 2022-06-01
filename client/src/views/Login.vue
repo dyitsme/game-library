@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import TokenService from '../services/TokenService'
 
 export default {
   data() {
@@ -42,7 +43,7 @@ export default {
         const vm = this
         const { username, password } = vm
         
-        const response = await fetch('http://localhost:3000/api/users/login', {
+        const response = await fetch('http://localhost:3000/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -65,7 +66,11 @@ export default {
           }
         }
         else {
-          this.$router.push({ name: 'Home'})
+          const parsedPromise = response.json()
+          parsedPromise.then(parsed => {
+            TokenService.updateLocalAccessToken(parsed.accessToken)
+            this.$router.push({ name: 'Home'})
+          })
         }
       }
     },

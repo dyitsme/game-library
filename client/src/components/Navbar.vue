@@ -6,16 +6,33 @@
       <li class="nav-links"><a href="/store">Store</a></li>
       <li class="nav-links"><a href="/library">Library</a></li>
       <li class="nav-links"><a href="/account">Profile</a></li>
-      <li class="nav-links"><a href="/about">About</a></li>
-      <li class="nav-links"><a href="/login">Login</a></li>
+      <li class="nav-links"><router-link :to="{ name: 'About' }">About</router-link></li>
+      <li v-if="!loggedIn" class="nav-links"><router-link :to="{ name: 'Login' }">Login</router-link></li>
+      <li v-if="loggedIn" class="nav-links"><button class="logout-btn" @click="logout()">Logout</button></li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'pinia'
+import { useAuthStore } from '../stores/authStore'
 
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    ...mapState(useAuthStore, ['loggedIn'])
+  },
+  mounted() {
+    this.checkLoggedIn()
+  },
+  methods: {
+    logout() {
+      this.logoutUser()
+      this.$router.push({ name: 'Login' })
+    },
+    ...mapActions(useAuthStore, ['checkLoggedIn']),
+    ...mapActions(useAuthStore, ['logoutUser'])
+  }
 }
 
 </script>
@@ -57,5 +74,13 @@ export default {
 
 a {
   font-size: 1.0em;
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  font-size: 1.0em;
+  cursor: pointer;
 }
 </style>

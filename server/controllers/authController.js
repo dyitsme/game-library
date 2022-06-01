@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userModel = require('../models/users')
 
+
 const registerUser = (req, res) => {
 
   const errors = validationResult(req)
@@ -44,7 +45,6 @@ const registerUser = (req, res) => {
 }
 
 const loginUser = (req, res) => {
-  const { username, password } = req.body
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
@@ -62,15 +62,13 @@ const loginUser = (req, res) => {
           bcrypt.compare(password, user.password, (err, result) => {
             // passwords match (result == true)
             if (result) {
-              // Update session object once matched!
-              // req.session.user = user._id;
-              // req.session.name = user.name;
-          
-              // console.log(req.session);
-          
-              res.send('You are now logged in.')
-              generateToken(username)
-            } else {
+              // generate token
+              const user = { username: username }
+              const accessToken = generateAccessToken(user)
+              const refreshToken = generateRefreshToken(user)
+              res.json({ accessToken: accessToken, refreshToken: refreshToken })
+            } 
+            else {
               // passwords don't match
               res.status(401).send('Incorrect password. Please try again.')
               // res.redirect('/login');
@@ -90,11 +88,26 @@ const loginUser = (req, res) => {
   }
 }
 
-const generateToken = (username) => {
-  return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' })
+const validToken = (req, res) => {
+  console.log('hello')
+  const { token } = req.body
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
+    console.log(err)
+    if (err) return res.status(403).send('Invalid token.')
+    return res.status(200).send('Valid token.')
+  })
+}
+
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' })
+}
+
+function generateRefreshToken(username) {
+  return jwt.sign(username, process.env.REFRESH_TOKEN_SECRET)
 }
 
 module.exports = {
   registerUser,
-  loginUser
+  loginUser,
+  validToken
 }
