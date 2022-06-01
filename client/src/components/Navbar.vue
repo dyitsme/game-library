@@ -6,8 +6,8 @@
       <li class="nav-links"><a href="/store">Store</a></li>
       <li class="nav-links"><a href="/library">Library</a></li>
       <li class="nav-links"><a href="/account">Profile</a></li>
-      <li class="nav-links"><a href="/about">About</a></li>
-      <li v-if="!loggedIn" class="nav-links"><a href="/login">Login</a></li>
+      <li class="nav-links"><router-link :to="{ name: 'About' }">About</router-link></li>
+      <li v-if="!loggedIn" class="nav-links"><router-link :to="{ name: 'Login' }">Login</router-link></li>
       <li v-if="loggedIn" class="nav-links"><button class="logout-btn" @click="logout()">Logout</button></li>
     </ul>
   </div>
