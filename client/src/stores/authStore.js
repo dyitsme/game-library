@@ -33,9 +33,7 @@ export const useAuthStore = defineStore({
   },
   actions: {
     checkLoggedIn() {
-      if (validToken) {
-        this.logged = true
-      }
+      validToken().then(value => this.logged = value)
     },
     logoutUser() {
       TokenService.removeToken()
