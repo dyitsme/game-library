@@ -1,4 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import Account from '../views/Account.vue'
+import Home from '../views/Home.vue'
+import Store from '../views/Store.vue'
+import Store2 from '../views/Store2.vue'
+import Library from '../views/Library.vue'
+import Library2 from '../views/Library2.vue'
+import Library3 from '../views/library3.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,12 +40,12 @@ const router = createRouter({
     {
       path: '/account',
       name: 'Account',
-      component: () => import('../views/Account.vue')
+      component: Account
     },
     {
       path: '/',
       name: 'Home',
-      component: () => import('../views/Home.vue')
+      component: Home
     },
     {
       path: '/about',
@@ -49,12 +58,12 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../views/Login.vue')
+      component: Login
     },
     {
       path: '/register',
       name: 'Register',
-      component: () => import('../views/Register.vue')
+      component: Register
     },
     {
       path: '/create',
@@ -64,27 +73,27 @@ const router = createRouter({
     {
       path: '/store',
       name: 'Store',
-      component: () => import('../views/Store.vue')
+      component: Store
     },
     {
       path: '/store2',
       name: 'Store2',
-      component: () => import('../views/Store2.vue')
+      component: Store2
     },
     {
       path: '/library',
       name: 'Library',
-      component: () => import('../views/Library.vue')
+      component: Library
     },
     {
       path: '/library2',
       name: 'Library2',
-      component: () => import('../views/Library2.vue')
+      component: Library2
     },
     {
       path: '/library3',
       name: 'Library3',
-      component: () => import('../views/Library3.vue')
+      component: Library3
     },
     {
       path: '/store/edit/1',

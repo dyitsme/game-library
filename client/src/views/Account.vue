@@ -1,5 +1,3 @@
-
-
 <template>
     <Navbar></Navbar>
 
@@ -62,7 +60,6 @@ export default {
       align-items: center;
       justify-content: center;
       height: 200vh;
-      
   }
       .main-box {
         margin-left: 97px;
@@ -148,9 +145,6 @@ export default {
         background: #222222;
         border-radius: 8px;
         padding: 1000;
-
-        
-        
       }
 
       .info {
