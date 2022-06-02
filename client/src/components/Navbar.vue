@@ -2,10 +2,10 @@
   <div class="nav-container">
     <ul class="nav-group">
       <li class="nav-links" id="logo"><a href="/"><img src="../assets/lib_logo.svg" height="50px" width="50px"></a></li>
-      <li class="nav-links"><a href="/create">Create Game</a></li>
-      <li class="nav-links"><a href="/store">Store</a></li>
-      <li class="nav-links"><a href="/library">Library</a></li>
-      <li class="nav-links"><a href="/account">Profile</a></li>
+      <li class="nav-links"><router-link :to="{ name: 'CreateGame' }">Create Game</router-link></li>
+      <li class="nav-links"><router-link :to="{ name: 'Store' }">Store</router-link></li>
+      <li class="nav-links"><router-link :to="{ name: 'Library' }">Library</router-link></li>
+      <li class="nav-links"><router-link :to="{ name: 'Account' }">Profile</router-link></li>
       <li class="nav-links"><router-link :to="{ name: 'About' }">About</router-link></li>
       <li v-if="!loggedIn" class="nav-links"><router-link :to="{ name: 'Login' }">Login</router-link></li>
       <li v-if="loggedIn" class="nav-links"><button class="logout-btn" @click="logout()">Logout</button></li>

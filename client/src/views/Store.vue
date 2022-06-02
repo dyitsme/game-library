@@ -36,7 +36,6 @@ export default {
 <style>
   a{
     text-decoration: none;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;

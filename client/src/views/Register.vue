@@ -26,7 +26,7 @@
             <input type="password" v-model="confirmPassword"/>
           </div>
           <button class="register-btn" @click.prevent="register()">Register</button>
-          <p class="to-login">Already have an account? <a class="link" href="/login">Sign in.</a></p>
+          <p class="to-login">Already have an account? <router-link class="link" to="/login">Sign in.</router-link></p>
         </form>
       </div>
     </div>

@@ -16,7 +16,7 @@
             <input type="password" v-model="password">
           </div>
           <button class="login-btn" @click.prevent="login">Login</button>
-          <p class="to-register">Already have an account? <a class="link" href="/register">Sign up.</a></p>
+          <p class="to-register">Already have an account? <router-link class="link" to="/register">Sign up.</router-link></p>
         </form>
       </div>
       <div class="background">
