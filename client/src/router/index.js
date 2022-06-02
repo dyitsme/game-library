@@ -8,6 +8,10 @@ import Store2 from '../views/Store2.vue'
 import Library from '../views/Library.vue'
 import Library2 from '../views/Library2.vue'
 import Library3 from '../views/library3.vue'
+import EditAccount from '../views/EditAccount.vue'
+import CreateGame from '../views/CreateGame.vue'
+import UpdateGame from '../views/UpdateGame.vue'
+import NotFound from '../views/404.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +19,7 @@ const router = createRouter({
     {
       path: '/edit-account/1',
       name: 'EditAccount',
-      component: () => import('../views/EditAccount.vue')
+      component: EditAccount
     },
     {
       path: '/change-password',
@@ -68,7 +72,7 @@ const router = createRouter({
     {
       path: '/create',
       name: 'CreateGame',
-      component: () => import('../views/CreateGame.vue')
+      component: CreateGame
     },
     {
       path: '/store',
@@ -96,15 +100,20 @@ const router = createRouter({
       component: Library3
     },
     {
-      path: '/store/edit/1',
-      name: 'UpdateGame1',
-      component: () => import('../views/UpdateGame.vue')
+      path: '/edit-game/1',
+      name: 'UpdateGame',
+      component: UpdateGame
     },
     {
-      path: '/store/delete/1',
-      name: 'DeleteGame1',
+      path: '/delete-game/1',
+      name: 'DeleteGame',
       component: () => import('../views/DeleteGame.vue')
     },
+    {
+      path: '/:catchAll(.*)',
+      name: NotFound,
+      component: NotFound
+    }
   ]
 })
 
