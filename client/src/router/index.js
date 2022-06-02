@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { mapState, mapActions } from 'pinia'
+import { useAuthStore } from '../stores/authStore'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
@@ -11,7 +13,6 @@ import Library3 from '../views/library3.vue'
 import EditAccount from '../views/EditAccount.vue'
 import CreateGame from '../views/CreateGame.vue'
 import UpdateGame from '../views/UpdateGame.vue'
-import NotFound from '../views/404.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,27 +20,42 @@ const router = createRouter({
     {
       path: '/edit-account/1',
       name: 'EditAccount',
-      component: EditAccount
+      component: EditAccount,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/change-password',
       name: 'ChangePassword',
-      component: () => import('../views/ChangePassword.vue')
+      component: () => import('../views/ChangePassword.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/delete-account/1',
       name: 'DeleteAccount',
-      component: () => import('../views/DeleteAccount.vue')
+      component: () => import('../views/DeleteAccount.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/view-game-customer/1',
       name: 'ViewGameCustomer',
-      component: () => import('../views/ViewGameCustomer.vue')
+      component: () => import('../views/ViewGameCustomer.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/view-game-developer/1',
       name: 'ViewGameDeveloper',
-      component: () => import('../views/ViewGameDeveloper.vue')
+      component: () => import('../views/ViewGameDeveloper.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/account',
@@ -72,49 +88,88 @@ const router = createRouter({
     {
       path: '/create',
       name: 'CreateGame',
-      component: CreateGame
+      component: CreateGame,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/store',
       name: 'Store',
-      component: Store
+      component: Store,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/store2',
       name: 'Store2',
-      component: Store2
+      component: Store2,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/library',
       name: 'Library',
-      component: Library
+      component: Library,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/library2',
       name: 'Library2',
-      component: Library2
+      component: Library2,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/library3',
       name: 'Library3',
-      component: Library3
+      component: Library3,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/edit-game/1',
       name: 'UpdateGame',
-      component: UpdateGame
+      component: UpdateGame,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/delete-game/1',
       name: 'DeleteGame',
-      component: () => import('../views/DeleteGame.vue')
+      component: () => import('../views/DeleteGame.vue'),
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/:catchAll(.*)',
-      name: NotFound,
-      component: NotFound
+      name: 'NotFound',
+      component: () => import('../views/404.vue')
     }
   ]
 })
+
+router.beforeEach((to, from) => {
+  // instead of having to check every route record with
+  // to.matched.some(record => record.meta.requiresAuth)
+  const store = useAuthStore()
+  if (to.meta.requiresAuth && !store.logged)
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return {
+      path: '/login',
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
+    }
+  }
+)
 
 export default router
