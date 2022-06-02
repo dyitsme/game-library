@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style> 
+<style scoped> 
 body {
   --light-green: #00DD99;
   --dark-bg-grey: #111111;
