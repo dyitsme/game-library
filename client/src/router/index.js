@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import { mapState, mapActions } from 'pinia'
 import { useAuthStore } from '../stores/authStore'
+import { createRouter, createWebHistory } from 'vue-router'
+import { validToken } from '../utils/validToken'
+
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
@@ -13,55 +14,11 @@ import Library3 from '../views/library3.vue'
 import EditAccount from '../views/EditAccount.vue'
 import CreateGame from '../views/CreateGame.vue'
 import UpdateGame from '../views/UpdateGame.vue'
+import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/edit-account/1',
-      name: 'EditAccount',
-      component: EditAccount,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/change-password',
-      name: 'ChangePassword',
-      component: () => import('../views/ChangePassword.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/delete-account/1',
-      name: 'DeleteAccount',
-      component: () => import('../views/DeleteAccount.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/view-game-customer/1',
-      name: 'ViewGameCustomer',
-      component: () => import('../views/ViewGameCustomer.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/view-game-developer/1',
-      name: 'ViewGameDeveloper',
-      component: () => import('../views/ViewGameDeveloper.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/account',
-      name: 'Account',
-      component: Account
-    },
     {
       path: '/',
       name: 'Home',
@@ -134,7 +91,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/edit-game/1',
+      path: '/edit-game',
       name: 'UpdateGame',
       component: UpdateGame,
       meta: {
@@ -142,9 +99,57 @@ const router = createRouter({
       }
     },
     {
-      path: '/delete-game/1',
+      path: '/delete-game',
       name: 'DeleteGame',
       component: () => import('../views/DeleteGame.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/account',
+      name: 'Account',
+      component: Account,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/edit-account',
+      name: 'EditAccount',
+      component: EditAccount,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/change-password',
+      name: 'ChangePassword',
+      component: () => import('../views/ChangePassword.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/delete-account',
+      name: 'DeleteAccount',
+      component: () => import('../views/DeleteAccount.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/view-game-customer',
+      name: 'ViewGameCustomer',
+      component: () => import('../views/ViewGameCustomer.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/view-game-developer',
+      name: 'ViewGameDeveloper',
+      component: ViewGameDeveloper,
       meta: {
         requiresAuth: true
       }
@@ -160,8 +165,13 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   // instead of having to check every route record with
   // to.matched.some(record => record.meta.requiresAuth)
-  const store = useAuthStore()
-  if (to.meta.requiresAuth && !store.logged)
+  
+  // to fix this
+  // let logged
+  // validToken().then(value => logged = value).catch(logged = false)
+  // console.log(logged)
+  let token = localStorage.getItem('access')
+  if (to.meta.requiresAuth && !token) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     return {
@@ -170,6 +180,6 @@ router.beforeEach((to, from) => {
       query: { redirect: to.fullPath },
     }
   }
-)
+})
 
 export default router

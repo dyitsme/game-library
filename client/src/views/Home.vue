@@ -3,7 +3,7 @@
   <div class="home-container">
     <h1>Welcome to</h1> <h2 color="#00de9a">Verdant Games</h2><br>
     <h3>Made for gamers.</h3><br><br>
-    <img class="home-logo" src="../assets/lib_logo.svg"><br><br><br><br><br><br><br><br>
+    <img class="home-logo" src="../assets/svg/lib_logo.svg"><br><br><br><br><br><br><br><br>
     <b>Verdant Games (C)</b> LA'O, TAHIMIC, YONGCO
   </div>
 </template>
