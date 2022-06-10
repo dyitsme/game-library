@@ -23,3 +23,4 @@ app.use(cors())
 app.use(morgan('dev'))
 
 app.use('/api/auth', authRoutes)
+app.use('api/user', userRoutes)
