@@ -89,7 +89,6 @@ const loginUser = (req, res) => {
 }
 
 const validToken = (req, res) => {
-  console.log('hello')
   const { token } = req.body
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
     console.log(err)

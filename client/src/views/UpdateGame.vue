@@ -2,7 +2,7 @@
   <Navbar></Navbar>
   <div class="parent-container">
     <dir class="container">
-      <router-link class="back" :to="{ name: 'view-game-developer' }">Back</router-link>
+      <router-link class="back" :to="{ name: 'ViewGameDeveloper' }">Back</router-link>
       <h1>Edit Game</h1>
       <form class="edit-form">
         <label id="img-label">
@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style> 
+<style scoped> 
 body {
   --light-green: #00DD99;
   --dark-bg-grey: #111111;
