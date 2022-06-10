@@ -7,6 +7,6 @@ const router = express.Router()
 // used to create the user
 router.get('/', userController.viewUser)
 router.put('/', userController.updateUser)
-router.delete('/', authController.deleteUser)
+router.delete('/', userController.deleteUser)
 
 module.exports = router
