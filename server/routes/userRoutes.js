@@ -5,8 +5,8 @@ const auth = require('../middleware/auth')
 const router = express.Router()
 
 // used to create the user
-router.get('/', userController.viewUser)
-router.put('/', userController.updateUser)
-router.delete('/', userController.deleteUser)
+router.get('/:id', userController.viewUser)
+router.put('/:id', userController.updateUser)
+router.delete('/:id', userController.deleteUser)
 
 module.exports = router

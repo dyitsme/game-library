@@ -63,9 +63,10 @@ const loginUser = (req, res) => {
             // passwords match (result == true)
             if (result) {
               // generate token
-              const user = { username: username }
-              const accessToken = generateAccessToken(user)
-              const refreshToken = generateRefreshToken(user)
+              const id = user._id.valueOf()
+              const logged = { _id: id, username: username }
+              const accessToken = generateAccessToken(logged)
+              const refreshToken = generateRefreshToken(logged)
               res.json({ accessToken: accessToken, refreshToken: refreshToken })
             } 
             else {
@@ -98,7 +99,7 @@ const validToken = (req, res) => {
 }
 
 function generateAccessToken(user) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' })
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
 }
 
 function generateRefreshToken(username) {
