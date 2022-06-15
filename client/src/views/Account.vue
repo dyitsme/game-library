@@ -11,20 +11,20 @@
                 <div class="info">
                   <div>
                     <h3>Username</h3>
-                    <h4>Diego Holland</h4>
+                    <h4>{{ username }}</h4>
                   </div>
                   <div>
                     <h3>Email</h3>
-                    <h4>diego.holland@gmail.com</h4>
+                    <h4>{{ email }}</h4>
                   </div>
                   <div>
                     <h3>Status</h3>
-                    <h4>Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.</h4>
+                    <h4>{{ description }}</h4>
                   </div>
                 </div>
-                <a href="/edit-account/1">
+                <router-link :to="{ name: 'EditAccount'}">
                   <button id="edit-button" >Edit account</button> 
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -34,11 +34,36 @@
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import TokenService from '../services/TokenService'
 
 export default {
-  name: 'Home',
+name: 'Account',
+  data() {
+    return {
+      username: '',
+      email: '',
+      description: ''
+    }
+  },
   components: {
     'Navbar': Navbar
+  },
+  mounted() {
+    const id = TokenService.getDecoded()._id
+    const url = `http://localhost:3000/api/users/${id}`
+    const vm = this
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      vm.username = data.username
+      vm.email = data.email
+    })
+    .catch(err => console.log(err))
   }
 }
 </script>
@@ -56,10 +81,9 @@ export default {
   }
   .parent-container {
       margin: 5%;
-      display: block;
-      align-items: center;
+      display: flex;
       justify-content: center;
-      height: 200vh;
+      height: 100vh;
   }
       .main-box {
         margin-left: 97px;

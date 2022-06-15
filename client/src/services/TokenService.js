@@ -1,3 +1,5 @@
+import jwt_decode from 'jwt-decode'
+
 class TokenService {
   getLocalAccessToken() {
     return localStorage.getItem('access')
@@ -19,6 +21,11 @@ class TokenService {
   }
   removeToken() {
     localStorage.removeItem('access')
+  }
+  getDecoded() {
+    const token = localStorage.getItem('access')
+    const decoded = jwt_decode(token)
+    return decoded
   }
 }
 export default new TokenService()
