@@ -12,24 +12,23 @@
                 <div class="info">
                   <div>
                     <h3>Username</h3>
-                    <input class="input" type="text" value="Diego Holland">
+                    <input class="input" type="text" v-model="username">
                   </div>
                   <div>
                     <h3>Email</h3>
-                    <input class="input" type="text" value="diego.holland@gmail.com">
+                    <input class="input" type="text" v-model="email">
                   </div>
                   <div>
                     <h3>Status</h3>
-                    <textarea class="text-area">
-Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Avid web ninja. Infuriatingly humble writer. Food maven. Alcohol scholar.
+                    <textarea class="text-area" v-model="description">
                     </textarea>
                   </div>
                 </div>
-                <button id="edit-button">Save</button>
+                <button id="edit-button" @click="save()">Save</button>
                 <br><br>
                 <div class="two-buttons">
                   <button id="change-password" @click="changePass()">Change password</button>
-                  <button id="delete"><a id="delete-link" href="/delete-account/1">Delete Account</a></button>
+                  <button id="delete" @click="$router.push({ name: 'DeleteAccount'})">Delete Account</button>
                 </div>
               </div>
             </div>
@@ -40,16 +39,57 @@ Internet junkie. Beer practitioner. Proud zombie fanatic. Total bacon expert. Av
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import TokenService from '../services/TokenService'
 
 export default {
   name: 'EditAccount1',
   components: {
     'Navbar': Navbar
   },
+  data() {
+    return {
+      username: '',
+      email: '',
+      description: ''
+    }
+  },
+  mounted() {
+    const id = TokenService.getDecoded()._id
+    const url = `http://localhost:3000/api/users/${id}`
+    const vm = this
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      vm.username = data.username
+      vm.email = data.email
+    })
+    .catch(err => console.log(err))
+  },
   methods: {
     changePass() {
       this.$router.push({ name: 'change-password' })
-    }
+    },
+
+    async save() {
+      const id = TokenService.getDecoded()._id
+      const url = `http://localhost:3000/api/users/${id}`
+      const { email, description } = this
+      const response = await fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          description: description
+        }),
+        mode: 'cors'
+      })
+      
+    } 
   }
 }
 </script>

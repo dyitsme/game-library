@@ -1,6 +1,5 @@
 <template>
     <Navbar></Navbar>
-
     <div class="parent-container">
       <div class="body">
           <div class="profile-window">

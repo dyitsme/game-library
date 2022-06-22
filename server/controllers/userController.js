@@ -17,7 +17,13 @@ const viewUser = (req, res) => {
 }
 
 const updateUser = (req, res) => {
-
+  const { id } = req.params
+  userModel.updateById(id, obj, (err, result) => {
+    if (err) {
+      return res.status(500).send()
+    }
+    console.log(`Successfully updated user ${result.username}, Usercontroller.js`)
+  })
 }
 
 const deleteUser = (req, res) => {

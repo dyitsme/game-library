@@ -46,6 +46,12 @@ exports.getOne = function(query, next) {
     })
 }
 
+exports.updateById = function(id, obj, next) {
+    User.findByIdAndUpdate(id, obj, function(err, user) {
+        next(err, user)
+    })
+}
+
 exports.deleteById = function(id, next) {
     User.findByIdAndDelete(id, function(err, user) {
         next(err, user)
