@@ -18,11 +18,23 @@ const viewUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const { id } = req.params
+  const { username, email, description } = req.body
+  const obj = {
+    username: username,
+    email: email,
+    description: description
+  }
+  console.log(obj)
   userModel.updateById(id, obj, (err, result) => {
     if (err) {
       return res.status(500).send()
     }
-    console.log(`Successfully updated user ${result.username}, Usercontroller.js`)
+    res.json({ 
+      username: result.username,
+      email: result.email,
+      description: result.description,
+      image: result.image
+    })
   })
 }
 
