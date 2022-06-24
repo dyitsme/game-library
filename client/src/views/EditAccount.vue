@@ -72,6 +72,7 @@ export default {
       console.log(data)
       vm.username = data.username
       vm.email = data.email
+      vm.description = data.description
     })
     .catch(err => console.log(err))
   },
@@ -87,10 +88,13 @@ export default {
         const url = `http://localhost:3000/api/users/${id}`
         const response = await fetch(url, {
           method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({
-            username: username,
-            email: email,
-            description: description
+            username,
+            email,
+            description
           }),
           mode: 'cors'
         })

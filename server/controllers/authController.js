@@ -10,7 +10,7 @@ const registerUser = (req, res) => {
   const errors = validationResult(req)
 
   if (errors.isEmpty()) {
-    const { username, email, password, confirmPassword } = req.body
+    const { username, email, password } = req.body
     userModel.getOne({ username: username }, (err, result) => {
       if (result) {
         console.log(result);

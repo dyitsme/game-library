@@ -61,6 +61,7 @@ name: 'Account',
       console.log(data)
       vm.username = data.username
       vm.email = data.email
+      vm.description = data.description
     })
     .catch(err => console.log(err))
   }

@@ -24,8 +24,8 @@ const updateUser = (req, res) => {
     email: email,
     description: description
   }
-  console.log(obj)
-  userModel.updateById(id, obj, (err, result) => {
+  
+  userModel.updateOne(id, obj, (err, result) => {
     if (err) {
       return res.status(500).send()
     }
