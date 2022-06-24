@@ -25,16 +25,23 @@ const updateUser = (req, res) => {
     description: description
   }
   
-  userModel.updateOne(id, obj, (err, result) => {
-    if (err) {
-      return res.status(500).send()
+  userModel.getOne({ username: username }, (err, result) => {
+    if (result) {
+      res.status(500).send('User already exists. Try again.')
     }
-    res.json({ 
-      username: result.username,
-      email: result.email,
-      description: result.description,
-      image: result.image
-    })
+    else {
+      userModel.updateOne(id, obj, (err, result) => {
+        if (err) {
+          return res.status(500).send()
+        }
+        res.json({ 
+          username: result.username,
+          email: result.email,
+          description: result.description,
+          image: result.image
+        })
+      })
+    }
   })
 }
 

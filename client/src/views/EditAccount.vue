@@ -55,7 +55,8 @@ export default {
       username: '',
       email: '',
       description: '',
-      errors: ''
+      errors: '',
+      duplicateError: ''
     }
   },
   mounted() {
