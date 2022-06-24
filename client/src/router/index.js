@@ -11,7 +11,6 @@ import Store2 from '../views/Store2.vue'
 import Library from '../views/Library.vue'
 import Library2 from '../views/Library2.vue'
 import Library3 from '../views/library3.vue'
-import EditAccount from '../views/EditAccount.vue'
 import CreateGame from '../views/CreateGame.vue'
 import UpdateGame from '../views/UpdateGame.vue'
 import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
@@ -117,7 +116,7 @@ const router = createRouter({
     {
       path: '/edit-account',
       name: 'EditAccount',
-      component: EditAccount,
+      component: () => import('../views/EditAccount.vue'),
       meta: {
         requiresAuth: true
       }
