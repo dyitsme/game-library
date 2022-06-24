@@ -51,7 +51,7 @@ const deleteUser = (req, res) => {
     if (err) {
       return res.status(500).send()
     }
-    console.log(`Successfully deleted user ${result.username}, Usercontroller.js`)
+    return res.status(200).send(`Successfully deleted user ${result.username}`)
   })
 }
 
