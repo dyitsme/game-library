@@ -71,8 +71,7 @@ export default {
 </script>
 <style scoped>
 .parent-container {
-  margin: 5%;
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;

@@ -83,12 +83,11 @@ name: 'Account',
       margin: 5%;
       display: flex;
       justify-content: center;
-      height: 100vh;
   }
       .main-box {
         margin-left: 97px;
         margin-right: 97px;
-        margin-bottom: 153px;
+        margin-bottom: 30px;
         margin-top: 46px;
       }
       .title {
