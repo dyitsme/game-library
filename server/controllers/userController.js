@@ -25,24 +25,24 @@ const updateUser = (req, res) => {
     description: description
   }
   
-  userModel.getOne({ username: username }, (err, result) => {
-    if (result) {
-      res.status(500).send('User already exists. Try again.')
+  // userModel.getOne({ username: username }, (err, result) => {
+  //   if (result) {
+  //     res.status(500).send('User with that username already exists. Please try again.')
+  //   }
+    // else {
+  userModel.updateOne(id, obj, (err, result) => {
+    if (err) {
+      return res.status(500).send()
     }
-    else {
-      userModel.updateOne(id, obj, (err, result) => {
-        if (err) {
-          return res.status(500).send()
-        }
-        res.json({ 
-          username: result.username,
-          email: result.email,
-          description: result.description,
-          image: result.image
-        })
-      })
-    }
+    res.json({ 
+      username: result.username,
+      email: result.email,
+      description: result.description,
+      image: result.image
+    })
   })
+  // }
+  // })
 }
 
 const deleteUser = (req, res) => {

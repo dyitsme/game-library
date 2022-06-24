@@ -55,8 +55,7 @@ export default {
       username: '',
       email: '',
       description: '',
-      errors: '',
-      duplicateError: ''
+      errors: ''
     }
   },
   mounted() {
@@ -102,6 +101,7 @@ export default {
 
         if (!response.ok) {
           console.log('Not ok')
+          this.duplicateError = await response.text()
         }
         else {
           this.$router.push({ name: 'Account'})
