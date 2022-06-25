@@ -25,11 +25,6 @@ const updateUser = (req, res) => {
     description: description
   }
   
-  // userModel.getOne({ username: username }, (err, result) => {
-  //   if (result) {
-  //     res.status(500).send('User with that username already exists. Please try again.')
-  //   }
-    // else {
   userModel.updateOne(id, obj, (err, result) => {
     if (err) {
       return res.status(500).send()
@@ -41,6 +36,13 @@ const updateUser = (req, res) => {
       image: result.image
     })
   })
+
+  // deprecated, not ideal for ui
+  // userModel.getOne({ username: username }, (err, result) => {
+  //   if (result) {
+  //     res.status(500).send('User with that username already exists. Please try again.')
+  //   }
+    // else {
   // }
   // })
 }
