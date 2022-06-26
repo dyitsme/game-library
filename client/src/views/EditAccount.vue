@@ -8,7 +8,7 @@
               <div class="err-msg" v-for="error in errors" :key="error.id">
                 {{ error }}
               </div>
-              <img src="../assets/img/Holland.png">
+              <img :src="imagePreview">
               <form enctype="multipart/form-data">
                 <label>
                   <div class="upload-btn">Upload Image</div>
@@ -59,7 +59,8 @@ export default {
       username: '',
       email: '',
       description: '',
-      image: '',
+      selectedImage: '',
+      imagePreview: '',
       errors: ''
     }
   },
@@ -78,6 +79,7 @@ export default {
       vm.username = data.username
       vm.email = data.email
       vm.description = data.description
+      vm.imagePreview = data.image
     })
     .catch(err => console.log(err))
   },
@@ -87,14 +89,20 @@ export default {
     },
 
     onFileSelected(event) {
-      this.image = event.target.files[0]
+      this.selectedImage = event.target.files[0]
+      const reader = new FileReader()
+
+      reader.onload = (event) => {
+        this.imagePreview = event.target.result
+      }
+      reader.readAsDataURL(event.target.files[0])
     },
     async save() {
       const formData = new FormData()
       formData.append('username', this.username)
       formData.append('email', this.email)
       formData.append('description', this.description)
-      formData.append('image', this.image)
+      formData.append('image', this.selectedImage)
 
       if (this.isValid()) {
         const id = TokenService.getDecoded()._id

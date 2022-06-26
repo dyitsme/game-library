@@ -11,7 +11,7 @@ const viewUser = (req, res) => {
       username: result.username,
       email: result.email,
       description: result.description,
-      image: result.image
+      image: `http://localhost:3000/${result.image}`
     })
   })
 }
@@ -23,6 +23,7 @@ const updateUser = (req, res) => {
     username: username,
     email: email,
     description: description,
+    // image: `public/images/avatars/${req.file.filename}`
     image: req.file.path
   }
   
@@ -36,6 +37,9 @@ const updateUser = (req, res) => {
       description: result.description,
       image: result.image
     })
+    
+    // res.sendFile(__dirname + '..\\' + res.image)
+    console.log(result.image)
   })
 
   // deprecated, not ideal for ui
