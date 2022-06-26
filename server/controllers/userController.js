@@ -22,7 +22,8 @@ const updateUser = (req, res) => {
   const obj = {
     username: username,
     email: email,
-    description: description
+    description: description,
+    image: req.file.path
   }
   
   userModel.updateOne(id, obj, (err, result) => {

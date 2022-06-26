@@ -1,7 +1,7 @@
 const express = require('express')
 const userController = require('../controllers/userController')
 const auth = require('../middleware/auth')
-const avatarUpload = require('../middleware/imageUpload')
+const { avatarUpload } = require('../middleware/imageUpload')
 
 const router = express.Router()
 

@@ -52,8 +52,9 @@ const loginUser = (req, res) => {
     userModel.getOne({ username: username }, (err, user) => {
       if (err) {
         // Database error occurred...
-        req.flash('error_msg', 'Something happened! Please try again.');
-        res.redirect('/login');
+        // req.flash('error_msg', 'Something happened! Please try again.');
+        // res.redirect('/login');
+        res.status(500).send('Something went wrong with login.')
       } else {
         // Successful query
         if (user) {
