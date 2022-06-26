@@ -22,6 +22,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 app.use(morgan('dev'))
+app.use(express.static('public/images/avatars'))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
