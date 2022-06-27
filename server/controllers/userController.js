@@ -18,38 +18,35 @@ const viewUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const { id } = req.params
-  const { username, email, description } = req.body
-  const obj = {
-    username: username,
-    email: email,
-    description: description,
-    // image: `public/images/avatars/${req.file.filename}`
-    image: req.file.path
-  }
-  
-  userModel.updateOne(id, obj, (err, result) => {
-    if (err) {
-      return res.status(500).send()
+  // const updates = req.body
+  // console.log('hello')
+  // console.log('hello' + req.file.path)
+  if (req.file || req.file.path) {
+    const { username, email, description } = req.body
+    const obj = {
+      username: username,
+      email: email,
+      description: description,
+      image: req.file.path
     }
-    res.json({ 
-      username: result.username,
-      email: result.email,
-      description: result.description,
-      image: result.image
-    })
     
-    // res.sendFile(__dirname + '..\\' + res.image)
-    console.log(result.image)
-  })
+    userModel.updateOne(id, obj, (err, result) => {
+      if (err) {
+        return res.status(500).send()
+      }
+      return res.status(200).send('Account updated!')
+    })
+  }
+  else {
+    const updates = req.body
 
-  // deprecated, not ideal for ui
-  // userModel.getOne({ username: username }, (err, result) => {
-  //   if (result) {
-  //     res.status(500).send('User with that username already exists. Please try again.')
-  //   }
-    // else {
-  // }
-  // })
+    userModel.updateOne(id, {$set: updates}, (err, result) => {
+      if (err) {
+        return res.status(500).send()
+      }
+      return res.status(200).send('Account updated!')
+    })
+  }
 }
 
 const deleteUser = (req, res) => {

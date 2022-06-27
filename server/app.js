@@ -11,7 +11,7 @@ const userRoutes = require('./routes/userRoutes')
 
 const app = express()
 
-const port = process.env.PORT || 3000
+const port = 3000
 
 const dbURI = 'mongodb://127.0.0.1:27017/blogdb'
 mongoose.connect(dbURI, { useUnifiedTopology: true, useNewUrlParser: true})
