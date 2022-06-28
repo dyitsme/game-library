@@ -1,4 +1,5 @@
 const userModel = require('../models/users')
+const { deleteOldImage } = require('../utils/fileCleaner')
 
 const viewUser = (req, res) => {
   const { id } = req.params
@@ -18,18 +19,17 @@ const viewUser = (req, res) => {
 
 const updateUser = (req, res) => {
   const { id } = req.params
-  // const updates = req.body
-  // console.log('hello')
-  // console.log('hello' + req.file.path)
-  if (req.file || req.file.path) {
-    const { username, email, description } = req.body
+  
+  const { username, email, description } = req.body
+
+  // if user didn't upload a file
+  if (!req.file) {
     const obj = {
       username: username,
       email: email,
-      description: description,
-      image: req.file.path
+      description: description
     }
-    
+
     userModel.updateOne(id, obj, (err, result) => {
       if (err) {
         return res.status(500).send()
@@ -38,13 +38,29 @@ const updateUser = (req, res) => {
     })
   }
   else {
-    const updates = req.body
-
-    userModel.updateOne(id, {$set: updates}, (err, result) => {
+    const obj = {
+      username: username,
+      email: email,
+      description: description,
+      image: req.file.path
+    }
+    // get old file link first
+    // 
+    let oldImage = ''
+    userModel.getOne({_id: id}, (err, result) => {
+      if (err) {
+        throw new Error('Could not find image link')
+      }
+      oldImage = result.image
+    })
+    
+    userModel.updateOne(id, obj, (err, result) => {
       if (err) {
         return res.status(500).send()
       }
+      deleteOldImage(oldImage)
       return res.status(200).send('Account updated!')
+
     })
   }
 }
