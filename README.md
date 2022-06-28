@@ -1,7 +1,7 @@
-# game-library
+# Verdant Games
 
 <div align="center">
-<img src="client/src/assets/svg/lib_logo.svg" height="80" width="80">
+<img src="client/src/assets/svg/lib_logo.svg" height="100" width="100">
 </div>
 
 ## About the project
