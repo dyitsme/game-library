@@ -31,10 +31,14 @@ export default {
     }
   },
   mounted() {
+    const token = TokenService.getLocalAccessToken()
     const id = TokenService.getDecoded()._id
     const url = `http://localhost:3000/api/users/${id}`
     const vm = this
     fetch(url, {
+      headers: {
+        Authorization: `token ${token}`,
+      },
       mode: 'cors'
     })
     .then(res => {
@@ -48,11 +52,13 @@ export default {
   },
   methods: {
     async deleteAccount() {
+      const token = TokenService.getLocalAccessToken()
       const id = TokenService.getDecoded()._id
       const url = `http://localhost:3000/api/users/${id}`
       const response = await fetch(url, {
         method: 'DELETE',
         headers: {
+           Authorization: `token ${token}`,
           'Content-Type': 'application/json'
         },
         mode: 'cors'

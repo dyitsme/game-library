@@ -66,10 +66,14 @@ export default {
     }
   },
   mounted() {
+    const token = TokenService.getLocalAccessToken()
     const id = TokenService.getDecoded()._id
     const url = `http://localhost:3000/api/users/${id}`
     const vm = this
     fetch(url, {
+      headers: {
+        Authorization: `token ${token}`,
+      },
       mode: 'cors'
     })
     .then(res => {
@@ -99,6 +103,7 @@ export default {
       reader.readAsDataURL(event.target.files[0])
     },
     async save() {
+      const token = TokenService.getLocalAccessToken()
       const formData = new FormData()
       formData.append('username', this.username)
       formData.append('email', this.email)
@@ -109,6 +114,9 @@ export default {
         const id = TokenService.getDecoded()._id
         const url = `http://localhost:3000/api/users/${id}`
         const response = await fetch(url, {
+          headers: {
+            Authorization: `token ${token}` 
+          },
           method: 'PATCH',
           body: formData,
           mode: 'cors'

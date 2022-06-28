@@ -6,8 +6,8 @@ const { avatarUpload } = require('../middleware/imageUpload')
 const router = express.Router()
 
 // used to create the user
-router.get('/:id', userController.viewUser)
-router.patch('/:id', avatarUpload.single('image'), userController.updateUser)
-router.delete('/:id', userController.deleteUser)
+router.get('/:id', auth.authenticateToken, userController.viewUser)
+router.patch('/:id', auth.authenticateToken, avatarUpload.single('image'), userController.updateUser)
+router.delete('/:id', auth.authenticateToken, userController.deleteUser)
 
 module.exports = router

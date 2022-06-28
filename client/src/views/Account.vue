@@ -50,9 +50,13 @@ name: 'Account',
   },
   mounted() {
     const id = TokenService.getDecoded()._id
+    const token = TokenService.getLocalAccessToken()
     const url = `http://localhost:3000/api/users/${id}`
     const vm = this
     fetch(url, {
+      headers: {
+        Authorization: `token ${token}` 
+      },
       mode: 'cors'
     })
     .then(res => {

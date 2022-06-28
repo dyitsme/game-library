@@ -46,8 +46,8 @@ exports.getOne = function(query, next) {
     })
 }
 
-exports.updateOne = function(query, val, next) {
-    User.findOneAndUpdate(query, val, { new: true }, function(err, user) {
+exports.updateById = function(id, val, next) {
+    User.findByIdAndUpdate(id, val, function(err, user) {
         next(err, user)
     })
 }

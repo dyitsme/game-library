@@ -7,7 +7,6 @@ const viewUser = (req, res) => {
     if (err) {
       return res.status(500).send()
     }
-    console.log(result)
     res.json({ 
       username: result.username,
       email: result.email,
@@ -29,13 +28,17 @@ const updateUser = (req, res) => {
       email: email,
       description: description
     }
-
-    userModel.updateOne(id, obj, (err, result) => {
+    // console.log('here!!')
+    // console.log(typeof id)
+    userModel.updateById(id, obj, (err, result) => {
       if (err) {
+        console.log(err)
         return res.status(500).send()
       }
+      console.log(result + '--- updateUser')
       return res.status(200).send('Account updated!')
     })
+
   }
   else {
     const obj = {
@@ -47,18 +50,22 @@ const updateUser = (req, res) => {
     // get old file link first
     // 
     let oldImage = ''
-    userModel.getOne({_id: id}, (err, result) => {
+    userModel.getOne(id, (err, result) => {
       if (err) {
-        throw new Error('Could not find image link')
+        console.log(err)
       }
-      oldImage = result.image
+      else {
+        oldImage = result.image
+      }
     })
     
-    userModel.updateOne(id, obj, (err, result) => {
+    userModel.updateById(id, obj, (err, result) => {
       if (err) {
-        return res.status(500).send()
+        console.log(err)
+        return res.status(500).send('Something wrong happened')
       }
       deleteOldImage(oldImage)
+      console.log(result)
       return res.status(200).send('Account updated!')
 
     })
@@ -70,15 +77,18 @@ const deleteUser = (req, res) => {
   let oldImage = ''
   userModel.getOne({_id: id}, (err, result) => {
     if (err) {
-      throw new Error('Could not find image link')
+      console.log(err)
     }
-    oldImage = result.image
+    else {
+      oldImage = result.image
+      console.log(oldImage)
+    }
   })
   userModel.deleteById(id, (err, result) => {
     if (err) {
       return res.status(500).send()
     }
-      deleteOldImage(oldImage)
+    deleteOldImage(oldImage)
     return res.status(200).send(`Successfully deleted user ${result.username}`)
   })
 }
