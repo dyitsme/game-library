@@ -2,6 +2,8 @@
 
 ## About the project
 
+Verdant Games is a game library web application built by 3 computer science students. 
+
 ## Built With
 * [Vue.js](https://vuejs.org/)
 * [Express.js](https://expressjs.com/)
