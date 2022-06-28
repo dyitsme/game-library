@@ -2,6 +2,7 @@
 
 ## About the project
 
+<img src="https://raw.githubusercontent.com/dyitsme/game-library/main/client/src/assets/lib_logo.svg">
 Verdant Games is a game library web application built by 3 computer science students. 
 
 ## Built With
