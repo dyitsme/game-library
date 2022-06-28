@@ -67,10 +67,18 @@ const updateUser = (req, res) => {
 
 const deleteUser = (req, res) => {
   const { id } = req.params
+  let oldImage = ''
+  userModel.getOne({_id: id}, (err, result) => {
+    if (err) {
+      throw new Error('Could not find image link')
+    }
+    oldImage = result.image
+  })
   userModel.deleteById(id, (err, result) => {
     if (err) {
       return res.status(500).send()
     }
+      deleteOldImage(oldImage)
     return res.status(200).send(`Successfully deleted user ${result.username}`)
   })
 }

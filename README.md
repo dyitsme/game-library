@@ -1,6 +1,13 @@
 # game-library
 
-(description here)
+## About the project
+
+## Built With
+* [Vue.js](https://vuejs.org/)
+* [Express.js](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+* [JWT](https://jwt.io/)
 
 ## Getting Started
 
@@ -34,9 +41,21 @@ or
 node app.js
 ```
 
-4. Type out http://localhost:3000 in the browser
-5. Run the client in a different terminal
+4. Run the client in a different terminal
 ``` sh
 npm run dev
 ```
-6. Type out http://locahost:8080 in the browser
+5. Type out http://locahost:8080 in the browser
+
+## Authors
+* Erin La'O
+* Kriz Tahimic
+* Denzel Yongco
+
+## Acknowledgements
+We would like to thank our professor, Arturo Caronongan and other valuable resources online for making this project possible.
+* [Net Ninja](https://www.youtube.com/c/TheNetNinja)
+* [Traversy Media](https://www.youtube.com/c/TraversyMedia)
+* [Academind](https://www.youtube.com/c/Academind)
+* [Web Dev Simplified](https://www.youtube.com/c/WebDevSimplified)
+* [Bezkoder](https://www.bezkoder.com/)
