@@ -5,7 +5,7 @@
           <div class="profile-window">
             <div class="title">My Profile</div>
             <div class="main-box">
-              <img src="../assets/img/Holland.png" alt="Diego Holland Profile" />
+              <img :src="image">
               <div class="">
                 <div class="info">
                   <div>
@@ -41,7 +41,8 @@ name: 'Account',
     return {
       username: '',
       email: '',
-      description: ''
+      description: '',
+      image: ''
     }
   },
   components: {
@@ -62,6 +63,7 @@ name: 'Account',
       vm.username = data.username
       vm.email = data.email
       vm.description = data.description
+      vm.image = data.image
     })
     .catch(err => console.log(err))
   }

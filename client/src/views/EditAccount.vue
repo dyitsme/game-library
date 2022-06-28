@@ -3,31 +3,37 @@
     <div class="parent-container">
       <div class="body">
           <div class="profile-window">
+            <router-link :to="{ name: 'Account' }">Back</router-link>
             <div class="title">My Profile</div>
             <div class="main-box">
               <div class="err-msg" v-for="error in errors" :key="error.id">
                 {{ error }}
               </div>
-              <img src="../assets/img/Holland.png" alt="Diego Holland Profile" />
-              <div class="upload-btn">Upload Image</div>
-              <input id="img-input" type="file" accept="image/*">
-              <div class="">
-                <div class="info">
-                  <div>
-                    <h3>Username</h3>
-                    <input class="input" type="text" v-model="username">
+              <img :src="imagePreview">
+              <form enctype="multipart/form-data">
+                <label>
+                  <div class="upload-btn">Upload Image</div>
+                  <input id="img-input" type="file" @change="onFileSelected">
+                </label>
+                <div class="">
+                  <div class="info">
+                    <div>
+                      <h3>Username</h3>
+                      <input class="input" type="text" v-model="username">
+                    </div>
+                    <div>
+                      <h3>Email</h3>
+                      <input class="input" type="text" v-model="email">
+                    </div>
+                    <div>
+                      <h3>Status</h3>
+                      <textarea class="text-area" v-model="description">
+                      </textarea>
+                    </div>
                   </div>
-                  <div>
-                    <h3>Email</h3>
-                    <input class="input" type="text" v-model="email">
-                  </div>
-                  <div>
-                    <h3>Status</h3>
-                    <textarea class="text-area" v-model="description">
-                    </textarea>
-                  </div>
+                  <button id="edit-button" @click.prevent="save()">Save</button>
                 </div>
-                <button id="edit-button" @click="save()">Save</button>
+              </form>
                 <br><br>
                 <div class="two-buttons">
                   <button id="change-password" @click="changePass()">Change password</button>
@@ -37,7 +43,6 @@
             </div>
           </div>
       </div>
-    </div>
 </template>
 
 <script>
@@ -55,6 +60,8 @@ export default {
       username: '',
       email: '',
       description: '',
+      selectedImage: '',
+      imagePreview: '',
       errors: ''
     }
   },
@@ -73,6 +80,7 @@ export default {
       vm.username = data.username
       vm.email = data.email
       vm.description = data.description
+      vm.imagePreview = data.image
     })
     .catch(err => console.log(err))
   },
@@ -81,27 +89,33 @@ export default {
       this.$router.push({ name: 'change-password' })
     },
 
+    onFileSelected(event) {
+      this.selectedImage = event.target.files[0]
+      const reader = new FileReader()
+
+      reader.onload = (event) => {
+        this.imagePreview = event.target.result
+      }
+      reader.readAsDataURL(event.target.files[0])
+    },
     async save() {
-      const { username, email, description } = this
+      const formData = new FormData()
+      formData.append('username', this.username)
+      formData.append('email', this.email)
+      formData.append('description', this.description)
+      formData.append('image', this.selectedImage)
+
       if (this.isValid()) {
         const id = TokenService.getDecoded()._id
         const url = `http://localhost:3000/api/users/${id}`
         const response = await fetch(url, {
           method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            username,
-            email,
-            description
-          }),
+          body: formData,
           mode: 'cors'
         })
 
         if (!response.ok) {
-          console.log('Not ok')
-          this.duplicateError = await response.text()
+          console.log('Something went wrong')
         }
         else {
           this.$router.push({ name: 'Account'})
@@ -160,10 +174,12 @@ export default {
   padding: 20px;
   border-radius: 4px;
   text-align: center;
+  cursor: pointer;
 }
 a{
   text-decoration: none;
-  color: #f53649;
+  color: var(--white);
+  font-size: 1.4em;
 }
 .profile-window{
   padding: 5%;

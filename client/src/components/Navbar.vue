@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container">
     <ul class="nav-group">
-      <li class="nav-links" id="logo"><a href="/"><img src="../assets/svg/lib_logo.svg"></a></li>
+      <li class="nav-links" id="logo"><router-link to="/"><img src="../assets/svg/lib_logo.svg"></router-link></li>
       <li v-if="loggedIn" class="nav-links"><router-link :to="{ name: 'CreateGame' }">Create Game</router-link></li>
       <li v-if="loggedIn" class="nav-links"><router-link :to="{ name: 'Store' }">Store</router-link></li>
       <li v-if="loggedIn" class="nav-links"><router-link :to="{ name: 'Library' }">Library</router-link></li>
