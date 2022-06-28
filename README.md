@@ -1,12 +1,12 @@
 # game-library
 
-## About the project
-
 <div align="center">
 <img src="client/src/assets/svg/lib_logo.svg" height="80" width="80">
 </div>
 
-Verdant Games is a game library web application built by 3 computer science students. 
+## About the project
+
+Verdant Games is a game library web application built by 3 computer science students who are into video games.
 
 ## Built With
 * [Vue.js](https://vuejs.org/)
