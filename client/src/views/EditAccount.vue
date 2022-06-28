@@ -3,6 +3,7 @@
     <div class="parent-container">
       <div class="body">
           <div class="profile-window">
+            <router-link :to="{ name: 'Account' }">Back</router-link>
             <div class="title">My Profile</div>
             <div class="main-box">
               <div class="err-msg" v-for="error in errors" :key="error.id">
@@ -177,7 +178,8 @@ export default {
 }
 a{
   text-decoration: none;
-  color: #f53649;
+  color: var(--white);
+  font-size: 1.4em;
 }
 .profile-window{
   padding: 5%;
