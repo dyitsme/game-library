@@ -56,14 +56,7 @@ export default {
         })
 
         if (!response.ok) {
-          if (response.status == 401) {
-            vm.loginError = await response.text()
-          }
-          else {
-            // not sure what was this
-            const parsed = JSON.parse(await response.text()) 
-            vm.errors = parsed
-          }
+          vm.loginError = await response.text()
         }
         else {
           const parsedPromise = response.json()

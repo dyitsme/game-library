@@ -76,7 +76,8 @@ const deleteUser = (req, res) => {
   const { id } = req.params
   let oldImage = ''
   userModel.getOne({_id: id}, (err, result) => {
-    if (err) {
+    // doesn't work 
+    if (result) {
       console.log(err)
     }
     else {
