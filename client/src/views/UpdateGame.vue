@@ -44,11 +44,104 @@ Counter Strike: Global Offensive is a tactical FPS game created by Valve
 
 <script>
 import Navbar from '../components/Navbar.vue'
-
 export default {
-  name: 'UpdateGame1',
+  name: 'UpdateGame',
   components: {
     'Navbar': Navbar
+  },
+  data() {
+    return {
+      username: '',
+      email: '',
+      description: '',
+      selectedImage: '',
+      imagePreview: '',
+      errors: ''
+    }
+  },
+  mounted() {
+    const token = TokenService.getLocalAccessToken()
+    const id = TokenService.getDecoded()._id
+    const url = `http://localhost:3000/api/users/${id}`
+    const vm = this
+    fetch(url, {
+      headers: {
+        Authorization: `token ${token}`,
+      },
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      vm.username = data.username
+      vm.email = data.email
+      vm.description = data.description
+      vm.imagePreview = data.image
+    })
+    .catch(err => console.log(err))
+  },
+  methods: {
+    changePass() {
+      this.$router.push({ name: 'change-password' })
+    },
+
+    onFileSelected(event) {
+      this.selectedImage = event.target.files[0]
+      const reader = new FileReader()
+
+      reader.onload = (event) => {
+        this.imagePreview = event.target.result
+      }
+      reader.readAsDataURL(event.target.files[0])
+    },
+    async save() {
+      const token = TokenService.getLocalAccessToken()
+      const formData = new FormData()
+      formData.append('username', this.username)
+      formData.append('email', this.email)
+      formData.append('description', this.description)
+      formData.append('image', this.selectedImage)
+
+      if (this.isValid()) {
+        const id = TokenService.getDecoded()._id
+        const url = `http://localhost:3000/api/users/${id}`
+        const response = await fetch(url, {
+          headers: {
+            Authorization: `token ${token}` 
+          },
+          method: 'PATCH',
+          body: formData,
+          mode: 'cors'
+        })
+
+        if (!response.ok) {
+          console.log('Something went wrong')
+        }
+        else {
+          this.$router.push({ name: 'Account'})
+        }
+      }
+    },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.username == "") {
+        invalid.push('Username field is empty.')
+        bool = 0
+      }
+      if (this.email == "") {
+        invalid.push('Email field is empty.')
+        bool = 0
+      }
+      else if (!validator.isEmail(this.email)) {
+        invalid.push('Please provide a valid email.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
+    }
   }
 }
 </script>

@@ -5,6 +5,9 @@
       <a class="back" href="/">Back</a>
       <h1>Create Game</h1>
       <form class="edit-form">
+        <div class="err-msg" v-for="error in errors" :key="error.id">
+          {{ error }}
+        </div>
         <label id="img-label">
           <img  class="icon" src="../assets/svg/upload_img.svg">
           <div class="upload-btn">Upload Game Poster</div>
@@ -61,24 +64,25 @@ export default {
   },
   methods: {
     async create() {
-      console.log('create game')
-      const url = 'http://localhost:3000/api/games' // server
-      const formData = new FormData()
-      formData.append('title', this.title)
-      formData.append('genre', this.genre)
-      formData.append('rating', this.rating)
-      formData.append('description', this.description)
-      formData.append('url', this.storeurl)
-      formData.append('image', this.image)
-
-      fetch(url, {
-        method: 'POST',
-        body: formData,
-        mode: 'cors'
-      })
+      if (this.isValid()){
+        console.log('create game')
+        const url = 'http://localhost:3000/api/games' // server
+        const formData = new FormData()
+        formData.append('title', this.title)
+        formData.append('genre', this.genre)
+        formData.append('rating', this.rating)
+        formData.append('description', this.description)
+        formData.append('url', this.storeurl)
+        formData.append('image', this.image)
+  
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        })
+      }
     },
     uploadImage(event) {
-      console.log(event)
       this.image = event.target.files[0]
     },
     isValid() {
@@ -94,6 +98,12 @@ export default {
       }
       if (this.rating == "") {
         invalid.push('Rating is required.')
+        bool = 0
+      }
+      if (String.valueOf(this.rating) > 5 
+          || String.valueOf(this.rating.valueOf < 0)) {
+        invalid.push('Rating is supposed to be 0 to 5.')
+        console.log('Rating is only 0 to 5.')
         bool = 0
       }
       if (this.description == "") {
