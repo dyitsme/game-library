@@ -146,7 +146,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/view-game-developer',
+      path: '/view-game-developer/',
       name: 'ViewGameDeveloper',
       component: ViewGameDeveloper,
       meta: {

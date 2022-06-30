@@ -59,7 +59,7 @@ export default {
     }
   },
   methods: {
-    create() {
+    async create() {
       console.log('create game')
       const url = 'http://localhost:3000/api/games' // server
       const formData = new FormData()
@@ -70,11 +70,18 @@ export default {
       formData.append('url', this.storeurl)
       formData.append('image', this.image)
 
-      fetch(url, {
+      const response = await fetch(url, {
         method: 'POST',
         body: formData,
         mode: 'cors'
       })
+      
+      if (!response.ok) {
+        console.log('Game was not created.')
+      }
+      else {
+        this.$router.push({ name: 'Store'})
+      }
     },
     uploadImage(event) {
       console.log(event)
