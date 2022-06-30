@@ -36,7 +36,7 @@
           <textarea class="text-area" v-model="description">
           </textarea>
           <label class="label">Store link</label>
-          <input class="input" type="text" v-model="url">
+          <input class="input" type="text" v-model="storeurl">
         </div>
         <button class="edit-btn" @click.prevent="create()">Create</button>
       </form>
@@ -100,12 +100,12 @@ export default {
         invalid.push('Rating is required.')
         bool = 0
       }
-      if (String.valueOf(this.rating) > 5 
-          || String.valueOf(this.rating.valueOf < 0)) {
-        invalid.push('Rating is supposed to be 0 to 5.')
-        console.log('Rating is only 0 to 5.')
-        bool = 0
-      }
+      // if (!(String.valueOf(this.rating) <= 5 
+      //     && String.valueOf(this.rating.valueOf >=  0))) {
+      //   invalid.push('Rating is supposed to be 0 to 5.')
+      //   console.log('Rating is only 0 to 5.')
+      //   bool = 0
+      // }
       if (this.description == "") {
         invalid.push('Description is required.')
         bool = 0

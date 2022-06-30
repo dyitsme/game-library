@@ -5,17 +5,20 @@
       <router-link class="back" :to="{ name: 'ViewGameDeveloper' }">Back</router-link>
       <h1>Edit Game</h1>
       <form class="edit-form">
+        <div class="err-msg" v-for="error in errors" :key="error.id">
+          {{ error }}
+        </div>
         <label id="img-label">
-          <img  class="icon" src="../assets/svg/upload_img.svg">
+          <img  class="icon" src="../assets/svg/upload_img.svg" @change="uploadImage">
           <div class="upload-btn">Upload Game Poster</div>
           <br>
           <input id="img-input" type="file" accept="image/*">
         </label>
         <div class="text-grp">
           <label class="label">Game title</label>
-          <input class="input" type="text" value="Counter Strike: Global Offensive">
+          <input class="input" type="text" v-model="title">
           <label class="label">Genre</label>
-          <select class="input">
+          <select class="input" v-model="genre">
             <option selected>Action</option>
             <option>Action-adventure</option>
             <option>Adventure</option>
@@ -28,13 +31,12 @@
             <option>Other</option>
           </select>
           <label class="label">Rating</label>
-          <input class="input" type="number" value="4" min="1" max="5">
+          <input class="input" type="number" v-model="rating" min="1" max="5">
           <label class="label">Description</label>
-          <textarea class="text-area">
-Counter Strike: Global Offensive is a tactical FPS game created by Valve
+          <textarea class="text-area" v-model="description">
           </textarea>
           <label class="label">Store link</label>
-          <input class="input" type="text" value="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">
+          <input class="input" type="text" v-model="storeurl">
         </div>
         <button class="edit-btn">Edit</button>
       </form>
@@ -51,34 +53,32 @@ export default {
   },
   data() {
     return {
-      username: '',
-      email: '',
+      title: '',
+      genre: '',
+      rating: '',
       description: '',
-      selectedImage: '',
-      imagePreview: '',
+      storeurl: '',
+      image: '',
       errors: ''
     }
   },
   mounted() {
-    const token = TokenService.getLocalAccessToken()
-    const id = TokenService.getDecoded()._id
-    const url = `http://localhost:3000/api/users/${id}`
+    const id = '62bd5ab5d3484238fa9dcaec'
+    const url = `http://localhost:3000/api/games/${id}`
     const vm = this
     fetch(url, {
-      headers: {
-        Authorization: `token ${token}`,
-      },
       mode: 'cors'
     })
     .then(res => {
       return res.json()
     })
-    .then(data => {
-      console.log(data)
-      vm.username = data.username
-      vm.email = data.email
+    .then(data => { 
+      vm.title = data.title
+      vm.genre = data.genre
+      vm.rating = data.rating
       vm.description = data.description
-      vm.imagePreview = data.image
+      vm.storeurl = data.storeurl
+      vm.image = data.image
     })
     .catch(err => console.log(err))
   },
