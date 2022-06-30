@@ -9,10 +9,10 @@
           {{ error }}
         </div>
         <label id="img-label">
-          <img  class="icon" src="../assets/svg/upload_img.svg" @change="uploadImage">
+          <img  class="icon" src="../assets/svg/upload_img.svg" >
           <div class="upload-btn">Upload Game Poster</div>
           <br>
-          <input id="img-input" type="file" accept="image/*">
+          <input id="img-input" type="file" accept="image/*" @change="uploadImage">
         </label>
         <div class="text-grp">
           <label class="label">Game title</label>
@@ -83,60 +83,59 @@ export default {
     .catch(err => console.log(err))
   },
   methods: {
-    changePass() {
-      this.$router.push({ name: 'change-password' })
-    },
-
-    onFileSelected(event) {
-      this.selectedImage = event.target.files[0]
-      const reader = new FileReader()
-
-      reader.onload = (event) => {
-        this.imagePreview = event.target.result
-      }
-      reader.readAsDataURL(event.target.files[0])
-    },
-    async save() {
-      const token = TokenService.getLocalAccessToken()
-      const formData = new FormData()
-      formData.append('username', this.username)
-      formData.append('email', this.email)
-      formData.append('description', this.description)
-      formData.append('image', this.selectedImage)
-
-      if (this.isValid()) {
-        const id = TokenService.getDecoded()._id
-        const url = `http://localhost:3000/api/users/${id}`
-        const response = await fetch(url, {
-          headers: {
-            Authorization: `token ${token}` 
-          },
-          method: 'PATCH',
+    async update() {
+      if (this.isValid()){
+        console.log('update game')
+        const url = 'http://localhost:3000/api/games' // server
+        const formData = new FormData()
+        formData.append('title', this.title)
+        formData.append('genre', this.genre)
+        formData.append('rating', this.rating)
+        formData.append('description', this.description)
+        formData.append('url', this.storeurl)
+        formData.append('image', this.image)
+  
+        fetch(url, {
+          method: 'POST',
           body: formData,
           mode: 'cors'
         })
-
-        if (!response.ok) {
-          console.log('Something went wrong')
-        }
-        else {
-          this.$router.push({ name: 'Account'})
-        }
       }
+    },
+    uploadImage(event) {
+      this.image = event.target.files[0]
     },
     isValid() {
       let bool = 1
       const invalid = []
-      if (this.username == "") {
-        invalid.push('Username field is empty.')
+      if (this.title == "") {
+        invalid.push('Title is required.')
         bool = 0
       }
-      if (this.email == "") {
-        invalid.push('Email field is empty.')
+      if (this.genre == "") {
+        invalid.push('Genre is required.')
         bool = 0
       }
-      else if (!validator.isEmail(this.email)) {
-        invalid.push('Please provide a valid email.')
+      if (this.rating == "") {
+        invalid.push('Rating is required.')
+        bool = 0
+      }
+      // if (!(String.valueOf(this.rating) <= 5 
+      //     && String.valueOf(this.rating.valueOf >=  0))) {
+      //   invalid.push('Rating is supposed to be 0 to 5.')
+      //   console.log('Rating is only 0 to 5.')
+      //   bool = 0
+      // }
+      if (this.description == "") {
+        invalid.push('Description is required.')
+        bool = 0
+      }
+      if (this.storeurl == "") {
+        invalid.push('URL is required.')
+        bool = 0
+      }
+      if (this.image == "") {
+        invalid.push('Image is required.')
         bool = 0
       }
       this.errors = invalid
