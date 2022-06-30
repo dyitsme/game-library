@@ -24,6 +24,13 @@ const gameSchema = new Schema({
 
 
 const Game = mongoose.model('Game', gameSchema)
+exports.getAllgames = function() {
+    Game.find({}, function(err, game) {
+        console.log(err)
+        console.log(game)
+
+    }) 
+}
 
 exports.create = function(obj, next) {
     const game = new Game(obj)
