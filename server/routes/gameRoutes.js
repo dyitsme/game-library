@@ -9,7 +9,7 @@ const router = express.Router()
 router.post('/', gameUpload.single('image'), gameController.createGame)
 router.get('/:id', gameController.viewGame)
 // router.get('/', gameController.viewGames)
-// router.patch('/:id', gameController.updateGame)
-// router.delete('/:id', gameController.deleteGame)
+router.patch('/:id', gameController.updateGame)
+router.delete('/:id', gameController.deleteGame)
 
 module.exports = router
