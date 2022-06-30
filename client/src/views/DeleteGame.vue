@@ -4,11 +4,11 @@
     <div class="container">
       <div class="text-wrapper">
         <h1 class="header">Are you sure?</h1>
-        <p class="text">This will delete Counter Strike: Global Offensive from the store and other users' libraries.</p>
+        <p class="text">This will delete {{ title }} from the store.</p>
       </div>
       <div class="btn-wrapper">
         <button class="cancel-btn" @click="$router.push({ name: 'view-game-developer'})">Cancel</button>
-        <button class="delete-btn">Delete</button>
+        <button class="delete-btn" @click="deleteGame()">Delete</button>
       </div>
     </div>
   </div>
@@ -21,6 +21,42 @@ export default {
   name: 'DeleteGame1',
   components: {
     'Navbar': Navbar
+  },
+  data() {
+    return {
+      id: this.$route.params.id,
+      title: ''
+    }
+  },
+  mounted() {
+    const id = this.id
+    const url = `http://localhost:3000/api/games/${id}`
+    const vm = this
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      vm.title = data.title
+    })
+    .catch(err => console.log(err))
+  },
+  methods: {
+    deleteGame() {
+      const id = this.id
+      const url = `http://localhost:3000/api/games/${id}`
+      fetch(url, {
+        method: 'DELETE',
+        mode: 'cors'
+      })
+      .then(res => {
+        console.log(res)
+        this.$router.push({ name: 'Store'})
+      })
+      .catch(err => console.log(err))
+    }
   }
 }
 </script>

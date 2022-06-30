@@ -38,7 +38,7 @@
           <label class="label">Store link</label>
           <input class="input" type="text" v-model="storeurl">
         </div>
-        <button class="edit-btn">Edit</button>
+        <button class="edit-btn" @click.prevent="update()">Edit</button>
       </form>
     </dir>
   </div>
@@ -53,6 +53,7 @@ export default {
   },
   data() {
     return {
+      id: this.$route.params.id,
       title: '',
       genre: '',
       rating: '',
@@ -63,7 +64,7 @@ export default {
     }
   },
   mounted() {
-    const id = '62bd5ab5d3484238fa9dcaec'
+    const id = this.id
     const url = `http://localhost:3000/api/games/${id}`
     const vm = this
     fetch(url, {
@@ -86,7 +87,8 @@ export default {
     async update() {
       if (this.isValid()){
         console.log('update game')
-        const url = 'http://localhost:3000/api/games' // server
+        const id = this.id
+        const url = `http://localhost:3000/api/games/${id}` // server
         const formData = new FormData()
         formData.append('title', this.title)
         formData.append('genre', this.genre)
@@ -96,7 +98,7 @@ export default {
         formData.append('image', this.image)
   
         fetch(url, {
-          method: 'POST',
+          method: 'PATCH',
           body: formData,
           mode: 'cors'
         })
@@ -209,6 +211,11 @@ h1 {
   text-align: center;
   cursor: pointer;
   color: var(--white);
+}
+
+.err-msg {
+  color: var(--red);
+  text-align: center;
 }
 
 .icon {

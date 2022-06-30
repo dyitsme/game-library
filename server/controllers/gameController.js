@@ -45,7 +45,7 @@ const updateGame = (req, res) => {
       rating: rating,
       description: description,
       url: url,
-      // image: req.file.path
+      image: req.file.path
     }
     
     gameModel.updateById(id, obj, (err, result) => {

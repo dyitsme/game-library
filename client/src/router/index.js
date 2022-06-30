@@ -13,7 +13,7 @@ import Library2 from '../views/Library2.vue'
 import Library3 from '../views/library3.vue'
 import CreateGame from '../views/CreateGame.vue'
 import UpdateGame from '../views/UpdateGame.vue'
-import ViewGameDeveloper from '../views/ViewGameDeveloper.vue'
+import ViewGame from '../views/ViewGame.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,7 +90,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/edit-game',
+      path: '/edit-game/:id',
       name: 'UpdateGame',
       component: UpdateGame,
       meta: {
@@ -98,7 +98,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/delete-game',
+      path: '/delete-game/:id',
       name: 'DeleteGame',
       component: () => import('../views/DeleteGame.vue'),
       meta: {
@@ -122,14 +122,6 @@ const router = createRouter({
       }
     },
     {
-      path: '/change-password',
-      name: 'ChangePassword',
-      component: () => import('../views/ChangePassword.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: '/delete-account',
       name: 'DeleteAccount',
       component: () => import('../views/DeleteAccount.vue'),
@@ -138,17 +130,9 @@ const router = createRouter({
       }
     },
     {
-      path: '/view-game-customer',
-      name: 'ViewGameCustomer',
-      component: () => import('../views/ViewGameCustomer.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/view-game-developer/',
-      name: 'ViewGameDeveloper',
-      component: ViewGameDeveloper,
+      path: '/game/:id',
+      name: 'ViewGame',
+      component: ViewGame,
       meta: {
         requiresAuth: true
       }

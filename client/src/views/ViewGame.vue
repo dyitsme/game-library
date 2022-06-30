@@ -1,54 +1,75 @@
-
-
 <template>
     <Navbar></Navbar>
     <div class="parent-container">
-
       <div class="view-game-rectangle">
         <div class="container">
-          <div class="game-image"><img src="..\assets\img\CounterStrike.png" alt="Counter Strike Image"></div>
+          <div class="game-image"><img :src="image"></div>
           <a href="/store/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
-          <a href="/store/edit/1"><button class="edit-button"><a href="/store/edit/1/">Edit</a></button></a>
-          <a href="/store/delete/1"><button class="delete-button"><a href="/store/delete/1/">Delete</a></button></a>
+          <router-link :to="{ name: 'UpdateGame', params: { id: id }}"><button class="edit-button">Edit</button></router-link>
+          <router-link :to="{ name: 'DeleteGame', params: { id: id }}"><button class="delete-button">Delete</button></router-link>
         </div>
-
+        <button @click="addToLib()" class="buy-game-button">
+          Add to Lib
+        </button>
         <div class="information">
           <div class="flex-1">
-            <div class="title">Counter Strike: Global Offense</div>
+            <div class="title">{{ title }}</div>
             <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
-            <div class="genre">First Person Shooter</div>
+            <div class="genre">{{ genre }}</div>
           </div>
-          <div class="four-stars"> <img src="..\assets\img\FourStars.png" alt="Four Stars Image"></div>
-          <div class="definition">Counter-Strike is a series of multiplayer first-person shooter video games in which teams of terrorists battle to perpetrate an act of terror while counter-terrorists try to prevent it. The series began on Windows in 1999 with the release of the first game, Counter-Strike.</div>
-          <a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/">https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/</a>
-
+          <div class="four-stars">Rating: {{ rating }}</div>
+          <div class="definition">{{ description }}</div>
+          <a :href="url">{{ url }}</a>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-  import Navbar from '../components/Navbar.vue'
+import Navbar from '../components/Navbar.vue'
 
-  export default {
-    name: 'Home',
-    components: {
-      'Navbar': Navbar
-    },
+export default {
+  name: 'ViewGame',
+  components: {
+    'Navbar': Navbar
+  },
+  data() {
+    return {
+      id: this.$route.params.id,
+      title: '',
+      genre: '',
+      rating: '',
+      description: '',
+      url: '',
+      image: ''
+    }
+  },
+  mounted() {
+    const id = this.id
+    const url = `http://localhost:3000/api/games/${id}`
+    const vm = this
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      vm.title = data.title,
+      vm.genre = data.genre,
+      vm.rating = data.rating,
+      vm.description = data.description,
+      vm.url = data.url,
+      vm.image = data.image
+    })
+    .catch(err => console.log(err))
+  },
+  methods: {
+    addToLib() {
 
-
-    data() {
-      return {
-        isAscending: true
-      }
-    },
-
-    methods: {
-      toggleSortButton() {
-        this.isAscending = !this.isAscending
-      }
-    },
-  }
+    }
+  },
+}
 </script>
 
 <style>
@@ -81,7 +102,7 @@
     background-color: transparent;
     padding: 0px;
     border: 0px;
-    
+    cursor: pointer;
   }
   .parent-container {
       margin: 10%;
@@ -92,9 +113,10 @@
     height: 100vh;
   }
   .four-stars {
-    margin-top: 3px;
+    margin-top: 10px;
     width: 186px;
     height: 37.99px;
+    font-size: 1.4em;
   }
   .green-bullet {
 
@@ -102,6 +124,27 @@
     height: 12px; 
   }
 
+    .buy-game-button {
+    position: absolute;
+    width: 269px;
+    height: 81px;
+    left: 1005px;
+    top: 656px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+
+    background: #00DD99;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .definition {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -145,10 +188,11 @@
   }
   .delete-button {
     left: 1062px;
+    cursor: pointer;
   }
   .edit-button {
     left: 930px;
-
+    cursor: pointer;
   }
   button{
     position: absolute;
