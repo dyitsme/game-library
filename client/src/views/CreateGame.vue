@@ -168,6 +168,11 @@ h1 {
   color: var(--white);
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2.4em;
+}
+.err-msg {
+  color: var(--red);
+  text-align: center;
 }
 .label {
   color: var(--white);

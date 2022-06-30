@@ -7,7 +7,7 @@
         <p class="text">This will delete {{ title }} from the store.</p>
       </div>
       <div class="btn-wrapper">
-        <button class="cancel-btn" @click="$router.push({ name: 'view-game-developer'})">Cancel</button>
+        <button class="cancel-btn" @click="$router.push({ name: 'ViewGame'})">Cancel</button>
         <button class="delete-btn" @click="deleteGame()">Delete</button>
       </div>
     </div>

@@ -2,7 +2,7 @@
   <Navbar></Navbar>
   <div class="parent-container">
     <dir class="container">
-      <router-link class="back" :to="{ name: 'ViewGameDeveloper' }">Back</router-link>
+      <router-link class="back" :to="{ name: 'ViewGame' }">Back</router-link>
       <h1>Edit Game</h1>
       <form class="edit-form">
         <div class="err-msg" v-for="error in errors" :key="error.id">
@@ -195,6 +195,7 @@ h1 {
   color: var(--white);
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2.4em;
 }
 
 .label {
