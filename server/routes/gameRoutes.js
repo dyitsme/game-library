@@ -8,8 +8,8 @@ const router = express.Router()
 // used to create the user
 router.post('/', gameUpload.single('image'), gameController.createGame)
 router.get('/:id', gameController.viewGame)
-// router.get('/', gameController.viewGames)
-router.patch('/:id', gameController.updateGame)
+router.get('/', gameController.viewGames)
+router.patch('/:id', gameUpload.single('image'), gameController.updateGame)
 router.delete('/:id', gameController.deleteGame)
 
 module.exports = router

@@ -17,6 +17,23 @@ const viewGame = (req, res) => {
     })
   })
 }
+const viewGames = (req, res) => {
+  gameModel.getAllgames((err, result) => {
+    if (err) {
+      console.log(err)
+      return res.status(500).send()
+    }
+    // res.json({ 
+    //   title: result.title,
+    //   genre: result.genre,
+    //   rating: result.rating,
+    //   description: result.description,
+    //   image: `http://localhost:3000/${result.image}`,
+    //   url: result.url
+    // })
+    console.log(result)
+  })
+}
 
 const deleteGame = (req, res) => {
   const { id } = req.params
@@ -84,5 +101,6 @@ module.exports = {
   viewGame,
   createGame,
   updateGame,
-  deleteGame
+  deleteGame,
+  viewGames
 }
