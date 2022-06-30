@@ -25,8 +25,10 @@ const createGame = (req, res) => {
     genre: genre,
     rating: rating,
     description: description,
-    url: url
+    url: url,
+    image: req.file.path
   }
+  
   gameModel.create(obj, (err, result) => {
     if (err) {
       console.log(err)

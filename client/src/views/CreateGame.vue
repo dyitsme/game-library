@@ -9,7 +9,7 @@
           <img  class="icon" src="../assets/svg/upload_img.svg">
           <div class="upload-btn">Upload Game Poster</div>
           <br>
-          <input id="img-input" type="file" accept="image/*">
+          <input id="img-input" type="file" accept="image/*" @change="uploadImage">
         </label>
         <div class="text-grp">
           <label class="label">Game title</label>
@@ -62,21 +62,23 @@ export default {
     create() {
       console.log('create game')
       const url = 'http://localhost:3000/api/games' // server
-      const { title, genre, rating, description, storeurl } = this // client toh this will be sent to server
+      const formData = new FormData()
+      formData.append('title', this.title)
+      formData.append('genre', this.genre)
+      formData.append('rating', this.rating)
+      formData.append('description', this.description)
+      formData.append('url', this.storeurl)
+      formData.append('image', this.image)
+
       fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          title,
-          genre,
-          rating,
-          description,
-          storeurl
-        }),
+        body: formData,
         mode: 'cors'
       })
+    },
+    uploadImage(event) {
+      console.log(event)
+      this.image = event.target.files[0]
     }
   }
 }
