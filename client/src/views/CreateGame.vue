@@ -5,6 +5,9 @@
       <a class="back" href="/">Back</a>
       <h1>Create Game</h1>
       <form class="edit-form">
+        <div class="err-msg" v-for="error in errors" :key="error.id">
+          {{ error }}
+        </div>
         <label id="img-label">
           <img  class="icon" src="../assets/svg/upload_img.svg">
           <div class="upload-btn">Upload Game Poster</div>
@@ -33,7 +36,7 @@
           <textarea class="text-area" v-model="description">
           </textarea>
           <label class="label">Store link</label>
-          <input class="input" type="text" v-model="url">
+          <input class="input" type="text" v-model="storeurl">
         </div>
         <button class="edit-btn" @click.prevent="create()">Create</button>
       </form>
@@ -55,30 +58,68 @@ export default {
       rating: '',
       description: '',
       storeurl: '',
-      image: ''
+      image: '',
+      errors: []
     }
   },
   methods: {
-    create() {
-      console.log('create game')
-      const url = 'http://localhost:3000/api/games' // server
-      const formData = new FormData()
-      formData.append('title', this.title)
-      formData.append('genre', this.genre)
-      formData.append('rating', this.rating)
-      formData.append('description', this.description)
-      formData.append('url', this.storeurl)
-      formData.append('image', this.image)
-
-      fetch(url, {
-        method: 'POST',
-        body: formData,
-        mode: 'cors'
-      })
+    async create() {
+      if (this.isValid()){
+        console.log('create game')
+        const url = 'http://localhost:3000/api/games' // server
+        const formData = new FormData()
+        formData.append('title', this.title)
+        formData.append('genre', this.genre)
+        formData.append('rating', this.rating)
+        formData.append('description', this.description)
+        formData.append('url', this.storeurl)
+        formData.append('image', this.image)
+  
+        fetch(url, {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        })
+      }
     },
     uploadImage(event) {
-      console.log(event)
       this.image = event.target.files[0]
+    },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.title == "") {
+        invalid.push('Title is required.')
+        bool = 0
+      }
+      if (this.genre == "") {
+        invalid.push('Genre is required.')
+        bool = 0
+      }
+      if (this.rating == "") {
+        invalid.push('Rating is required.')
+        bool = 0
+      }
+      // if (!(String.valueOf(this.rating) <= 5 
+      //     && String.valueOf(this.rating.valueOf >=  0))) {
+      //   invalid.push('Rating is supposed to be 0 to 5.')
+      //   console.log('Rating is only 0 to 5.')
+      //   bool = 0
+      // }
+      if (this.description == "") {
+        invalid.push('Description is required.')
+        bool = 0
+      }
+      if (this.storeurl == "") {
+        invalid.push('URL is required.')
+        bool = 0
+      }
+      if (this.image == "") {
+        invalid.push('Image is required.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
     }
   }
 }
