@@ -55,11 +55,12 @@ export default {
       rating: '',
       description: '',
       storeurl: '',
-      image: ''
+      image: '',
+      errors: []
     }
   },
   methods: {
-    create() {
+    async create() {
       console.log('create game')
       const url = 'http://localhost:3000/api/games' // server
       const formData = new FormData()
@@ -79,6 +80,36 @@ export default {
     uploadImage(event) {
       console.log(event)
       this.image = event.target.files[0]
+    },
+    isValid() {
+      let bool = 1
+      const invalid = []
+      if (this.title == "") {
+        invalid.push('Title is required.')
+        bool = 0
+      }
+      if (this.genre == "") {
+        invalid.push('Genre is required.')
+        bool = 0
+      }
+      if (this.rating == "") {
+        invalid.push('Rating is required.')
+        bool = 0
+      }
+      if (this.description == "") {
+        invalid.push('Description is required.')
+        bool = 0
+      }
+      if (this.storeurl == "") {
+        invalid.push('URL is required.')
+        bool = 0
+      }
+      if (this.image == "") {
+        invalid.push('Image is required.')
+        bool = 0
+      }
+      this.errors = invalid
+      return bool
     }
   }
 }
