@@ -4,26 +4,55 @@ const Schema = mongoose.Schema
 const gameSchema = new Schema({
     title: {
         type: String,
-        required: true
     },
-    author: {
+    genre: {
         type: String,
-        required: true
+    },
+    rating: {
+        type: Number,
     },
     description: {
         type: String,
-        required: true
     },
-    coverImage: {
+    image: {
         type: String,
-        required: true
     },
     url: {
         type: String,
-        required: true
     }
 })
 
 
-const Game = mongoose.model('Game', userSchema)
-module.exports = Game
+const Game = mongoose.model('Game', gameSchema)
+
+exports.create = function(obj, next) {
+    const game = new Game(obj)
+
+    game.save(function(err, game) {
+        next(err, game)
+    })
+}
+
+exports.getById = function(id, next) {
+    Game.findById(id, function(err, game) {
+      next(err, game)
+    })
+}
+
+exports.getOne = function(query, next) {
+    Game.findOne(query, function(err, game) {
+      next(err, game)
+    })
+}
+
+exports.updateById = function(id, val, next) {
+    Game.findByIdAndUpdate(id, val, function(err, game) {
+        next(err, game)
+    })
+}
+
+exports.deleteById = function(id, next) {
+    Game.findByIdAndDelete(id, function(err, game) {
+        next(err, game)
+    })
+}

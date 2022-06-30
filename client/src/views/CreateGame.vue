@@ -13,9 +13,9 @@
         </label>
         <div class="text-grp">
           <label class="label">Game title</label>
-          <input class="input" type="text">
+          <input class="input" type="text" v-model="title">
           <label class="label">Genre</label>
-          <select class="input">
+          <select class="input" v-model="genre">
             <option>Action</option>
             <option>Action-adventure</option>
             <option>Adventure</option>
@@ -28,14 +28,14 @@
             <option>Other</option>
           </select>
           <label class="label">Rating</label>
-          <input class="input" type="number" min="1" max="5">
+          <input class="input" type="number" min="1" max="5" v-model="rating">
           <label class="label">Description</label>
-          <textarea class="text-area">
+          <textarea class="text-area" v-model="description">
           </textarea>
           <label class="label">Store link</label>
-          <input class="input" type="text">
+          <input class="input" type="text" v-model="url">
         </div>
-        <button class="edit-btn">Edit</button>
+        <button class="edit-btn" @click.prevent="create()">Create</button>
       </form>
     </dir>
   </div>
@@ -47,6 +47,37 @@ export default {
   name: 'CreateGame',
   components: {
     'Navbar': Navbar
+  },
+  data() {
+    return {
+      title: '',
+      genre: 'Action',
+      rating: '',
+      description: '',
+      storeurl: '',
+      image: ''
+    }
+  },
+  methods: {
+    create() {
+      console.log('create game')
+      const url = 'http://localhost:3000/api/games' // server
+      const { title, genre, rating, description, storeurl } = this // client toh this will be sent to server
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title,
+          genre,
+          rating,
+          description,
+          storeurl
+        }),
+        mode: 'cors'
+      })
+    }
   }
 }
 </script>

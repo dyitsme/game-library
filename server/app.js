@@ -8,6 +8,7 @@ const morgan = require('morgan')
 
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const gameRoutes = require('./routes/gameRoutes')
 
 const app = express()
 
@@ -26,3 +27,4 @@ app.use('/public/images/avatars', express.static('public/images/avatars'))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/games', gameRoutes)
