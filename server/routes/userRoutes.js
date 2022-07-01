@@ -9,5 +9,7 @@ const router = express.Router()
 router.get('/:id', auth.authenticateToken, userController.viewUser)
 router.patch('/:id', auth.authenticateToken, avatarUpload.single('image'), userController.updateUser)
 router.delete('/:id', auth.authenticateToken, userController.deleteUser)
+router.get('/games/:id', userController.viewOwnedGames)
+router.patch('/games', userController.addToLibrary)
 
 module.exports = router

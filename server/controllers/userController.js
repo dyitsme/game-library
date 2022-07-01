@@ -94,8 +94,31 @@ const deleteUser = (req, res) => {
   })
 }
 
+const viewOwnedGames = (req, res) => {
+  const { id } = req.params
+  userModel.getOwnedGames(id, (err, result) => {
+    if (err) {
+      throw new Error(err)
+    }
+    return res.status(200).send(result)
+  })
+}
+
+const addToLibrary = (req, res) => {
+  const { id } = req.params
+  const gameId = req.body.gameId
+  userModel.addGame(id, gameId, (err, result) => {
+    if (err) {
+      throw new Error(err)
+    }
+    return res.status(200).send('Successfully added game to user.')
+  })
+}
+
 module.exports = {
   viewUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  viewOwnedGames,
+  addToLibrary
 }

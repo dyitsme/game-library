@@ -17,7 +17,8 @@ const userSchema = new Schema({
     },
     image: {
         type: String
-    }
+    },
+    games: [mongoose.Types.ObjectId]
 });
 
 const User = mongoose.model('User', userSchema)
@@ -52,5 +53,34 @@ exports.updateById = function(id, val, next) {
 exports.deleteById = function(id, next) {
     User.findByIdAndDelete(id, function(err, user) {
         next(err, user)
+    })
+}
+
+exports.getOwnedGames = function(id, next) {
+    const objectId = mongoose.Types.ObjectId(id)
+    User.aggregate([
+        { $match: {_id: objectId} },
+        {
+            $lookup: {
+                from: "games",
+                localField: "games",
+                foreignField: "_id",
+                as: "ownedgames"
+            }
+        }
+    ], function(err, result) {
+        next(err, result)
+    }) 
+}
+
+
+exports.addGame = function(userId, gameId, next) {
+    const objectGameId = mongoose.Types.ObjectId(gameId)
+    console.log(objectGameId)
+    User.findById(
+        userId, 
+        { $push: {games: {_id: objectGameId}} },
+        function(err, result) {
+            next(err, result)
     })
 }
