@@ -91,7 +91,7 @@ export default {
     margin-top: 25px;
     vertical-align: middle;
     display: flex;
-    
+    width: 40vw;
   }
 
   .store-element {

@@ -111,10 +111,12 @@ const viewOwnedGames = (req, res) => {
 const addToLibrary = (req, res) => {
   const { id } = req.params
   const { gameId } = req.body
+  console.log('gameId' + gameId)
   userModel.addGame(id, gameId, (err, result) => {
     if (err) {
       console.log(err)
     }
+    console.log(result)
     return res.status(200).send('Successfully added game to user.')
   })
 }

@@ -67,12 +67,17 @@ export default {
   },
   methods: {
     addToLib() {
-      const id = TokenService.getDecoded()._id
+      const userId = TokenService.getDecoded()._id
       const gameId = this.id
-      const url = `http://localhost:3000/api/users/games/${id}`
+      const url = `http://localhost:3000/api/users/games/${userId}`
 
+      console.log(JSON.stringify({gameId}))
+      
       fetch(url, {
         method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           gameId
         }),
