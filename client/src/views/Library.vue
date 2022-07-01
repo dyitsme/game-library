@@ -61,7 +61,6 @@ export default {
     margin-top: 33px;
     padding-right: 20px;
 
-    width: 1170px;
     height: auto;
   }
   .image-game{
@@ -91,7 +90,8 @@ export default {
     margin-top: 25px;
     vertical-align: middle;
     display: flex;
-    width: 40vw;
+    width: 100vw;
+    flex-wrap: wrap;
   }
 
   .store-element {
