@@ -35,9 +35,7 @@
                 </div>
               </form>
                 <br><br>
-                <div class="two-buttons">
-                  <button id="delete" @click="$router.push({ name: 'DeleteAccount'})">Delete Account</button>
-                </div>
+                <button id="delete" @click="$router.push({ name: 'DeleteAccount'})">Delete Account</button>
               </div>
             </div>
           </div>
@@ -334,9 +332,6 @@ img {
   color: var(--white);
   transition: 0.2s;
 }
-.two-buttons {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 </style>
