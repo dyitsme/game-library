@@ -3,8 +3,8 @@
   <div class="container">
     <h1>Library</h1>
     <Searchbar></Searchbar>
-    <div class="store-container" v-for="ownedgame in ownedgames" :key="ownedgame._id">
-      <router-link :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
+    <div class="store-container">
+      <router-link v-for="ownedgame in ownedgames" :key="ownedgame._id" :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
         <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + ownedgame.image"><br><br>{{ ownedgame.title }}<br><img class="rating" src="../assets/games/4_stars.png"></div>
       </router-link>
     </div>
