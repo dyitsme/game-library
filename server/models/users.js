@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
@@ -76,10 +77,11 @@ exports.getOwnedGames = function(id, next) {
 
 exports.addGame = function(userId, gameId, next) {
     const objectGameId = mongoose.Types.ObjectId(gameId)
-    console.log(objectGameId)
-    User.findById(
+    User.findByIdAndUpdate(
         userId, 
-        { $push: {games: {_id: objectGameId}} },
+        { 
+            $push: {games: objectGameId}
+        },
         function(err, result) {
             next(err, result)
     })

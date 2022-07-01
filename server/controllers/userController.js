@@ -1,5 +1,7 @@
 const userModel = require('../models/users')
 const { deleteOldImage } = require('../utils/fileCleaner')
+const mongoose = require('mongoose')
+
 
 const viewUser = (req, res) => {
   const { id } = req.params
@@ -106,10 +108,10 @@ const viewOwnedGames = (req, res) => {
 
 const addToLibrary = (req, res) => {
   const { id } = req.params
-  const gameId = req.body.gameId
+  const { gameId } = req.body
   userModel.addGame(id, gameId, (err, result) => {
     if (err) {
-      throw new Error(err)
+      console.log(err)
     }
     return res.status(200).send('Successfully added game to user.')
   })
