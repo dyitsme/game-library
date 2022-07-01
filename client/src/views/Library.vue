@@ -66,6 +66,7 @@ export default {
   .image-game{
     height: 350px;
     width: 350px;
+    border-radius: 2%;
   }
 
   .rating {
@@ -95,8 +96,7 @@ export default {
   }
 
   .store-element {
-    flex: 1;
-    padding: 20px 40px;
+    padding: 20px 40px 20px 0 ;
     font-size: 0.8em;
   }
 </style>
