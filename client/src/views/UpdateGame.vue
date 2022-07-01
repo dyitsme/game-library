@@ -84,7 +84,7 @@ export default {
     .catch(err => console.log(err))
   },
   methods: {
-    async update() {
+    update() {
       if (this.isValid()){
         console.log('update game')
         const id = this.id
@@ -101,6 +101,12 @@ export default {
           method: 'PATCH',
           body: formData,
           mode: 'cors'
+        })
+        .then(response => {
+          this.$router.push({ name: 'Store'})
+        })
+        .catch(err => {
+          console.log(err)
         })
       }
     },

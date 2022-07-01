@@ -27,6 +27,7 @@
 
 <script>
 import Navbar from '../components/Navbar.vue'
+import TokenService from '../services/TokenService'
 
 export default {
   name: 'ViewGame',
@@ -66,7 +67,23 @@ export default {
   },
   methods: {
     addToLib() {
+      const id = TokenService.getDecoded()._id
+      const gameId = this.id
+      const url = `http://localhost:3000/api/users/games/${id}`
 
+      fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          gameId
+        }),
+        mode: 'cors'
+      })
+      .then(response => {
+        this.$router.push({ name: 'Library' })
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
   },
 }

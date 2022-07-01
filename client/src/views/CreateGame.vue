@@ -63,7 +63,7 @@ export default {
     }
   },
   methods: {
-    async create() {
+    create() {
       if (this.isValid()){
         console.log('create game')
         const url = 'http://localhost:3000/api/games' // server
@@ -79,6 +79,12 @@ export default {
           method: 'POST',
           body: formData,
           mode: 'cors'
+        })
+        .then(response => {
+          this.$router.push({ name: 'Store'})
+        })
+        .catch(err => {
+          console.log(err)
         })
       }
     },
