@@ -3,17 +3,10 @@
   <div class="container">
     <h1>Library</h1>
     <Searchbar></Searchbar>
-    <LibrarySortbar></LibrarySortbar>
-    <div class="store-container">
-      <a href="/view-game-customer/1">
-        <div class="store-element" ><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
-      </a>
-      <a href="/view-game-customer/2">
-        <div class="store-element"><img class="image-game" src="../assets/img/BabaIsYou.png"><br><br>Baba Is You<br><img class="rating" src="../assets/games/5_stars.png"></div>
-      </a>
-      <a href="/view-game-customer/3">
-        <div class="store-element"><img class="image-game" src="..\assets\img\Train Simulator Classic.png"><br><br>Train Simulator Classic<br><img class="rating" src="../assets/games/2_stars.png"></div>
-      </a>
+    <div class="store-container" v-for="ownedgame in ownedgames" :key="ownedgame._id">
+      <router-link :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
+        <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + ownedgame.image"><br><br>{{ ownedgame.title }}<br><img class="rating" src="../assets/games/4_stars.png"></div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -21,14 +14,35 @@
 <script>
 import Navbar from '../components/Navbar.vue'
 import Searchbar from '../components/Searchbar.vue'
-import LibrarySortbar from '../components/LibrarySortbar.vue'
+import TokenService from '../services/TokenService'
 
 export default {
-  name: 'Store',
+  name: 'Library',
   components: {
     "Navbar": Navbar,
     "Searchbar": Searchbar,
-    "LibrarySortbar": LibrarySortbar
+  },
+  data() {
+    return {
+      ownedgames: [],
+    }
+  },
+  mounted() {
+    const id = TokenService.getDecoded()._id
+    const url = `http://localhost:3000/api/users/games/${id}`
+    const vm = this
+
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      vm.ownedgames = data.ownedgames
+    })
+    .catch(err => console.log(err))
   }
 }
 </script>

@@ -102,7 +102,9 @@ const viewOwnedGames = (req, res) => {
     if (err) {
       throw new Error(err)
     }
-    return res.status(200).send(result)
+    res.json({
+      ownedgames: result[0].ownedgames
+    })
   })
 }
 
