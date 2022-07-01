@@ -36,7 +36,6 @@
               </form>
                 <br><br>
                 <div class="two-buttons">
-                  <button id="change-password" @click="changePass()">Change password</button>
                   <button id="delete" @click="$router.push({ name: 'DeleteAccount'})">Delete Account</button>
                 </div>
               </div>
@@ -89,10 +88,6 @@ export default {
     .catch(err => console.log(err))
   },
   methods: {
-    changePass() {
-      this.$router.push({ name: 'change-password' })
-    },
-
     onFileSelected(event) {
       this.selectedImage = event.target.files[0]
       const reader = new FileReader()

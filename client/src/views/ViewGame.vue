@@ -4,22 +4,22 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img :src="image"></div>
-          <a href="/store/"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></a>
+          <router-link :to="{ name: 'Store'}"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></router-link>
           <router-link :to="{ name: 'UpdateGame', params: { id: id }}"><button class="edit-button">Edit</button></router-link>
           <router-link :to="{ name: 'DeleteGame', params: { id: id }}"><button class="delete-button">Delete</button></router-link>
-        </div>
         <button @click="addToLib()" class="buy-game-button">
-          Add to Lib
+          Add to Library
         </button>
+        </div>
         <div class="information">
           <div class="flex-1">
             <div class="title">{{ title }}</div>
             <div class="green-bullet"><img src="..\assets\img\GreenBullet.png" alt="Green Bullet Image"></div>
             <div class="genre">{{ genre }}</div>
           </div>
-          <div class="four-stars">Rating: {{ rating }}</div>
+          <div class="stars">★ {{ rating }}</div>
           <div class="definition">{{ description }}</div>
-          <a :href="url">{{ url }}</a>
+          <a class="url" :href="url">{{ url }}</a>
         </div>
       </div>
     </div>
@@ -127,31 +127,30 @@ export default {
     cursor: pointer;
   }
   .parent-container {
-      margin: 10%;
+    margin: 10%;
 
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
   }
-  .four-stars {
+  .stars {
     margin-top: 10px;
     width: 186px;
     height: 37.99px;
-    font-size: 1.4em;
+    font-size: 2em;
+    color: yellow;
   }
   .green-bullet {
-
     width: 11px;
     height: 12px; 
   }
 
     .buy-game-button {
-    position: absolute;
     width: 269px;
     height: 81px;
-    left: 1005px;
-    top: 656px;
+    left: 900px;
+    top: 400px;
 
     font-style: normal;
     font-weight: 400;
@@ -176,7 +175,7 @@ export default {
 
     font-style: normal;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 1.6em;
     line-height: 44px;
 
     color: #FFFFFF;
@@ -211,10 +210,12 @@ export default {
   .delete-button {
     left: 1062px;
     cursor: pointer;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   .edit-button {
     left: 930px;
     cursor: pointer;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   button{
     position: absolute;
@@ -264,5 +265,8 @@ export default {
   .information {
     margin-left: 29px;
     margin-top: 28px;
+  }
+  .url {
+    font-size: 1.6em;
   }
 </style>

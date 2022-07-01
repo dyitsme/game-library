@@ -2,14 +2,15 @@
   <Navbar></Navbar>
   <div class="parent-container">
     <dir class="container">
-      <a class="back" href="/">Back</a>
+      <router-link class="back" to="/">Back</router-link>
       <h1>Create Game</h1>
       <form class="edit-form">
         <div class="err-msg" v-for="error in errors" :key="error.id">
           {{ error }}
         </div>
         <label id="img-label">
-          <img  class="icon" src="../assets/svg/upload_img.svg">
+          <img class="icon" src="../assets/svg/upload_img.svg">
+          <p class="fileName">{{ imageName }}</p>
           <div class="upload-btn">Upload Game Poster</div>
           <br>
           <input id="img-input" type="file" accept="image/*" @change="uploadImage">
@@ -46,19 +47,21 @@
 
 <script>
 import Navbar from '../components/Navbar.vue'
+
 export default {
   name: 'CreateGame',
   components: {
-    'Navbar': Navbar
+    'Navbar': Navbar,
   },
   data() {
     return {
       title: '',
       genre: 'Action',
-      rating: '',
+      rating: 0,
       description: '',
       storeurl: '',
       image: '',
+      imageName: '',
       errors: []
     }
   },
@@ -90,6 +93,7 @@ export default {
     },
     uploadImage(event) {
       this.image = event.target.files[0]
+      this.imageName = event.target.files[0].name
     },
     isValid() {
       let bool = 1
@@ -131,19 +135,6 @@ export default {
 }
 </script>
 
-<style> 
-body {
-  --light-green: #00DD99;
-  --dark-bg-grey: #111111;
-  --form-grey: #151515;
-  --grey: #222222;
-  --light-grey: #444444;
-  --white: #FFFFFF;
-  background-color: var(--dark-bg-grey);
-  font-size: 16px;
-}
-</style>
-
 <style scoped>
 .parent-container {
   display: flex;
@@ -163,6 +154,7 @@ body {
 .back {
   text-decoration: none;
   color: var(--white);
+  font-size: 1.4em;
 }
 .edit-form {
   display: flex;
@@ -180,6 +172,7 @@ h1 {
   color: var(--red);
   text-align: center;
 }
+
 .label {
   color: var(--white);
   font-size: 1.2em;
@@ -193,6 +186,12 @@ h1 {
   text-align: center;
   cursor: pointer;
   color: var(--white);
+  font-size: 1.6em;
+}
+
+.fileName {
+  color: green;
+  font-size: 1.2em;
 }
 .icon {
   height: 100px;
@@ -242,4 +241,5 @@ h1 {
   border-radius: 4px;
   font-weight: bold;
 }
+
 </style>

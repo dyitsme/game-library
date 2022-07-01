@@ -5,7 +5,7 @@
     <Searchbar></Searchbar>
     <div class="store-container">
       <router-link v-for="ownedgame in ownedgames" :key="ownedgame._id" :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
-        <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + ownedgame.image"><br><br>{{ ownedgame.title }}<br><img class="rating" src="../assets/games/4_stars.png"></div>
+        <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + ownedgame.image"><br>{{ ownedgame.title }}<br><p class="rating">★ {{ ownedgame.rating }}</p></div>
       </router-link>
     </div>
   </div>
@@ -69,7 +69,8 @@ export default {
   }
 
   .rating {
-    height:25px;
+    color: yellow;
+    font-size: 1.2em;
   }
 
   body {
@@ -90,13 +91,12 @@ export default {
     margin-top: 25px;
     vertical-align: middle;
     display: flex;
-    width: 100vw;
     flex-wrap: wrap;
   }
 
   .store-element {
     flex: 1;
-    padding: 10px;
-    font-size: 22px;
+    padding: 20px 40px;
+    font-size: 0.8em;
   }
 </style>
