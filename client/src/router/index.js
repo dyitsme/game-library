@@ -7,10 +7,7 @@ import Register from '../views/Register.vue'
 import Account from '../views/Account.vue'
 import Home from '../views/Home.vue'
 import Store from '../views/Store.vue'
-import Store2 from '../views/Store2.vue'
 import Library from '../views/Library.vue'
-import Library2 from '../views/Library2.vue'
-import Library3 from '../views/library3.vue'
 import CreateGame from '../views/CreateGame.vue'
 import UpdateGame from '../views/UpdateGame.vue'
 import ViewGame from '../views/ViewGame.vue'
@@ -58,33 +55,9 @@ const router = createRouter({
       }
     },
     {
-      path: '/store2',
-      name: 'Store2',
-      component: Store2,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: '/library',
       name: 'Library',
       component: Library,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/library2',
-      name: 'Library2',
-      component: Library2,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/library3',
-      name: 'Library3',
-      component: Library3,
       meta: {
         requiresAuth: true
       }
