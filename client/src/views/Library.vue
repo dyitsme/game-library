@@ -2,29 +2,30 @@
   <Navbar></Navbar>
   <div class="container">
     <h1>Library</h1>
-    <Searchbar></Searchbar>
+    <br>
+    <input class="search-input" type="text" v-model="search" placeholder="Search...">
     <div class="store-container">
-      <router-link v-for="ownedgame in ownedgames" :key="ownedgame._id" :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
+      <router-link v-for="ownedgame in filteredgames" :key="ownedgame._id" :to="{ name: 'ViewGame', params: { id: ownedgame._id }}">
         <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + ownedgame.image"><br>{{ ownedgame.title }}<br><p class="rating">★ {{ ownedgame.rating }}</p></div>
       </router-link>
+      <p class="noresults" v-if="!filteredgames.length">No results found.</p>
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue'
-import Searchbar from '../components/Searchbar.vue'
 import TokenService from '../services/TokenService'
 
 export default {
   name: 'Library',
   components: {
     "Navbar": Navbar,
-    "Searchbar": Searchbar,
   },
   data() {
     return {
       ownedgames: [],
+      search: '',
     }
   },
   mounted() {
@@ -43,6 +44,13 @@ export default {
       vm.ownedgames = data.ownedgames
     })
     .catch(err => console.log(err))
+  }, 
+  computed: {
+    filteredgames() {
+      return this.ownedgames.filter((game) => {
+        return game.title.match(this.search)
+      })
+    }
   }
 }
 </script>
@@ -96,7 +104,24 @@ export default {
   }
 
   .store-element {
-    padding: 20px 40px 20px 0 ;
     font-size: 0.8em;
+  }
+
+  .store-element:hover {
+    background-color: var(--grey);
+    border-radius: 4%;
+  }
+  .search-input {
+    background-color: var(--semi-light-grey);
+    color: var(--white);
+    border: none;
+    font-size: 1.6em;
+    border-radius: 4px;
+    padding: 10px;
+    width: 30%;
+  }
+  .noresults {
+    font-size: 2em;
+    text-align: center;
   }
 </style>
