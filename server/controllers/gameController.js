@@ -53,9 +53,27 @@ const deleteGame = (req, res) => {
 }
 
 const updateGame = (req, res) => {
-  // if (req.file){
-    const { id } = req.params
-    const { title, genre, rating, description, url } = req.body
+  const { id } = req.params
+  const { title, genre, rating, description, url } = req.body
+  if (!req.file){
+    const obj = {
+      title: title,
+      genre: genre,
+      rating: rating,
+      description: description,
+      url: url,
+    }
+    
+    gameModel.updateById(id, obj, (err, result) => {
+      if (err) {
+        console.log(err)
+        return res.status(500).send('Error updating game.')
+      }
+      console.log(result)
+      return res.status(200).send('Successfully updating game!')
+    })
+  }
+  else {
     const obj = {
       title: title,
       genre: genre,
@@ -73,7 +91,7 @@ const updateGame = (req, res) => {
       console.log(result)
       return res.status(200).send('Successfully updating game!')
     })
-  // }
+  }
 }
 
 const createGame = (req, res) => {

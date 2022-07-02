@@ -80,7 +80,7 @@ export default {
       vm.genre = data.genre
       vm.rating = data.rating
       vm.description = data.description
-      vm.storeurl = data.storeurl
+      vm.storeurl = data.url
       vm.image = data.image
     })
     .catch(err => console.log(err))

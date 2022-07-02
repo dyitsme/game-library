@@ -290,22 +290,6 @@ img {
   cursor: pointer;
 
 }
-
-#change-password {
-  width: 377px;
-  height: 92px;
-
-  background: #444444;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 39px;
-  /* identical to box height */
-
-  color: #ffffff;
-  cursor: pointer;
-}
 #delete {
   background-color: transparent;
   opacity: 100%;
