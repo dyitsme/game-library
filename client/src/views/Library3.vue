@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .image-game3{
     height: 80px;
     width: 80px;

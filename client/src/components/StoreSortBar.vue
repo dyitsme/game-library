@@ -23,7 +23,7 @@
   
 </script>
 
-<style>
+<style scoped>
 
   button {
     background-color: Transparent;
