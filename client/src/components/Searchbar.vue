@@ -1,14 +1,20 @@
 <template>
-  <input class="search-input" type="text">
-  <button class="search-btn">
+  <input class="search-input" type="text" value="1" @input="searchStore()">
+  <!-- <button class="search-btn">
   <img class="icon" src="../assets/svg/search_icon.svg">
-  </button>
+  </button> -->
 </template>
 
 <script>
 
 export default {
-  name: 'Searchbar'
+  name: 'SearchBar',
+  prop: ['value'],
+  methods: {
+    searchStore() {
+      this.$emit('filterStore')
+    }
+  }
 }
 
 </script>

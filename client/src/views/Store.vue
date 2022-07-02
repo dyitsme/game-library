@@ -2,33 +2,53 @@
   <Navbar></Navbar>
   <div class="container">
     <h1>Store</h1>
-    <Searchbar></Searchbar>
-    <StoreSortbar></StoreSortbar>
+    <br>
+    <input class="search-input" type="text" v-model="search" placeholder="Search...">
     <div class="store-container">
-      <a href="/view-game-customer/1">
-        <div class="store-element" ><img class="image-game" src="../assets/games/csgo_icon.png"><br><br>CounterStrike: Global Offensive<br><img class="rating" src="../assets/games/4_stars.png"></div>
-      </a>
-      <a href="/view-game-customer/2">
-        <div class="store-element"><img class="image-game" src="../assets/img/BabaIsYou.png"><br><br>Baba Is You<br><img class="rating" src="../assets/games/5_stars.png"></div>
-      </a>
-      <a href="/view-game-customer/3">
-        <div class="store-element"><img class="image-game" src="..\assets\img\Train Simulator Classic.png"><br><br>Train Simulator Classic<br><img class="rating" src="../assets/games/2_stars.png"></div>
-      </a>
+      <router-link v-for="game in filteredgames" :key="game._id" :to="{ name: 'ViewGame', params: { id: game._id }}">
+        <div class="store-element" ><img class="image-game" :src="'http://localhost:3000/' + game.image"><br>{{ game.title }}<br><p class="rating">★ {{ game.rating }}</p></div>
+      </router-link>
+      <p class="noresults" v-if="!filteredgames.length">No results found.</p>
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue'
-import Searchbar from '../components/Searchbar.vue'
-import StoreSortbar from '../components/StoreSortbar.vue'
 
 export default {
   name: 'Store',
   components: {
     "Navbar": Navbar,
-    "Searchbar": Searchbar,
-    "StoreSortbar": StoreSortbar
+  },
+  data() {
+    return {
+      games: [],
+      search: ''
+    }
+  },
+  mounted() {
+    const url = 'http://localhost:3000/api/games/'
+    const vm = this
+
+    fetch(url, {
+      mode: 'cors'
+    })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      vm.games = data
+    })
+    .catch(err => console.log(err))
+  },
+  computed: {
+    filteredgames() {
+      return this.games.filter((game) => {
+        return game.title.match(this.search)
+      })
+    }
   }
 }
 </script>
@@ -47,16 +67,17 @@ export default {
     margin-top: 33px;
     padding-right: 20px;
 
-    width: 1170px;
     height: auto;
   }
   .image-game{
     height: 350px;
     width: 350px;
+    border-radius: 2%;
   }
 
   .rating {
-    height:25px;
+    color: yellow;
+    font-size: 1.2em;
   }
 
   body {
@@ -77,12 +98,28 @@ export default {
     margin-top: 25px;
     vertical-align: middle;
     display: flex;
-    
+    flex-wrap: wrap;
   }
 
   .store-element {
-    flex: 1;
+    font-size: 0.8em;
+  }
+
+  .store-element:hover {
+    background-color: var(--grey);
+    border-radius: 4%;
+  }
+  .search-input {
+    background-color: var(--semi-light-grey);
+    color: var(--white);
+    border: none;
+    font-size: 1.6em;
+    border-radius: 4px;
     padding: 10px;
-    font-size: 22px;
+    width: 30%;
+  }
+  .noresults {
+    font-size: 2em;
+    text-align: center;
   }
 </style>

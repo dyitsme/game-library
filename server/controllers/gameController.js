@@ -17,21 +17,14 @@ const viewGame = (req, res) => {
     })
   })
 }
+
 const viewGames = (req, res) => {
   gameModel.getAllgames((err, result) => {
     if (err) {
       console.log(err)
-      return res.status(500).send()
+      return res.status(500).send(err)
     }
-    // res.json({ 
-    //   title: result.title,
-    //   genre: result.genre,
-    //   rating: result.rating,
-    //   description: result.description,
-    //   image: `http://localhost:3000/${result.image}`,
-    //   url: result.url
-    // })
-    console.log(result)
+    return res.send(result)
   })
 }
 

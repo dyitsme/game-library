@@ -4,7 +4,7 @@
       <div class="view-game-rectangle">
         <div class="container">
           <div class="game-image"><img :src="image"></div>
-          <router-link :to="{ name: 'Store'}"><button class="back-button"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button></router-link>
+          <button class="back-button" @click="$router.back()"><img src="..\assets\img\BackButton.png" alt="Back Button Image" class="back-image"></button>
           <router-link :to="{ name: 'UpdateGame', params: { id: id }}"><button class="edit-button">Edit</button></router-link>
           <router-link :to="{ name: 'DeleteGame', params: { id: id }}"><button class="delete-button">Delete</button></router-link>
         <button @click="addToLib()" class="buy-game-button">
