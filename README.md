@@ -65,3 +65,4 @@ We would like to thank our professor, Arturo Caronongan and other valuable resou
 * [Academind](https://www.youtube.com/c/Academind)
 * [Web Dev Simplified](https://www.youtube.com/c/WebDevSimplified)
 * [Bezkoder](https://www.bezkoder.com/)
+* [node-login-starter](https://github.com/unisse-courses/node-login-starter)
